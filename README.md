@@ -1,0 +1,2 @@
+# WorkShopSearcher
+勉強会検索iOSアプリ開発用リポジトリ
