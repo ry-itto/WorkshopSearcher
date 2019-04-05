@@ -1,5 +1,9 @@
 # WorkShopSearcher
-勉強会検索iOSアプリ開発用リポジトリ
+勉強会検索iOSアプリ開発用リポジトリ.
+### 対応予定
+- connpass
+- doorkeeper
+- supporterz colab
 
 ## 使用技術
 - [RxSwift](https://github.com/ReactiveX/RxSwift)
