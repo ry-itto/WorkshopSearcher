@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
+		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
+		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF55323A2257B00600A9B7F6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BF55323B2257B01900A9B7F6 /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BF55323B2257B01900A9B7F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */,
+				BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BFFFFB7722579AC2006D1522 = {
 			isa = PBXGroup;
 			children = (
@@ -122,10 +143,12 @@
 		BFFFFB8222579AC2006D1522 /* WorkShopSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				BFFFFBC12257AFBA006D1522 /* API */,
 				BFFFFB8322579AC2006D1522 /* AppDelegate.swift */,
 				BFFFFB8A22579AC4006D1522 /* Assets.xcassets */,
-				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
+				BF55323A2257B00600A9B7F6 /* Components */,
 				BFFFFB8F22579AC4006D1522 /* Info.plist */,
+				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
 			);
 			path = WorkShopSearcher;
 			sourceTree = "<group>";
@@ -157,6 +180,13 @@
 				BFFFFBB222579EA2006D1522 /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFFFFBC12257AFBA006D1522 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
+				BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
