@@ -15,6 +15,8 @@
 		BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC6B11225871B2003905CD /* Alamofire.framework */; };
 		BFCC6B1522587AAC003905CD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B1422587AAC003905CD /* APIError.swift */; };
 		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
+		BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */; };
+		BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -68,6 +70,8 @@
 		BFCC6B11225871B2003905CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BFCC6B1422587AAC003905CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
+		BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClient.swift; sourceTree = "<group>"; };
+		BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClientTest.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			children = (
 				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
 				BFFFFB9A22579AC5006D1522 /* Info.plist */,
+				BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */,
 				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
 			);
 			path = WorkShopSearcherTests;
@@ -228,6 +233,7 @@
 			children = (
 				BF5F62F922585DA10049640F /* APIModels */,
 				BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */,
+				BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
@@ -403,6 +410,7 @@
 			files = (
 				BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */,
 				BFFFFB9922579AC5006D1522 /* WorkShopSearcherTests.swift in Sources */,
+				BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
