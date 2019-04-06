@@ -9,19 +9,42 @@
 import XCTest
 import Quick
 import Nimble
-import Alamofire
 @testable import WorkShopSearcher
 
 class ConnpassAPIClientTest: QuickSpec {
     override func spec() {
         describe("ConnpassAPIClientTest") {
             describe("fetchEvents") {
-                context("when successfully") {
+                var statusCode: Int = 0
+                
+                beforeEach {
+                    statusCode = 0
+                }
+                afterEach {
+                    sleep(1) /// APIのリクエストが連続でたくさん飛ばないように
+                }
+                context("when no query items") {
                     it("return not nil") {
                         let client = ConnpassAPIClient()
                         let searchQuery = ConnpassRequest.SearchQuery()
                         let result = client.fetchEvents(searchQuery: searchQuery)
+                        result?.response { response in
+                            statusCode = response.response?.statusCode ?? 0
+                        }
                         expect(result).notTo(beNil())
+                        expect(statusCode).toEventually(equal(200), timeout: 3)
+                    }
+                }
+                context("when some query items") {
+                    it("return not nil") {
+                        let client = ConnpassAPIClient()
+                        let searchQuery = ConnpassRequest.SearchQuery(keyword: ["swift"], ym: 2019)
+                        let result = client.fetchEvents(searchQuery: searchQuery)
+                        result?.response { response in
+                            statusCode = response.response?.statusCode ?? 0
+                        }
+                        expect(result).notTo(beNil())
+                        expect(statusCode).toEventually(equal(200), timeout: 3)
                     }
                 }
             }

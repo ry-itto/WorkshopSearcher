@@ -8,21 +8,52 @@
 
 import Foundation
 
+/// ConnpassAPIリクエスト用モデル
 enum ConnpassRequest {
-    struct SearchQuery {
-        private let eventId: Int? = nil
-        private let keyword: [String]? = nil
-        private let keywordOr: [String]? = nil
-        private let ym: Int? = nil
-        private let ymd: Int? = nil
-        private let nickname: String? = nil
-        private let ownerNickname: String? = nil
-        private let seriesId: Int? = nil
-        private let start: Int? = nil
-        private let order: Int? = nil
-        private let count: Int? = nil
-        private let format: String? = nil
+    /// ConnpassAPI検索クエリモデル
+    class SearchQuery {
+        private let eventId: Int?
+        private let keyword: [String]?
+        private let keywordOr: [String]?
+        private let ym: Int?
+        private let ymd: Int?
+        private let nickname: String?
+        private let ownerNickname: String?
+        private let seriesId: Int?
+        private let start: Int?
+        private let order: Int?
+        private let count: Int?
+        private let format: String?
         
+        init(eventId: Int? = nil,
+             keyword: [String]? = nil,
+             keywordOr: [String]? = nil,
+             ym: Int? = nil,
+             ymd: Int? = nil,
+             nickname: String? = nil,
+             ownerNickname: String? = nil,
+             seriesId: Int? = nil,
+             start: Int? = nil,
+             order: Int? = nil,
+             count: Int? = nil,
+             format: String? = nil) {
+            self.eventId = eventId
+            self.keyword = keyword
+            self.keywordOr = keywordOr
+            self.ym = ym
+            self.ymd = ymd
+            self.nickname = nickname
+            self.ownerNickname = ownerNickname
+            self.seriesId = seriesId
+            self.start = start
+            self.order = order
+            self.count = count
+            self.format = format
+        }
+        
+        /// 検索クエリの情報からqueryItemsを作成する
+        ///
+        /// - Returns: 入力された検索条件を持つqueryItems
         func createQueryItems() -> [URLQueryItem] {
             var queryItems: [URLQueryItem] = []
             if let eventId = eventId {
