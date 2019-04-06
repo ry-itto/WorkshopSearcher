@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
+		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
+		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
+		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
+		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
+		BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC6B11225871B2003905CD /* Alamofire.framework */; };
+		BFCC6B1522587AAC003905CD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B1422587AAC003905CD /* APIError.swift */; };
+		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -52,6 +60,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
+		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
+		BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIResponseModel.swift; sourceTree = "<group>"; };
+		BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClient.swift; sourceTree = "<group>"; };
+		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
+		BFCC6B11225871B2003905CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BFCC6B1422587AAC003905CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */,
 				BFFFFBB422579EA2006D1522 /* RxSwift.framework in Frameworks */,
 				BFFFFBB522579EA2006D1522 /* RxCocoa.framework in Frameworks */,
 			);
@@ -98,6 +115,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF55323A2257B00600A9B7F6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BF55323B2257B01900A9B7F6 /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BF55323B2257B01900A9B7F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */,
+				BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF5F62F922585DA10049640F /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */,
+				BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */,
+			);
+			path = APIModels;
+			sourceTree = "<group>";
+		};
+		BFCC6B1022586C1F003905CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFCC6B1322587A9B003905CD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC6B1422587AAC003905CD /* APIError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BFFFFB7722579AC2006D1522 = {
 			isa = PBXGroup;
 			children = (
@@ -122,10 +180,14 @@
 		BFFFFB8222579AC2006D1522 /* WorkShopSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				BFFFFBC12257AFBA006D1522 /* APIs */,
 				BFFFFB8322579AC2006D1522 /* AppDelegate.swift */,
 				BFFFFB8A22579AC4006D1522 /* Assets.xcassets */,
-				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
+				BF55323A2257B00600A9B7F6 /* Components */,
+				BFCC6B1022586C1F003905CD /* Extensions */,
 				BFFFFB8F22579AC4006D1522 /* Info.plist */,
+				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
+				BFCC6B1322587A9B003905CD /* Utils */,
 			);
 			path = WorkShopSearcher;
 			sourceTree = "<group>";
@@ -133,8 +195,9 @@
 		BFFFFB9722579AC5006D1522 /* WorkShopSearcherTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
+				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
 				BFFFFB9A22579AC5006D1522 /* Info.plist */,
+				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
 			);
 			path = WorkShopSearcherTests;
 			sourceTree = "<group>";
@@ -151,12 +214,22 @@
 		BFFFFBB122579EA1006D1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFCC6B11225871B2003905CD /* Alamofire.framework */,
 				BFFFFBB92257A242006D1522 /* Nimble.framework */,
 				BFFFFBBA2257A242006D1522 /* Quick.framework */,
 				BFFFFBB322579EA2006D1522 /* RxCocoa.framework */,
 				BFFFFBB222579EA2006D1522 /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFFFFBC12257AFBA006D1522 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				BF5F62F922585DA10049640F /* APIModels */,
+				BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
+				BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +371,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -313,7 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
+				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
+				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
+				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */,
 				BFFFFB9922579AC5006D1522 /* WorkShopSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
