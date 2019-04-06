@@ -20,6 +20,15 @@ final class ForAPITestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let client = ConnpassAPIClient()
+        let request = client.fetchEvents(searchQuery: ConnpassRequest.SearchQuery())
+        
+        request?.responseJSON { [unowned self] response in
+            Observable.just(String(data: response.data!, encoding: .utf8))
+                .bind(to: self.outputTextView.rx.text)
+                .disposed(by: self.disposeBag)
+        }
+        
         inputTextField.rx.text.asObservable()
             .bind(to: outputTextView.rx.text)
             .disposed(by: disposeBag)
