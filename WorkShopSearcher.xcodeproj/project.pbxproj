@@ -14,6 +14,7 @@
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
 		BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC6B11225871B2003905CD /* Alamofire.framework */; };
 		BFCC6B1522587AAC003905CD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B1422587AAC003905CD /* APIError.swift */; };
+		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -66,6 +67,7 @@
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
 		BFCC6B11225871B2003905CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BFCC6B1422587AAC003905CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,8 +195,9 @@
 		BFFFFB9722579AC5006D1522 /* WorkShopSearcherTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
+				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
 				BFFFFB9A22579AC5006D1522 /* Info.plist */,
+				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
 			);
 			path = WorkShopSearcherTests;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */,
 				BFFFFB9922579AC5006D1522 /* WorkShopSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

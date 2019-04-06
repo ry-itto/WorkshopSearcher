@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
-final class ConnpassAPIClient {
+class ConnpassAPIClient {
     private let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
     
     /// ConnpassAPIを用いてイベント情報を取得
