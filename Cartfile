@@ -1,3 +1,4 @@
 github "ReactiveX/RxSwift"
+github "Alamofire/Alamofire"
 github "Quick/Nimble"
 github "Quick/Quick"
