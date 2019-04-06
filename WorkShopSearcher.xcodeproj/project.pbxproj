@@ -13,6 +13,7 @@
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
 		BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC6B11225871B2003905CD /* Alamofire.framework */; };
+		BFCC6B1522587AAC003905CD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B1422587AAC003905CD /* APIError.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -64,6 +65,7 @@
 		BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClient.swift; sourceTree = "<group>"; };
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
 		BFCC6B11225871B2003905CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BFCC6B1422587AAC003905CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BFCC6B1322587A9B003905CD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC6B1422587AAC003905CD /* APIError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BFFFFB7722579AC2006D1522 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 				BFCC6B1022586C1F003905CD /* Extensions */,
 				BFFFFB8F22579AC4006D1522 /* Info.plist */,
 				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
+				BFCC6B1322587A9B003905CD /* Utils */,
 			);
 			path = WorkShopSearcher;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
+				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

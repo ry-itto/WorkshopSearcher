@@ -7,11 +7,22 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
 
 final class ConnpassAPIClient {
     private let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
-    init() {
-        let searchQuery = ConnpassRequest.SearchQuery()
-        searchQuery.createQueryItems()
+    
+    /// ConnpassAPIを用いてイベント情報を取得
+    ///
+    /// - Parameter searchQuery: 検索クエリ
+    /// - Returns: リクエスト
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest? {
+        guard let requestURL = requestURL else { return nil }
+        var components = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = searchQuery.createQueryItems()
+        guard let url = components?.url else { return nil }
+        
+        return Alamofire.request(url)
     }
 }
