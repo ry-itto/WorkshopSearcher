@@ -20,7 +20,7 @@ final class ForAPITestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let client = ConnpassAPIClient()
+        let client = SupporterzColabAPIClient()
         let request = client.fetchEvents(searchQuery: ConnpassRequest.SearchQuery())
         
         request?.responseJSON { [unowned self] response in
