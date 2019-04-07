@@ -6,17 +6,40 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
+/// Connpassイベントデータプロバイダープロトコル
 protocol ConnpassDataProviderProtocol {
     func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse>
 }
 
+/// Connpassイベントデータプロバイダー
 final class ConnpassDataProvider: ConnpassDataProviderProtocol {
     
-    let client = ConnpassAPIClient.shared
+    /// イベント情報を取得
+    ///
+    /// - Parameter searchQuery: 検索クエリ
+    /// - Returns: Observable(ConnpassResponse)
     func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse> {
-        return .empty()
+        
+        let client = ConnpassAPIClient.shared
+        guard let request = client.fetchEvents(searchQuery: searchQuery) else {
+            return .empty()
+        }
+        
+        return Observable.create { observer -> Disposable in
+            request.response { response in
+                guard let data = response.data else { return }
+                do {
+                    let decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
+                    observer.onNext(decoded)
+                } catch(let e) {
+                    observer.onError(e)
+                }
+            }
+            return Disposables.create {
+                request.cancel()
+            }
+        }
     }
 }

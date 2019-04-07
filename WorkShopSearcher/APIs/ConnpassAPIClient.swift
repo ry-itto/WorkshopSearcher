@@ -14,6 +14,12 @@ class ConnpassAPIClient {
     
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
+    var decoder = JSONDecoder() {
+        didSet {
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .iso8601
+        }
+    }
     
     static let shared = ConnpassAPIClient()
     

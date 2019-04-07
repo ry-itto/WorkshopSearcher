@@ -9,6 +9,7 @@
 - [RxSwift](https://github.com/ReactiveX/RxSwift)
 - [Quick](https://github.com/Quick/Quick)
 - [Nimble](https://github.com/Quick/Nimble)
+- [XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip)
 
 ## テスト
 [Quick](https://github.com/Quick/Quick)を使ってテストをしていきます。
