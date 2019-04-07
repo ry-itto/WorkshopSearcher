@@ -10,6 +10,15 @@ import UIKit
 import XLPagerTabStrip
 
 final class HomeViewController: ButtonBarPagerTabStripViewController {
+    
+    static func instantiateWithTabbarItem() -> UINavigationController {
+        let hvc = HomeViewController()
+        hvc.title = "ホーム"
+        let nc = UINavigationController(rootViewController: hvc)
+        nc.title = "ホーム"
+        nc.tabBarItem.image = UIImage(named: "home")
+        return nc
+    }
 
     override func viewDidLoad() {
         settings.style.buttonBarBackgroundColor = .white
