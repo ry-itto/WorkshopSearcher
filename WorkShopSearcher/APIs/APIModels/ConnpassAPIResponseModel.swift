@@ -17,6 +17,7 @@ struct ConnpassResponse: Decodable {
     
     /// Connpassイベントモデル
     struct Event: Decodable {
+        let eventID: Int
         let title: String
         let eventCatch: String
         let description: String
@@ -24,13 +25,13 @@ struct ConnpassResponse: Decodable {
         let hashTag: String
         let startedAt: Date
         let endedAt: Date
-        let limit: Int
+        let limit: Int?
         let eventType: String
-        let series: Series
+        let series: Series?
         let address: String
         let place: String
-        let lat: Float
-        let lon: Float
+        let lat: String
+        let lon: String
         let ownerID: Int
         let ownerNickname: String
         let ownerDisplayName: String
@@ -52,10 +53,11 @@ struct ConnpassResponse: Decodable {
         }
         
         enum CodingKeys: String, CodingKey {
+            case eventID = "eventId"
             case title
             case eventCatch = "catch"
             case description
-            case eventURL = "event_url"
+            case eventURL = "eventUrl"
             case hashTag
             case startedAt
             case endedAt
@@ -66,7 +68,7 @@ struct ConnpassResponse: Decodable {
             case place
             case lat
             case lon
-            case ownerID = "owner_id"
+            case ownerID = "ownerId"
             case ownerNickname
             case ownerDisplayName
             case accepted

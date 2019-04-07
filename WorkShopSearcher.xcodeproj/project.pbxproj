@@ -26,6 +26,9 @@
 		BFE762222259B83000484AFF /* ConnpassEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE762202259B83000484AFF /* ConnpassEventViewController.xib */; };
 		BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE762232259B97E00484AFF /* SupporterzColabEventViewController.swift */; };
 		BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE762242259B97E00484AFF /* SupporterzColabEventViewController.xib */; };
+		BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76228225A2DB600484AFF /* EventCell.swift */; };
+		BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE76229225A2DB600484AFF /* EventCell.xib */; };
+		BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -90,6 +93,9 @@
 		BFE762202259B83000484AFF /* ConnpassEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnpassEventViewController.xib; sourceTree = "<group>"; };
 		BFE762232259B97E00484AFF /* SupporterzColabEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabEventViewController.swift; sourceTree = "<group>"; };
 		BFE762242259B97E00484AFF /* SupporterzColabEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupporterzColabEventViewController.xib; sourceTree = "<group>"; };
+		BFE76228225A2DB600484AFF /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		BFE76229225A2DB600484AFF /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassEventViewModel.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,9 +147,8 @@
 		BF55323A2257B00600A9B7F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				BFE762142259AF5E00484AFF /* Models */,
-				BFE762192259B62600484AFF /* ViewModels */,
-				BF55323B2257B01900A9B7F6 /* Views */,
+				BFE76230225A3D5B00484AFF /* Develop */,
+				BFE7621C2259B65700484AFF /* Home */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -151,7 +156,6 @@
 		BF55323B2257B01900A9B7F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFE7621C2259B65700484AFF /* Home */,
 				BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */,
 				BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */,
 			);
@@ -182,15 +186,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		BFE762142259AF5E00484AFF /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BFE762162259AF7200484AFF /* Services */,
-				BFE762152259AF6900484AFF /* Providers */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		BFE762152259AF6900484AFF /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,24 +194,28 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
-		BFE762162259AF7200484AFF /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		BFE762192259B62600484AFF /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				BFE7621A2259B64100484AFF /* HomeViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		BFE7621C2259B65700484AFF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BFE7622F225A3D1A00484AFF /* ViewModels */,
+				BFE7622E225A3D0800484AFF /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BFE76227225A2D3400484AFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BFE76228225A2DB600484AFF /* EventCell.swift */,
+				BFE76229225A2DB600484AFF /* EventCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BFE7622E225A3D0800484AFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFE76227225A2D3400484AFF /* Cells */,
 				BFE7621F2259B83000484AFF /* ConnpassEventViewController.swift */,
 				BFE762202259B83000484AFF /* ConnpassEventViewController.xib */,
 				BFE762102259AACE00484AFF /* HomeViewController.swift */,
@@ -224,7 +223,24 @@
 				BFE762232259B97E00484AFF /* SupporterzColabEventViewController.swift */,
 				BFE762242259B97E00484AFF /* SupporterzColabEventViewController.xib */,
 			);
-			path = Home;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BFE7622F225A3D1A00484AFF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFE7621A2259B64100484AFF /* HomeViewModel.swift */,
+				BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFE76230225A3D5B00484AFF /* Develop */ = {
+			isa = PBXGroup;
+			children = (
+				BF55323B2257B01900A9B7F6 /* Views */,
+			);
+			path = Develop;
 			sourceTree = "<group>";
 		};
 		BFFFFB7722579AC2006D1522 = {
@@ -301,6 +317,7 @@
 			children = (
 				BF5F62F922585DA10049640F /* APIModels */,
 				BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */,
+				BFE762152259AF6900484AFF /* Providers */,
 				BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */,
 			);
 			path = APIs;
@@ -418,6 +435,7 @@
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 				BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */,
+				BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,10 +491,12 @@
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
 				BFE762212259B83000484AFF /* ConnpassEventViewController.swift in Sources */,
+				BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */,
 				BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */,
 				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
+				BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
