@@ -16,7 +16,15 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var serviceLogoImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
     @IBOutlet weak var holdDateLabel: UILabel!
-    @IBOutlet weak var participantView: UIView!
+    @IBOutlet weak var participantView: UIView! {
+        didSet {
+            participantView.layer.cornerRadius = 10
+            participantView.clipsToBounds = true
+            participantView.layer.borderColor = UIColor.lightGray.cgColor
+            participantView.layer.borderWidth = 0.4
+            participantView.backgroundColor = .white
+        }
+    }
     @IBOutlet weak var numOfParticipantLabel: UILabel!
     
     func configure(event: ConnpassResponse.Event) {
