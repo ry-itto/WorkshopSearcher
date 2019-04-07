@@ -19,6 +19,7 @@
 		BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */; };
 		BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE762102259AACE00484AFF /* HomeViewController.swift */; };
 		BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE762112259AACE00484AFF /* HomeViewController.xib */; };
+		BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE762172259AF8A00484AFF /* ConnpassDataProvider.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClientTest.swift; sourceTree = "<group>"; };
 		BFE762102259AACE00484AFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BFE762112259AACE00484AFF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		BFE762172259AF8A00484AFF /* ConnpassDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassDataProvider.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		BF55323A2257B00600A9B7F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BFE762142259AF5E00484AFF /* Models */,
 				BF55323B2257B01900A9B7F6 /* Views */,
 			);
 			path = Components;
@@ -164,6 +167,30 @@
 				BFCC6B1422587AAC003905CD /* APIError.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BFE762142259AF5E00484AFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFE762162259AF7200484AFF /* Services */,
+				BFE762152259AF6900484AFF /* Providers */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFE762152259AF6900484AFF /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				BFE762172259AF8A00484AFF /* ConnpassDataProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		BFE762162259AF7200484AFF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BFFFFB7722579AC2006D1522 = {
@@ -405,6 +432,7 @@
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
+				BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */,
 				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,

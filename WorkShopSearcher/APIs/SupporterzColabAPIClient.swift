@@ -15,6 +15,9 @@ class SupporterzColabAPIClient {
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://supporterzcolab.com/api/v1/event/")
     
+    static let shared = SupporterzColabAPIClient()
+    private init(){}
+    
     /// SupporterzColabAPIを用いてイベント情報を取得
     ///
     /// - Parameter searchQuery: 検索クエリ

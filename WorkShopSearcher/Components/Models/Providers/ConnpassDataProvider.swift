@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol ConnpassDataProviderProtocol {
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse>
+}
+
+final class ConnpassDataProvider: ConnpassDataProviderProtocol {
+    
+    let client = ConnpassAPIClient.shared
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse> {
+        return .empty()
+    }
+}
