@@ -15,6 +15,10 @@ class ConnpassAPIClient {
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
     
+    static let shared = ConnpassAPIClient()
+    
+    private init(){}
+    
     /// ConnpassAPIを用いてイベント情報を取得
     ///
     /// - Parameter searchQuery: 検索クエリ
