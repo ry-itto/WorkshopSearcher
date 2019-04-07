@@ -17,6 +17,8 @@
 		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
 		BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */; };
 		BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */; };
+		BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE762102259AACE00484AFF /* HomeViewController.swift */; };
+		BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE762112259AACE00484AFF /* HomeViewController.xib */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -72,6 +74,8 @@
 		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
 		BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClient.swift; sourceTree = "<group>"; };
 		BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClientTest.swift; sourceTree = "<group>"; };
+		BFE762102259AACE00484AFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BFE762112259AACE00484AFF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			children = (
 				BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */,
 				BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */,
+				BFE762102259AACE00484AFF /* HomeViewController.swift */,
+				BFE762112259AACE00484AFF /* HomeViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
 				BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
+				BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +404,7 @@
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
 				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
