@@ -38,7 +38,7 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
         // tableView
         viewModel.events
             .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
-                cell.configure(event: item)
+                cell.configure(service: .connpass, event: item)
             }.disposed(by: disposeBag)
         
         viewModel.errorMessage

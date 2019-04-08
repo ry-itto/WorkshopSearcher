@@ -29,6 +29,8 @@
 		BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76228225A2DB600484AFF /* EventCell.swift */; };
 		BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE76229225A2DB600484AFF /* EventCell.xib */; };
 		BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */; };
+		BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */; };
+		BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -96,6 +98,8 @@
 		BFE76228225A2DB600484AFF /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		BFE76229225A2DB600484AFF /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassEventViewModel.swift; sourceTree = "<group>"; };
+		BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabViewModel.swift; sourceTree = "<group>"; };
+		BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabDataProvider.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE762172259AF8A00484AFF /* ConnpassDataProvider.swift */,
+				BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				BFE7621A2259B64100484AFF /* HomeViewModel.swift */,
 				BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */,
+				BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -484,6 +490,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */,
+				BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */,
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,

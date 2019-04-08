@@ -8,10 +8,29 @@
 
 import UIKit
 
+enum ServiceLogo {
+    case connpass
+    case supporterz
+    case doorkeeper
+    
+    var image: UIImage? {
+        switch self {
+        case .connpass:
+            return UIImage(named: "connpass_logo")
+        case .supporterz:
+            return UIImage(named: "supporterzcolab_logo_2")
+        case .doorkeeper:
+            return nil
+        }
+    }
+}
+
 class EventCell: UITableViewCell {
     
     static let rowHeight: CGFloat = 92.5
-    static let cellIdentifier = String(describing: type(of: self))
+    class var cellIdentifier: String {
+        return String(describing: type(of: self))
+    }
     
     @IBOutlet weak var serviceLogoImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
@@ -27,9 +46,15 @@ class EventCell: UITableViewCell {
     }
     @IBOutlet weak var numOfParticipantLabel: UILabel!
     
-    func configure(event: ConnpassResponse.Event) {
+    func configure(service: ServiceLogo, event: ConnpassResponse.Event) {
         eventTitleLabel.text = event.title
         holdDateLabel.text = "\(event.startedAt)"
-        numOfParticipantLabel.text = "\(event.accepted)/\(event.waiting)"
+        if let limit = event.limit {
+            numOfParticipantLabel.text = "\(event.accepted)/\(limit)"
+        } else {
+            numOfParticipantLabel.text = "\(event.accepted)"
+        }
+        
+        serviceLogoImage.image = service.image
     }
 }

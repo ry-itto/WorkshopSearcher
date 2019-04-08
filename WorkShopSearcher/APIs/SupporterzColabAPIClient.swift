@@ -15,6 +15,13 @@ class SupporterzColabAPIClient {
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://supporterzcolab.com/api/v1/event/")
     
+    lazy var decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+    
     static let shared = SupporterzColabAPIClient()
     private init(){}
     
