@@ -28,10 +28,10 @@ struct ConnpassResponse: Decodable {
         let limit: Int?
         let eventType: String
         let series: Series?
-        let address: String
-        let place: String
-        let lat: String
-        let lon: String
+        let address: String?
+        let place: String?
+        let lat: String?
+        let lon: String?
         let ownerID: Int
         let ownerNickname: String
         let ownerDisplayName: String
