@@ -32,6 +32,12 @@ class EventCell: UITableViewCell {
         return String(describing: type(of: self))
     }
     
+    private var holdDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd hh:mm"
+        return formatter
+    }
+    
     @IBOutlet weak var serviceLogoImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
     @IBOutlet weak var holdDateLabel: UILabel!
@@ -48,7 +54,7 @@ class EventCell: UITableViewCell {
     
     func configure(service: ServiceLogo, event: ConnpassResponse.Event) {
         eventTitleLabel.text = event.title
-        holdDateLabel.text = "\(event.startedAt)"
+        holdDateLabel.text = "\(holdDateFormatter.string(from: event.startedAt)) ~ 開催"
         if let limit = event.limit {
             numOfParticipantLabel.text = "\(event.accepted)/\(limit)"
         } else {

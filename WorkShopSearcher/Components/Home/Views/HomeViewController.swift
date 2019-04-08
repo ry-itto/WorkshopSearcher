@@ -25,6 +25,8 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarItemTitleColor = .darkGray
         settings.style.selectedBarBackgroundColor = .orange
+        buttonBarView.layer.borderWidth = 0.5
+        buttonBarView.layer.borderColor = UIColor.lightGray.cgColor
         super.viewDidLoad()
     }
     
