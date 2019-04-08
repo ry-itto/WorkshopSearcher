@@ -17,3 +17,7 @@
 - OS version <= macOS X Mojave 10.14.3 
 - Swift5
 - Carthage
+
+## 加入した方へ
+- このプロジェクトをクローンして起動できるか確認する
+- ブランチ名：feature/issue番号で切る
