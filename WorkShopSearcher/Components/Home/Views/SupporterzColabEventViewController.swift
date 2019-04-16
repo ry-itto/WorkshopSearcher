@@ -46,6 +46,11 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
         
+        viewModel.errorMessage
+            .emit(to: Binder(self) { me, _ in
+                // TODO:- エラー処理
+            }).disposed(by: disposeBag)
+        
         // pull to refresh
         let refreshView = refreshControl.rx.controlEvent(.valueChanged).asSignal()
         refreshView

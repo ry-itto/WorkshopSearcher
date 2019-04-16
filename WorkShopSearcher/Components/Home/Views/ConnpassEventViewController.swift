@@ -48,8 +48,8 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
             .disposed(by: disposeBag)
         
         viewModel.errorMessage
-            .emit(onNext: { error in
-                print("\(error.localizedDescription)")
+            .emit(to: Binder(self) { me, _ in
+                // TODO:- エラー処理
             }).disposed(by: disposeBag)
         
         // pull to refresh
