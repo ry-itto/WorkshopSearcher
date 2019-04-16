@@ -36,7 +36,6 @@ final class SupporterzColabViewModel {
             .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery()).materialize() }
         
         fetchEvents
-            .debug()
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
             .bind(to: eventsRelay)
             .disposed(by: disposeBag)
