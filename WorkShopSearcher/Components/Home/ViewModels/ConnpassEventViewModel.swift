@@ -15,6 +15,7 @@ final class ConnpassEventViewModel {
     
     // input
     let viewDidLoad = PublishRelay<Void>()
+    let refreshView = PublishRelay<Void>()
     
     // output
     let events: Driver<[ConnpassResponse.Event]>
@@ -27,8 +28,11 @@ final class ConnpassEventViewModel {
         self.errorMessage = errorMessage.asSignal()
         self.events = eventsRelay.asDriver()
         
+        let initializeEvents = Observable.merge(viewDidLoad.asObservable(),
+                                                refreshView.asObservable())
+        
         // viewDidLoad時検索条件なしでイベント情報を取得
-        let fetchEvents = viewDidLoad.asObservable()
+        let fetchEvents = initializeEvents
             .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery()).materialize() }
         
         // 取得成功

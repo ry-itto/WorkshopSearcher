@@ -20,6 +20,7 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         didSet {
             tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
+            tableView.refreshControl = UIRefreshControl()
         }
     }
 
@@ -34,9 +35,25 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
     }
     
     private func bindViewModel() {
+        guard let refreshControl = tableView.refreshControl else { return }
+        
         viewModel.events
             .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
                 cell.configure(service: .supporterz, event: item)
             }.disposed(by: disposeBag)
+        viewModel.events
+            .map { _ in false }
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        // pull to refresh
+        let refreshView = refreshControl.rx.controlEvent(.valueChanged).asSignal()
+        refreshView
+            .emit(to: viewModel.refreshView)
+            .disposed(by: disposeBag)
+        refreshView
+            .map{ true }
+            .emit(to: refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
     }
 }
