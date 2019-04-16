@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = vcs
+        tabBarController.tabBar.tintColor = .orange
         window.rootViewController = tabBarController
         self.window = window
         self.window?.makeKeyAndVisible()

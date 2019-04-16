@@ -25,6 +25,10 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarItemTitleColor = .darkGray
         settings.style.selectedBarBackgroundColor = .orange
+        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            oldCell?.label.textColor = .darkGray
+            newCell?.label.textColor = .orange
+        }
         buttonBarView.layer.borderWidth = 0.5
         buttonBarView.layer.borderColor = UIColor.lightGray.cgColor
         super.viewDidLoad()
