@@ -11,6 +11,7 @@ import WebKit
 
 class ProjectDetailViewController: UIViewController {
 
+    @IBOutlet weak var goodButton: UIView!
     @IBOutlet weak var webView: WKWebView!
     
     let url: URL
@@ -29,5 +30,7 @@ class ProjectDetailViewController: UIViewController {
         super.viewDidLoad()
         let request = URLRequest(url: url)
         webView.load(request)
+        goodButton.layer.cornerRadius = 25
+        goodButton.clipsToBounds = true
     }
 }
