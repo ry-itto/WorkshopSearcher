@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
+		BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
 		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
@@ -31,6 +32,8 @@
 		BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */; };
 		BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */; };
 		BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */; };
+		BFFBDF8622663DEE0076100B /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */; };
+		BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -78,6 +81,7 @@
 /* Begin PBXFileReference section */
 		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
 		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
+		BFA5F61A22694FB8006C698C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIResponseModel.swift; sourceTree = "<group>"; };
 		BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClient.swift; sourceTree = "<group>"; };
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 		BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassEventViewModel.swift; sourceTree = "<group>"; };
 		BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabViewModel.swift; sourceTree = "<group>"; };
 		BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabDataProvider.swift; sourceTree = "<group>"; };
+		BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailViewController.xib; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */,
 				BFE7621E2259B7BD00484AFF /* XLPagerTabStrip.framework in Frameworks */,
 				BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */,
 				BFFFFBB422579EA2006D1522 /* RxSwift.framework in Frameworks */,
@@ -151,6 +158,7 @@
 		BF55323A2257B00600A9B7F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BF6BA5312266366F00D28D79 /* Common */,
 				BFE76230225A3D5B00484AFF /* Develop */,
 				BFE7621C2259B65700484AFF /* Home */,
 			);
@@ -173,6 +181,14 @@
 				BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */,
 			);
 			path = APIModels;
+			sourceTree = "<group>";
+		};
+		BF6BA5312266366F00D28D79 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BFFBDF8322663DCF0076100B /* Views */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		BFCC6B1022586C1F003905CD /* Extensions */ = {
@@ -220,7 +236,6 @@
 		BFE7622E225A3D0800484AFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFE76227225A2D3400484AFF /* Cells */,
 				BFE7621F2259B83000484AFF /* ConnpassEventViewController.swift */,
 				BFE762202259B83000484AFF /* ConnpassEventViewController.xib */,
 				BFE762102259AACE00484AFF /* HomeViewController.swift */,
@@ -247,6 +262,16 @@
 				BF55323B2257B01900A9B7F6 /* Views */,
 			);
 			path = Develop;
+			sourceTree = "<group>";
+		};
+		BFFBDF8322663DCF0076100B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFE76227225A2D3400484AFF /* Cells */,
+				BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */,
+				BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BFFFFB7722579AC2006D1522 = {
@@ -308,6 +333,7 @@
 		BFFFFBB122579EA1006D1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFA5F61A22694FB8006C698C /* WebKit.framework */,
 				BFE7621D2259B7BD00484AFF /* XLPagerTabStrip.framework */,
 				BFCC6B11225871B2003905CD /* Alamofire.framework */,
 				BFFFFBB92257A242006D1522 /* Nimble.framework */,
@@ -436,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE762222259B83000484AFF /* ConnpassEventViewController.xib in Resources */,
+				BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */,
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
 				BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */,
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
@@ -495,6 +522,7 @@
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFFBDF8622663DEE0076100B /* ProjectDetailViewController.swift in Sources */,
 				BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */,
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
