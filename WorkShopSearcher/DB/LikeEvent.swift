@@ -16,23 +16,17 @@ final class LikeEvent: Object {
     /// イベントタイトル
     @objc dynamic var title: String = ""
     /// イベント記事へのリンク
-    @objc dynamic var url: URL? = nil
+    @objc dynamic var urlString: String = ""
     /// イベント開始時刻
     @objc dynamic var startedAt: Date = Date()
     /// イベント参加上限
     @objc dynamic var limit: Int = 0
     /// 現在のイベントエントリー数
     @objc dynamic var present: Int = 0
+    /// いいねしたかどうか
+    @objc dynamic var liked: Bool = true
     
     override static func primaryKey() -> String? {
         return "id"
-    }
-    
-    func setParameters(event: ConnpassResponse.Event) {
-        self.title = event.title
-        self.url = event.eventURL
-        self.startedAt = event.startedAt
-        self.limit = event.limit ?? 0
-        self.present = event.accepted
     }
 }

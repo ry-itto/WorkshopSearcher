@@ -6,4 +6,7 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import Foundation
+/// DB登録可能なモデルであるモデルに準拠するプロトコル
+protocol Registerable {
+    func transformToLikeEvent() -> LikeEvent
+}

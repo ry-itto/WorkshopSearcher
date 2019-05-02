@@ -50,7 +50,7 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         tableView.rx.modelSelected(ConnpassResponse.Event.self)
             .asSignal()
             .emit(to: Binder(self) {me, event in
-                me.navigationController?.pushViewController(ProjectDetailViewController(url: event.eventURL, title: "Supporterz Colab"), animated: true)
+                me.navigationController?.pushViewController(ProjectDetailViewController(event: event, title: "Supporterz Colab"), animated: true)
             }).disposed(by: disposeBag)
         // セルタップ時セルの選択状態を解除
         tableView.rx.itemSelected
