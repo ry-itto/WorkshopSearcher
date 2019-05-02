@@ -11,6 +11,7 @@
 - [Quick](https://github.com/Quick/Quick)
 - [Nimble](https://github.com/Quick/Nimble)
 - [XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip)
+- [realm-cocoa](https://github.com/realm/realm-cocoa)
 
 ## テスト
 [Quick](https://github.com/Quick/Quick)を使ってテストをしていきます。
