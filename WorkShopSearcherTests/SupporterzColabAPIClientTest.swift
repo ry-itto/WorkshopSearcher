@@ -25,7 +25,7 @@ class SupporterzColabAPIClientTest: QuickSpec {
                 }
                 context("when no query items") {
                     it("return not nil") {
-                        let client = ConnpassAPIClient()
+                        let client = SupporterzColabAPIClient.shared
                         let searchQuery = ConnpassRequest.SearchQuery()
                         let result = client.fetchEvents(searchQuery: searchQuery)
                         result?.response { response in
@@ -37,7 +37,7 @@ class SupporterzColabAPIClientTest: QuickSpec {
                 }
                 context("when some query items") {
                     it("return not nil") {
-                        let client = ConnpassAPIClient()
+                        let client = SupporterzColabAPIClient.shared
                         let searchQuery = ConnpassRequest.SearchQuery(keyword: ["swift"], ym: 2019)
                         let result = client.fetchEvents(searchQuery: searchQuery)
                         result?.response { response in
