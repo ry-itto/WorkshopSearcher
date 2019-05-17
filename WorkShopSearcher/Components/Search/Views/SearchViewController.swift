@@ -1,4 +1,4 @@
-//
+ //
 //  SearchViewController.swift
 //  WorkShopSearcher
 //
@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SearchViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
+    private let viewModel = SearchViewModel()
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
+            tableView.rowHeight = EventCell.rowHeight
+        }
+    }
+    @IBOutlet weak var searchBar: UISearchBar!
     
     static func instantiateWithTabbarItem() -> UINavigationController {
         let svc = SearchViewController()
@@ -21,5 +34,19 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        searchBar.rx.text.asObservable()
+            .flatMap{ $0.map(Observable.just) ?? Observable.empty() }
+            .bind(to: viewModel.search)
+            .disposed(by: disposeBag)
+        
+        // table view
+        viewModel.searchResult
+            .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
+                cell.configure(service: .connpass, event: item)
+            }.disposed(by: disposeBag)
     }
 }

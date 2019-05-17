@@ -7,3 +7,27 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+class SearchViewModel {
+    
+    private let disposeBag = DisposeBag()
+    
+    // input
+    let search = PublishRelay<String>()
+    
+    // output
+    let searchResult: Driver<[ConnpassResponse.Event]>
+    
+    init(_ provider: SearchResultDataProviderProtocol = SearchResultDataProvider()) {
+        let searchResultRelay = BehaviorRelay<[ConnpassResponse.Event]>(value: [])
+        
+        self.searchResult = searchResultRelay.asDriver()
+        
+        search
+            .flatMap{ provider.search(query: ConnpassRequest.SearchQuery(keyword: $0.components(separatedBy: " "))) }
+            .bind(to: searchResultRelay)
+            .disposed(by: disposeBag)
+    }
+}
