@@ -16,7 +16,7 @@ protocol SearchResultDataProviderProtocol {
     ///
     /// - Parameter query: 検索するキーワード
     /// - Returns: 検索結果
-    func search(query: ConnpassRequest.SearchQuery) -> Observable<[ConnpassResponse.Event]>
+    func search(query: ConnpassRequest.SearchQuery) -> Observable<[(service: Service, event: ConnpassResponse.Event)]>
 }
 
 final class SearchResultDataProvider: SearchResultDataProviderProtocol {
@@ -32,17 +32,23 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
         self.supporterzColabDataProvider = supporterz
     }
     
-    func search(query: ConnpassRequest.SearchQuery) -> Observable<[ConnpassResponse.Event]> {
+    func search(query: ConnpassRequest.SearchQuery) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> {
         return Observable.create { [unowned self] observer -> Disposable in
             let event = Observable.zip(
                 self.connpassDataProvider.fetchEvents(searchQuery: query).materialize(),
                 self.supporterzColabDataProvider.fetchEvents(searchQuery: query).materialize()
                 ).share()
-            event.flatMap { (connpass, supporterz) -> Observable<[ConnpassResponse.Event]> in
+            event.flatMap { (connpass, supporterz) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> in
                 guard
                     let cEvents = connpass.element?.events,
                     let sEvents = supporterz.element?.events else { return .empty() }
-                return .just(cEvents + sEvents)
+                let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] = cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
+                    return (service: Service.connpass, event: event)
+                }
+                let sDicEvents: [(service: Service, event: ConnpassResponse.Event)] = sEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
+                    return (service: Service.supporterz, event: event)
+                }
+                return .just(cDicEvents + sDicEvents)
                 }.subscribe(onNext: { events in
                     observer.onNext(self.sortByStartDate(events))
                 }).disposed(by: self.disposeBag)
@@ -55,9 +61,9 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
     ///
     /// - Parameter events: イベントの配列
     /// - Returns: ソート済みイベント配列
-    private func sortByStartDate(_ events: [ConnpassResponse.Event]) -> [ConnpassResponse.Event] {
-        return events.sorted { (a, b) -> Bool in
-            return a.startedAt > b.startedAt
-        }
+    private func sortByStartDate(_ events: [(service: Service, event: ConnpassResponse.Event)]) -> [(service: Service, event: ConnpassResponse.Event)] {
+        return events.sorted(by: { (aDic, bDic) -> Bool in
+            return aDic.event.startedAt > bDic.event.startedAt
+        })
     }
 }

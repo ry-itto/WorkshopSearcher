@@ -18,10 +18,10 @@ class SearchViewModel {
     let search = PublishRelay<String>()
     
     // output
-    let searchResult: Driver<[ConnpassResponse.Event]>
+    let searchResult: Driver<[(service: Service, event: ConnpassResponse.Event)]>
     
     init(_ provider: SearchResultDataProviderProtocol = SearchResultDataProvider()) {
-        let searchResultRelay = BehaviorRelay<[ConnpassResponse.Event]>(value: [])
+        let searchResultRelay = BehaviorRelay<[(service: Service, event: ConnpassResponse.Event)]>(value: [])
         
         self.searchResult = searchResultRelay.asDriver()
         

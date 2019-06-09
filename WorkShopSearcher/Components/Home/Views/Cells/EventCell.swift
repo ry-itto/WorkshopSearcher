@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ServiceLogo {
+enum Service {
     case connpass
     case supporterz
     case doorkeeper
@@ -52,7 +52,7 @@ class EventCell: UITableViewCell {
     }
     @IBOutlet weak var numOfParticipantLabel: UILabel!
     
-    func configure(service: ServiceLogo, event: ConnpassResponse.Event) {
+    func configure(service: Service, event: ConnpassResponse.Event) {
         eventTitleLabel.text = event.title
         holdDateLabel.text = "\(holdDateFormatter.string(from: event.startedAt)) ~ 開催"
         if let limit = event.limit {

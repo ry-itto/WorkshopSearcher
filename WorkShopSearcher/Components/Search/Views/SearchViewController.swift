@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
         // table view
         viewModel.searchResult
             .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
-                cell.configure(service: .connpass, event: item)
+                cell.configure(service: item.service, event: item.event)
             }.disposed(by: disposeBag)
     }
 }
