@@ -54,6 +54,7 @@ final class EventDataSource: NSObject, SkeletonTableViewDataSource, RxTableViewD
     func tableView(_ tableView: UITableView, observedEvent: Event<EventDataSource.Element>) {
         Binder(self) { dataSource, events in
             dataSource.events = events
+            tableView.reloadData()
         }.on(observedEvent)
     }
 }
