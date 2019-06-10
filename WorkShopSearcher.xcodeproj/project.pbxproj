@@ -14,6 +14,10 @@
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
 		BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC6B11225871B2003905CD /* Alamofire.framework */; };
 		BFCC6B1522587AAC003905CD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B1422587AAC003905CD /* APIError.swift */; };
+		BFCD4B9022897015006EDBA5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD4B8E22897015006EDBA5 /* SearchViewController.swift */; };
+		BFCD4B9122897015006EDBA5 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */; };
+		BFCD4B9322897020006EDBA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD4B9222897020006EDBA5 /* SearchViewModel.swift */; };
+		BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD4B97228A7E45006EDBA5 /* SearchResultDataProvider.swift */; };
 		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
 		BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */; };
 		BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */; };
@@ -83,6 +87,10 @@
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
 		BFCC6B11225871B2003905CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BFCC6B1422587AAC003905CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		BFCD4B8E22897015006EDBA5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		BFCD4B9222897020006EDBA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		BFCD4B97228A7E45006EDBA5 /* SearchResultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDataProvider.swift; sourceTree = "<group>"; };
 		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
 		BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClient.swift; sourceTree = "<group>"; };
 		BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClientTest.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 			children = (
 				BFE76230225A3D5B00484AFF /* Develop */,
 				BFE7621C2259B65700484AFF /* Home */,
+				BFCD4B8B22896FE2006EDBA5 /* Search */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -188,6 +197,57 @@
 				BFCC6B1422587AAC003905CD /* APIError.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BFCD4B8B22896FE2006EDBA5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BFCD4B94228A7DF9006EDBA5 /* Models */,
+				BFCD4B8D22896FF2006EDBA5 /* ViewModels */,
+				BFCD4B8C22896FED006EDBA5 /* Views */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BFCD4B8C22896FED006EDBA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFCD4B8E22897015006EDBA5 /* SearchViewController.swift */,
+				BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BFCD4B8D22896FF2006EDBA5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFCD4B9222897020006EDBA5 /* SearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFCD4B94228A7DF9006EDBA5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFCD4B95228A7E01006EDBA5 /* Provider */,
+				BFCD4B96228A7E09006EDBA5 /* Service */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFCD4B95228A7E01006EDBA5 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BFCD4B97228A7E45006EDBA5 /* SearchResultDataProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		BFCD4B96228A7E09006EDBA5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BFE762152259AF6900484AFF /* Providers */ = {
@@ -441,6 +501,7 @@
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 				BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */,
+				BFCD4B9122897015006EDBA5 /* SearchViewController.xib in Resources */,
 				BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,8 +554,11 @@
 				BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */,
 				BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */,
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
+				BFCD4B9022897015006EDBA5 /* SearchViewController.swift in Sources */,
+				BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFCD4B9322897020006EDBA5 /* SearchViewModel.swift in Sources */,
 				BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */,
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,

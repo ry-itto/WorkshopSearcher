@@ -1,0 +1,8 @@
+Service層で常に20件を維持するような仕組みで作る
+- Connpass API result
+- Supporterz Colab API result
+
+ViewModelで保存する値
+- 2つのクライアントをがっちゃんこしたものを保持する。
+    - 追加読み込みのタイミングでそれぞれ保持しているものから開催日時の昇順で取得する
+    - 取得する際は同時に保持しているものから抜く。Queueのdequeueみたいにする
