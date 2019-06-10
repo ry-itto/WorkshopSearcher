@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         didSet {
             tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
+            tableView.tableFooterView = UIView()
         }
     }
     @IBOutlet weak var searchBar: UISearchBar!
@@ -39,6 +40,8 @@ class SearchViewController: UIViewController {
     
     private func bindViewModel() {
         searchBar.rx.text.asObservable()
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .filter { !($0?.isEmpty ?? true) }
             .flatMap{ $0.map(Observable.just) ?? Observable.empty() }
             .bind(to: viewModel.search)
             .disposed(by: disposeBag)
