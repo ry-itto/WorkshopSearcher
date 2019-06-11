@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 /// 検索画面イベントデータソース
-final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, SectionedViewDataSourceType {
     
     typealias Element = [(service: Service, event: ConnpassResponse.Event)]
     var events: Element = []
@@ -44,5 +44,9 @@ final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewD
             dataSource.events = events
             tableView.reloadData()
         }.on(observedEvent)
+    }
+    
+    func model(at indexPath: IndexPath) throws -> Any {
+        return events[indexPath.row]
     }
 }

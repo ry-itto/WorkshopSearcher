@@ -16,7 +16,7 @@ struct ConnpassResponse: Decodable {
     let events: [Event]
     
     /// Connpassイベントモデル
-    struct Event: Decodable {
+    struct Event: Decodable, Registerable {
         let eventID: Int
         let title: String
         let eventCatch: String
@@ -74,6 +74,20 @@ struct ConnpassResponse: Decodable {
             case accepted
             case waiting
             case updatedAt
+        }
+        
+        /// いいねしたイベントに変換するメソッド
+        ///
+        /// - Returns: いいねしたイベントモデル
+        func transformToLikeEvent() -> LikeEvent {
+            let likeEvent = LikeEvent()
+            likeEvent.title = self.title
+            likeEvent.urlString = self.eventURL.absoluteString
+            likeEvent.startedAt = self.startedAt
+            likeEvent.limit = self.limit ?? 0
+            likeEvent.present = self.accepted
+            
+            return likeEvent
         }
     }
 }

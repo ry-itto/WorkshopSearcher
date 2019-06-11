@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
+		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
+		BF4C4262227B362F0007D68C /* Registerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4261227B362F0007D68C /* Registerable.swift */; };
 		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
+		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
+		BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25168227AEDBC00328A43 /* Realm.framework */; };
+		BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25169227AEDBC00328A43 /* RealmSwift.framework */; };
+		BFA2516D227AF02C00328A43 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA2516C227AF02C00328A43 /* RxRelay.framework */; };
+		BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
+		BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5F61C226957D8006C698C /* UIImageExtension.swift */; };
 		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
@@ -35,6 +44,8 @@
 		BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */; };
 		BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */; };
 		BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */; };
+		BFFBDF8622663DEE0076100B /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */; };
+		BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */; };
 		BFFF33E822AE3CA000FA13DE /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFF33E722AE3CA000FA13DE /* SkeletonView.framework */; };
 		BFFF33EA22AE3E8A00FA13DE /* EventDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF33E922AE3E8A00FA13DE /* EventDataSource.swift */; };
 		BFFF33EC22AE487700FA13DE /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFF33EB22AE487700FA13DE /* RxRelay.framework */; };
@@ -84,8 +95,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
+		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		BF4C4261227B362F0007D68C /* Registerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerable.swift; sourceTree = "<group>"; };
 		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
 		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
+		BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
+		BFA25168227AEDBC00328A43 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		BFA25169227AEDBC00328A43 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		BFA2516C227AF02C00328A43 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		BFA5F61A22694FB8006C698C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BFA5F61C226957D8006C698C /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIResponseModel.swift; sourceTree = "<group>"; };
 		BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClient.swift; sourceTree = "<group>"; };
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
@@ -112,6 +132,8 @@
 		BFE7622C225A3CE300484AFF /* ConnpassEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassEventViewModel.swift; sourceTree = "<group>"; };
 		BFE76232225AE24D00484AFF /* SupporterzColabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabViewModel.swift; sourceTree = "<group>"; };
 		BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabDataProvider.swift; sourceTree = "<group>"; };
+		BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailViewController.xib; sourceTree = "<group>"; };
 		BFFF33E722AE3CA000FA13DE /* SkeletonView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkeletonView.framework; path = Carthage/Build/iOS/SkeletonView.framework; sourceTree = "<group>"; };
 		BFFF33E922AE3E8A00FA13DE /* EventDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataSource.swift; sourceTree = "<group>"; };
 		BFFF33EB22AE487700FA13DE /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
@@ -138,12 +160,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */,
 				BFFF33EC22AE487700FA13DE /* RxRelay.framework in Frameworks */,
 				BFFF33E822AE3CA000FA13DE /* SkeletonView.framework in Frameworks */,
 				BFE7621E2259B7BD00484AFF /* XLPagerTabStrip.framework in Frameworks */,
 				BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */,
 				BFFFFBB422579EA2006D1522 /* RxSwift.framework in Frameworks */,
 				BFFFFBB522579EA2006D1522 /* RxCocoa.framework in Frameworks */,
+				BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */,
+				BFE7621E2259B7BD00484AFF /* XLPagerTabStrip.framework in Frameworks */,
+				BFCC6B12225871B2003905CD /* Alamofire.framework in Frameworks */,
+				BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +193,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF4C425C227B2E780007D68C /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C425E227B2E780007D68C /* DBManager.swift */,
+				BF4C425D227B2E780007D68C /* LikeEvent.swift */,
+				BF4C4261227B362F0007D68C /* Registerable.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		BF55323A2257B00600A9B7F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BF6BA5312266366F00D28D79 /* Common */,
 				BFE76230225A3D5B00484AFF /* Develop */,
 				BFE7621C2259B65700484AFF /* Home */,
 				BFCD4B8B22896FE2006EDBA5 /* Search */,
@@ -194,9 +232,35 @@
 			path = APIModels;
 			sourceTree = "<group>";
 		};
+		BF6BA5312266366F00D28D79 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2516E227AFC0B00328A43 /* Models */,
+				BFEDBA09227AE88B00240E4A /* ViewModels */,
+				BFFBDF8322663DCF0076100B /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BFA2516E227AFC0B00328A43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2516F227AFC1800328A43 /* Services */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFA2516F227AFC1800328A43 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		BFCC6B1022586C1F003905CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BFA5F61C226957D8006C698C /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,7 +355,6 @@
 		BFE7622E225A3D0800484AFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFE76227225A2D3400484AFF /* Cells */,
 				BFE7621F2259B83000484AFF /* ConnpassEventViewController.swift */,
 				BFE762202259B83000484AFF /* ConnpassEventViewController.xib */,
 				BFFF33E922AE3E8A00FA13DE /* EventDataSource.swift */,
@@ -319,6 +382,24 @@
 				BF55323B2257B01900A9B7F6 /* Views */,
 			);
 			path = Develop;
+			sourceTree = "<group>";
+		};
+		BFEDBA09227AE88B00240E4A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFFBDF8322663DCF0076100B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFE76227225A2D3400484AFF /* Cells */,
+				BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */,
+				BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BFFFFB7722579AC2006D1522 = {
@@ -349,6 +430,7 @@
 				BFFFFB8322579AC2006D1522 /* AppDelegate.swift */,
 				BFFFFB8A22579AC4006D1522 /* Assets.xcassets */,
 				BF55323A2257B00600A9B7F6 /* Components */,
+				BF4C425C227B2E780007D68C /* DB */,
 				BFCC6B1022586C1F003905CD /* Extensions */,
 				BFFFFB8F22579AC4006D1522 /* Info.plist */,
 				BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */,
@@ -380,7 +462,10 @@
 		BFFFFBB122579EA1006D1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BFFF33EB22AE487700FA13DE /* RxRelay.framework */,
+				BFA2516C227AF02C00328A43 /* RxRelay.framework */,
+				BFA25168227AEDBC00328A43 /* Realm.framework */,
+				BFA25169227AEDBC00328A43 /* RealmSwift.framework */,
+				BFA5F61A22694FB8006C698C /* WebKit.framework */,
 				BFFF33E722AE3CA000FA13DE /* SkeletonView.framework */,
 				BFE7621D2259B7BD00484AFF /* XLPagerTabStrip.framework */,
 				BFCC6B11225871B2003905CD /* Alamofire.framework */,
@@ -510,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE762222259B83000484AFF /* ConnpassEventViewController.xib in Resources */,
+				BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */,
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
 				BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */,
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
@@ -549,6 +635,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
@@ -570,24 +658,30 @@
 				BFE76235225AE2E600484AFF /* SupporterzColabDataProvider.swift in Sources */,
 				BFFF33EA22AE3E8A00FA13DE /* EventDataSource.swift in Sources */,
 				BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */,
+				BF4C4262227B362F0007D68C /* Registerable.swift in Sources */,
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BFCD4B9022897015006EDBA5 /* SearchViewController.swift in Sources */,
 				BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
+				BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */,
+				BFFBDF8622663DEE0076100B /* ProjectDetailViewController.swift in Sources */,
 				BFCD4B9322897020006EDBA5 /* SearchViewModel.swift in Sources */,
 				BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */,
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
 				BFFF33EE22AF80EA00FA13DE /* SearchEventDataSource.swift in Sources */,
 				BFE762212259B83000484AFF /* ConnpassEventViewController.swift in Sources */,
+				BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */,
 				BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */,
 				BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */,
 				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
+				BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 				BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
+				BF4C4260227B2E780007D68C /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

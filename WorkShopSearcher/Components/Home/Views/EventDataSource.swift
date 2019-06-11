@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 /// イベントデータソース
-final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, SectionedViewDataSourceType {
     
     typealias Element = [ConnpassResponse.Event]
     let service: Service
@@ -45,5 +45,9 @@ final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSou
             dataSource.events = events
             tableView.reloadData()
         }.on(observedEvent)
+    }
+    
+    func model(at indexPath: IndexPath) throws -> Any {
+        return events[indexPath.row]
     }
 }

@@ -38,6 +38,7 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
     private func bindViewModel() {
         guard let refreshControl = tableView.refreshControl else { return }
         
+        // tableview
         let dataSource = EventDataSource(service: .supporterz)
         viewModel.events
             .drive(tableView.rx.items(dataSource: dataSource))
@@ -46,6 +47,18 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .map { _ in false }
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
+        // セルがタップされた時WebViewでイベントページを開く
+        tableView.rx.modelSelected(ConnpassResponse.Event.self)
+            .asSignal()
+            .emit(to: Binder(self) {me, event in
+                me.navigationController?.pushViewController(ProjectDetailViewController(event: event, title: "Supporterz Colab"), animated: true)
+            }).disposed(by: disposeBag)
+        // セルタップ時セルの選択状態を解除
+        tableView.rx.itemSelected
+            .asSignal()
+            .emit(to: Binder(self) { me, indexPath in
+                me.tableView.cellForRow(at: indexPath)?.isSelected = false
+            }).disposed(by: disposeBag)
         
         viewModel.errorMessage
             .emit(to: Binder(self) { me, _ in
