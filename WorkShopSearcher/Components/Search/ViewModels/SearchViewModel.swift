@@ -25,7 +25,14 @@ class SearchViewModel {
         
         self.searchResult = searchResultRelay.asDriver()
         
+        // 検索された時に一度テーブルビューをリセットする
         search
+            .map { _ in [] }
+            .bind(to: searchResultRelay)
+            .disposed(by: disposeBag)
+        
+        search
+            .delay(DispatchTimeInterval.seconds(2), scheduler: MainScheduler.instance)
             .flatMap{ provider.search(query: ConnpassRequest.SearchQuery(keyword: $0.components(separatedBy: " "))) }
             .bind(to: searchResultRelay)
             .disposed(by: disposeBag)

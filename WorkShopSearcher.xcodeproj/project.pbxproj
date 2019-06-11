@@ -38,6 +38,7 @@
 		BFFF33E822AE3CA000FA13DE /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFF33E722AE3CA000FA13DE /* SkeletonView.framework */; };
 		BFFF33EA22AE3E8A00FA13DE /* EventDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF33E922AE3E8A00FA13DE /* EventDataSource.swift */; };
 		BFFF33EC22AE487700FA13DE /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFF33EB22AE487700FA13DE /* RxRelay.framework */; };
+		BFFF33EE22AF80EA00FA13DE /* SearchEventDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF33ED22AF80EA00FA13DE /* SearchEventDataSource.swift */; };
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		BFFF33E722AE3CA000FA13DE /* SkeletonView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkeletonView.framework; path = Carthage/Build/iOS/SkeletonView.framework; sourceTree = "<group>"; };
 		BFFF33E922AE3E8A00FA13DE /* EventDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataSource.swift; sourceTree = "<group>"; };
 		BFFF33EB22AE487700FA13DE /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		BFFF33ED22AF80EA00FA13DE /* SearchEventDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventDataSource.swift; sourceTree = "<group>"; };
 		BFFFFB8022579AC2006D1522 /* WorkShopSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkShopSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFB8322579AC2006D1522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFFFFB8A22579AC4006D1522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				BFCD4B8E22897015006EDBA5 /* SearchViewController.swift */,
 				BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */,
+				BFFF33ED22AF80EA00FA13DE /* SearchEventDataSource.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */,
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
+				BFFF33EE22AF80EA00FA13DE /* SearchEventDataSource.swift in Sources */,
 				BFE762212259B83000484AFF /* ConnpassEventViewController.swift in Sources */,
 				BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */,
 				BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  EventDataSource.swift
+//  SearchEventDataSource.swift
 //  WorkShopSearcher
 //
-//  Created by 伊藤凌也 on 2019/06/10.
+//  Created by 伊藤凌也 on 2019/06/11.
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
@@ -10,21 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
     
-    typealias Element = [ConnpassResponse.Event]
-    let service: Service
+    typealias Element = [(service: Service, event: ConnpassResponse.Event)]
     var events: Element = []
-    
-    init(service: Service) {
-        self.service = service
-    }
+    var searched: Bool = false
     
     // tableview datasource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath) as! EventCell
         if events.count != 0 {
-            cell.configure(service: service, event: events[indexPath.row])
+            let event = events[indexPath.row]
+            cell.configure(service: event.service, event: event.event)
+        } else {
+            cell.showAllAnimatedSkeleton()
         }
         
         return cell
@@ -35,11 +34,11 @@ final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count == 0 ? 10 : events.count
+        return searched && events.count == 0 ? 10 : events.count
     }
     
     // rx
-    func tableView(_ tableView: UITableView, observedEvent: Event<EventDataSource.Element>) {
+    func tableView(_ tableView: UITableView, observedEvent: Event<Element>) {
         Binder(self) { dataSource, events in
             dataSource.events = events
             tableView.reloadData()

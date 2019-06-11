@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SkeletonView
 import XLPagerTabStrip
 
 class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
