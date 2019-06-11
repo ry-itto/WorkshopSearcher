@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SearchViewController: UIViewController {
+/// 検索画面
+final class SearchViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private let viewModel = SearchViewModel()
@@ -24,6 +25,9 @@ class SearchViewController: UIViewController {
     }
     @IBOutlet weak var searchBar: UISearchBar!
     
+    /// タブバーアイテムに値をセットし、初期化
+    ///
+    /// - Returns: タブバーアイテムに値がセットされたVC
     static func instantiateWithTabbarItem() -> UINavigationController {
         let svc = SearchViewController()
         svc.title = "検索"
@@ -39,17 +43,23 @@ class SearchViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        searchBar.rx.text.asObservable()
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .filter { !($0?.isEmpty ?? true) }
-            .flatMap{ $0.map(Observable.just) ?? Observable.empty() }
+        let dataSource = SearchEventDataSource()
+        
+        // 検索ボタンが押された時
+        searchBar.rx.searchButtonClicked
+            .flatMap { [weak self] in
+                self?.searchBar.text.map(Observable.just) ?? .empty()
+            }
+            .filter { !$0.isEmpty }
+            .do(onNext: { _ in
+                dataSource.searched = true
+            })
             .bind(to: viewModel.search)
             .disposed(by: disposeBag)
         
         // table view
         viewModel.searchResult
-            .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
-                cell.configure(service: item.service, event: item.event)
-            }.disposed(by: disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
 }

@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import SkeletonView
 
+/// 勉強会検索サービスの列挙型
 enum Service {
     case connpass
     case supporterz
@@ -25,6 +27,7 @@ enum Service {
     }
 }
 
+/// イベント情報セル
 class EventCell: UITableViewCell {
     
     static let rowHeight: CGFloat = 92.5
@@ -38,9 +41,24 @@ class EventCell: UITableViewCell {
         return formatter
     }
     
-    @IBOutlet weak var serviceLogoImage: UIImageView!
-    @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var holdDateLabel: UILabel!
+    @IBOutlet weak var serviceLogoImage: UIImageView! {
+        didSet {
+            serviceLogoImage.isSkeletonable = true
+            serviceLogoImage.showAnimatedSkeleton()
+        }
+    }
+    @IBOutlet weak var eventTitleLabel: UILabel! {
+        didSet {
+            eventTitleLabel.isSkeletonable = true
+            eventTitleLabel.showAnimatedSkeleton()
+        }
+    }
+    @IBOutlet weak var holdDateLabel: UILabel! {
+        didSet {
+            holdDateLabel.isSkeletonable = true
+            holdDateLabel.showAnimatedSkeleton()
+        }
+    }
     @IBOutlet weak var participantView: UIView! {
         didSet {
             participantView.layer.cornerRadius = 10
@@ -48,11 +66,38 @@ class EventCell: UITableViewCell {
             participantView.layer.borderColor = UIColor.lightGray.cgColor
             participantView.layer.borderWidth = 0.4
             participantView.backgroundColor = .white
+            participantView.isSkeletonable = true
+            participantView.showAnimatedSkeleton()
         }
     }
-    @IBOutlet weak var numOfParticipantLabel: UILabel!
+    @IBOutlet weak var numOfParticipantLabel: UILabel! {
+        didSet {
+            numOfParticipantLabel.isSkeletonable = true
+            numOfParticipantLabel.showAnimatedSkeleton()
+        }
+    }
     
+    /// スケルトンビューを表示する
+    func showAllAnimatedSkeleton() {
+        serviceLogoImage.showAnimatedSkeleton()
+        eventTitleLabel.showAnimatedSkeleton()
+        holdDateLabel.showAnimatedSkeleton()
+        participantView.showAnimatedSkeleton()
+        numOfParticipantLabel.showAnimatedSkeleton()
+    }
+    
+    /// セルの値を設定する
+    ///
+    /// - Parameters:
+    ///   - service: 勉強会検索サービス
+    ///   - event: イベント内容
     func configure(service: Service, event: ConnpassResponse.Event) {
+        serviceLogoImage.hideSkeleton()
+        eventTitleLabel.hideSkeleton()
+        holdDateLabel.hideSkeleton()
+        participantView.hideSkeleton()
+        numOfParticipantLabel.hideSkeleton()
+        
         eventTitleLabel.text = event.title
         holdDateLabel.text = "\(holdDateFormatter.string(from: event.startedAt)) ~ 開催"
         if let limit = event.limit {

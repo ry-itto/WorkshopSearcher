@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
+/// ホーム画面
 final class HomeViewController: ButtonBarPagerTabStripViewController {
     
     static func instantiateWithTabbarItem() -> UINavigationController {
