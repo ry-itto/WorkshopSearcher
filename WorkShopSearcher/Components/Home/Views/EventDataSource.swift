@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// イベントデータソース
 final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
     
     typealias Element = [ConnpassResponse.Event]

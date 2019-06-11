@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 検索画面
 final class SearchViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
@@ -24,6 +25,9 @@ final class SearchViewController: UIViewController {
     }
     @IBOutlet weak var searchBar: UISearchBar!
     
+    /// タブバーアイテムに値をセットし、初期化
+    ///
+    /// - Returns: タブバーアイテムに値がセットされたVC
     static func instantiateWithTabbarItem() -> UINavigationController {
         let svc = SearchViewController()
         svc.title = "検索"
@@ -41,6 +45,7 @@ final class SearchViewController: UIViewController {
     private func bindViewModel() {
         let dataSource = SearchEventDataSource()
         
+        // 検索ボタンが押された時
         searchBar.rx.searchButtonClicked
             .flatMap { [weak self] in
                 self?.searchBar.text.map(Observable.just) ?? .empty()

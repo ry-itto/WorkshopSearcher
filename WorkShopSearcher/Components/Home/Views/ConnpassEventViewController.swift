@@ -12,6 +12,7 @@ import RxCocoa
 import SkeletonView
 import XLPagerTabStrip
 
+/// Connpassのイベント一覧ホーム画面
 class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
     
     private let disposeBag = DisposeBag()

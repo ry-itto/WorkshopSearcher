@@ -9,6 +9,7 @@
 import UIKit
 import SkeletonView
 
+/// 勉強会検索サービスの列挙型
 enum Service {
     case connpass
     case supporterz
@@ -26,6 +27,7 @@ enum Service {
     }
 }
 
+/// イベント情報セル
 class EventCell: UITableViewCell {
     
     static let rowHeight: CGFloat = 92.5
@@ -84,6 +86,11 @@ class EventCell: UITableViewCell {
         numOfParticipantLabel.showAnimatedSkeleton()
     }
     
+    /// セルの値を設定する
+    ///
+    /// - Parameters:
+    ///   - service: 勉強会検索サービス
+    ///   - event: イベント内容
     func configure(service: Service, event: ConnpassResponse.Event) {
         serviceLogoImage.hideSkeleton()
         eventTitleLabel.hideSkeleton()

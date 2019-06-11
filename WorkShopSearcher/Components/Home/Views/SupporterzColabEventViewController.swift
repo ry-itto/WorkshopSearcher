@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import XLPagerTabStrip
 
+/// SupporterzColabのイベント一覧ホーム画面
 class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvider {
     
     private let disposeBag = DisposeBag()

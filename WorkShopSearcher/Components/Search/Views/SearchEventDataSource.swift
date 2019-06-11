@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 検索画面イベントデータソース
 final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
     
     typealias Element = [(service: Service, event: ConnpassResponse.Event)]
