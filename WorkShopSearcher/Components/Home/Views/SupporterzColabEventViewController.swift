@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import XLPagerTabStrip
 
+/// SupporterzColabのイベント一覧ホーム画面
 class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvider {
     
     private let disposeBag = DisposeBag()
@@ -38,10 +39,10 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         guard let refreshControl = tableView.refreshControl else { return }
         
         // tableview
+        let dataSource = EventDataSource(service: .supporterz)
         viewModel.events
-            .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
-                cell.configure(service: .supporterz, event: item)
-            }.disposed(by: disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         viewModel.events
             .map { _ in false }
             .drive(refreshControl.rx.isRefreshing)

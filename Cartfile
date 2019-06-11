@@ -1,4 +1,8 @@
 github "ReactiveX/RxSwift"
 github "Alamofire/Alamofire"
 github "xmartlabs/XLPagerTabStrip"
+<<<<<<< HEAD
 github "realm/realm-cocoa"
+=======
+github "Juanpe/SkeletonView"
+>>>>>>> 15d6932fc391400a4934d425c96c5f3d4d51247f

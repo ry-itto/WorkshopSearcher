@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // window
         let window = UIWindow(frame: UIScreen.main.bounds)
         let vcs = [
-            HomeViewController.instantiateWithTabbarItem()
+            HomeViewController.instantiateWithTabbarItem(),
+            SearchViewController.instantiateWithTabbarItem()
         ]
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = vcs

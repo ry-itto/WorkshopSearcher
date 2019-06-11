@@ -9,8 +9,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SkeletonView
 import XLPagerTabStrip
 
+/// Connpassのイベント一覧ホーム画面
 class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
     
     private let disposeBag = DisposeBag()
@@ -38,10 +40,10 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
     private func bindViewModel() {
         guard let refreshControl = tableView.refreshControl else { return }
         // tableView
+        let dataSource = EventDataSource(service: .connpass)
         viewModel.events
-            .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, item, cell in
-                cell.configure(service: .connpass, event: item)
-            }.disposed(by: disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         viewModel.events
             .map { _ in false }
             .drive(refreshControl.rx.isRefreshing)
