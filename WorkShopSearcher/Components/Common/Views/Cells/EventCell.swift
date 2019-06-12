@@ -108,4 +108,22 @@ class EventCell: UITableViewCell {
         
         serviceLogoImage.image = service.image
     }
+    
+    func configure(likeEvent: LikeEvent) {
+        serviceLogoImage.hideSkeleton()
+        eventTitleLabel.hideSkeleton()
+        holdDateLabel.hideSkeleton()
+        participantView.hideSkeleton()
+        numOfParticipantLabel.hideSkeleton()
+        
+        eventTitleLabel.text = likeEvent.title
+        holdDateLabel.text = "\(holdDateFormatter.string(from: likeEvent.startedAt)) ~ 開催"
+        if likeEvent.limit != 0 {
+            numOfParticipantLabel.text = "\(likeEvent.present)/\(likeEvent.limit)"
+        } else {
+            numOfParticipantLabel.text = "\(likeEvent.present)"
+        }
+        
+//        serviceLogoImage.image = service.image
+    }
 }
