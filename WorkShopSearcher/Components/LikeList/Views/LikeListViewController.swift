@@ -46,5 +46,15 @@ final class LikeListViewController: UIViewController {
             .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, event, cell in
                 cell.configure(likeEvent: event)
             }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .bind(to: Binder(self) { me, indexPath in
+                me.tableView.cellForRow(at: indexPath)?.isSelected = false
+            }).disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(LikeEvent.self)
+            .bind(to: Binder(self) { me, event in
+                me.navigationController?.pushViewController(ProjectDetailViewController(event: event), animated: true)
+            }).disposed(by: disposeBag)
     }
 }

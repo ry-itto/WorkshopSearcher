@@ -32,6 +32,13 @@ class ProjectDetailViewController: UIViewController {
         self.title = title
     }
     
+    init(event: LikeEvent, title: String = "") {
+        self.likeEvent = event
+        self.viewModel = ProjectDetailViewModel()
+        super.init(nibName: nil, bundle: nil)
+        self.title = title
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
