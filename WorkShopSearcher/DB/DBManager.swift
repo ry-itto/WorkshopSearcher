@@ -110,7 +110,7 @@ final class DBManager {
     ///
     /// - Returns: 全てのいいねしたイベント情報
     func fetchAllLikeEvents() -> Observable<[LikeEvent]> {
-        let objects = realm.objects(LikeEvent.self)
+        let objects = realm.objects(LikeEvent.self).filter("liked == true")
         return Observable.create { observer -> Disposable in
             observer.onNext(Array(objects))
             return Disposables.create()
