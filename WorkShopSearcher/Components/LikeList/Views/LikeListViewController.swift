@@ -19,6 +19,7 @@ final class LikeListViewController: UIViewController {
         didSet {
             tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
+            tableView.tableFooterView = UIView()
         }
     }
     
