@@ -29,6 +29,7 @@
 		BFCD4B9122897015006EDBA5 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */; };
 		BFCD4B9322897020006EDBA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD4B9222897020006EDBA5 /* SearchViewModel.swift */; };
 		BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD4B97228A7E45006EDBA5 /* SearchResultDataProvider.swift */; };
+		BFD5146722B9E16000368055 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD5146622B9E16000368055 /* SwiftMessages.framework */; };
 		BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */; };
 		BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */; };
 		BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */; };
@@ -120,6 +121,7 @@
 		BFCD4B8F22897015006EDBA5 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		BFCD4B9222897020006EDBA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		BFCD4B97228A7E45006EDBA5 /* SearchResultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDataProvider.swift; sourceTree = "<group>"; };
+		BFD5146622B9E16000368055 /* SwiftMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMessages.framework; path = Carthage/Build/iOS/SwiftMessages.framework; sourceTree = "<group>"; };
 		BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClientTest.swift; sourceTree = "<group>"; };
 		BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClient.swift; sourceTree = "<group>"; };
 		BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterzColabAPIClientTest.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD5146722B9E16000368055 /* SwiftMessages.framework in Frameworks */,
 				BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */,
 				BFFF33EC22AE487700FA13DE /* RxRelay.framework in Frameworks */,
 				BFFF33E822AE3CA000FA13DE /* SkeletonView.framework in Frameworks */,
@@ -503,6 +506,7 @@
 		BFFFFBB122579EA1006D1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD5146622B9E16000368055 /* SwiftMessages.framework */,
 				BFA2516C227AF02C00328A43 /* RxRelay.framework */,
 				BFA25168227AEDBC00328A43 /* Realm.framework */,
 				BFA25169227AEDBC00328A43 /* RealmSwift.framework */,
@@ -681,6 +685,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftMessages.framework",
 			);
 			outputFileListPaths = (
 			);
