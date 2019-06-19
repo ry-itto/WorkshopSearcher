@@ -15,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // DB
+        DBManager.configure()
+        
         // window
         let window = UIWindow(frame: UIScreen.main.bounds)
         let vcs = [
             HomeViewController.instantiateWithTabbarItem(),
-            SearchViewController.instantiateWithTabbarItem()
+            SearchViewController.instantiateWithTabbarItem(),
+            LikeListViewController.instantiateWithTabBarItem()
         ]
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = vcs
@@ -27,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = tabBarController
         self.window = window
         self.window?.makeKeyAndVisible()
-        
-        // DB
-        DBManager.configure()
         
         return true
     }
