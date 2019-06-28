@@ -41,7 +41,15 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
             event.flatMap { (connpass, supporterz) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> in
                 guard
                     let cEvents = connpass.element?.events,
-                    let sEvents = supporterz.element?.events else { return .empty() }
+                    let sEvents = supporterz.element?.events else {
+                        if let err = connpass.error {
+                            observer.onError(err)
+                            return .empty()
+                        } else {
+                            observer.onError(supporterz.error!)
+                            return .empty()
+                        }
+                }
                 let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] = cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
                     return (service: Service.connpass, event: event)
                 }

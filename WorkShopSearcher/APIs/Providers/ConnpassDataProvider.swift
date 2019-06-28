@@ -29,6 +29,11 @@ final class ConnpassDataProvider: ConnpassDataProviderProtocol {
         
         return Observable.create { observer -> Disposable in
             request.responseJSON { response in
+                if let err = response.error {
+                    observer.onError(err)
+                    return
+                }
+                
                 guard let data = response.data else { return }
                 do {
                     let decoded = try client.decoder.decode(ConnpassResponse.self, from: data)

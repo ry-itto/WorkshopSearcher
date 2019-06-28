@@ -56,17 +56,26 @@ final class SearchViewController: UIViewController {
             })
             .bind(to: viewModel.search)
             .disposed(by: disposeBag)
+        searchBar.rx.searchButtonClicked
+            .bind(to: Binder(self) { me, _ in
+                me.searchBar.resignFirstResponder()
+            }).disposed(by: disposeBag)
         
         // table view
         viewModel.searchResult
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        viewModel.errorMessage
+            .drive(Binder(self) { me, _ in
+                me.showConnectionAlert()
+            }).disposed(by: disposeBag)
         
         // セルがタップされた時WebViewでイベントページを開く
         tableView.rx.modelSelected((service: Service, event: ConnpassResponse.Event).self)
             .asSignal()
             .emit(to: Binder(self) {me, event in
-                me.navigationController?.pushViewController(ProjectDetailViewController(event: event.event, title: ""), animated: true)
+                me.navigationController?.pushViewController(
+                    ProjectDetailViewController(event: event.event, title: ""), animated: true)
             }).disposed(by: disposeBag)
         // セルタップ時セルの選択状態を解除
         tableView.rx.itemSelected
