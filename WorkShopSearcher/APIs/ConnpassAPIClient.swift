@@ -35,7 +35,8 @@ class ConnpassAPIClient {
         var components = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
         components?.queryItems = searchQuery.createQueryItems()
         guard let url = components?.url else { return nil }
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         
-        return Alamofire.request(url)
+        return Alamofire.request(request)
     }
 }
