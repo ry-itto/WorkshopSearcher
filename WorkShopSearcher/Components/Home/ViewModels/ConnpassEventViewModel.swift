@@ -33,7 +33,7 @@ final class ConnpassEventViewModel {
         
         // viewDidLoad時検索条件なしでイベント情報を取得
         let fetchEvents = initializeEvents
-            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery()).materialize() }
+            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3)).materialize() }
         
         // 取得成功
         fetchEvents
