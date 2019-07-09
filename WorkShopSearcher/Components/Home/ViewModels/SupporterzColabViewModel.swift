@@ -55,5 +55,9 @@ final class SupporterzColabViewModel {
             .map { eventsRelay.value + $0 }
             .bind(to: eventsRelay)
             .disposed(by: disposeBag)
+        fetchAdditionalEvents
+            .flatMap { $0.error.map(Observable.just) ?? .empty() }
+            .bind(to: errorMessage)
+            .disposed(by: disposeBag)
     }
 }

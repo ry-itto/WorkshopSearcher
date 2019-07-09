@@ -12,7 +12,6 @@ import RxRelay
 
 protocol SearchResultDataProviderProtocol {
     /// 検索する
-    /// onErrorを流さない実装になっています。
     ///
     /// - Parameter query: 検索するキーワード
     /// - Returns: 検索結果
@@ -57,9 +56,10 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
                     return (service: Service.supporterz, event: event)
                 }
                 return .just(cDicEvents + sDicEvents)
-                }.subscribe(onNext: { events in
-                    observer.onNext(self.sortByStartDate(events))
-                }).disposed(by: self.disposeBag)
+            }
+            .subscribe(onNext: { events in
+                observer.onNext(self.sortByStartDate(events))
+            }).disposed(by: self.disposeBag)
             
             return Disposables.create()
         }
