@@ -84,9 +84,9 @@ final class SearchViewController: UIViewController {
                 me.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
         tableView.rx.contentOffset
+            .distinctUntilChanged()
             .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
-            .filter { dataSource.searched && ($0.y + self.tableView.bounds.height) / self.tableView.contentSize.height > 0.6 }
-            .debug()
+            .filter { dataSource.searched && ($0.y + self.tableView.bounds.height) / self.tableView.contentSize.height > 0.8 }
             .map { _ in self.searchBar.text ?? "" }
             .bind(to: viewModel.addEvents)
             .disposed(by: disposeBag)

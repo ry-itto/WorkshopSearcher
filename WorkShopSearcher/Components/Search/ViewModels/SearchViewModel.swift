@@ -62,6 +62,7 @@ class SearchViewModel {
                 .share()
         fetchAdditionalEvents
             .flatMap { $0.element.map(Observable.just) ?? .empty() }
+            .filter { !$0.isEmpty }
             .map { searchResultRelay.value + $0 }
             .bind(to: searchResultRelay)
             .disposed(by: disposeBag)
