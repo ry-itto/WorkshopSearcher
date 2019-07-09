@@ -66,7 +66,7 @@ final class SearchViewController: UIViewController {
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         viewModel.errorMessage
-            .drive(Binder(self) { me, _ in
+            .emit(to: Binder(self) { me, _ in
                 me.showConnectionAlert()
             }).disposed(by: disposeBag)
         
@@ -83,5 +83,12 @@ final class SearchViewController: UIViewController {
             .emit(to: Binder(self) { me, indexPath in
                 me.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
+        tableView.rx.contentOffset
+            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .filter { dataSource.searched && ($0.y + self.tableView.bounds.height) / self.tableView.contentSize.height > 0.6 }
+            .debug()
+            .map { _ in self.searchBar.text ?? "" }
+            .bind(to: viewModel.addEvents)
+            .disposed(by: disposeBag)
     }
 }

@@ -38,17 +38,19 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
                 self.supporterzColabDataProvider.fetchEvents(searchQuery: query, isRefresh: false).materialize()
                 ).share()
             event.flatMap { (connpass, supporterz) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> in
-                guard
-                    let cEvents = connpass.element?.events,
-                    let sEvents = supporterz.element?.events else {
-                        if let err = connpass.error {
-                            observer.onError(err)
-                            return .empty()
-                        } else {
-                            observer.onError(supporterz.error!)
-                            return .empty()
-                        }
+                
+                let cEvents = connpass.element?.events ?? []
+                let sEvents = supporterz.element?.events ?? []
+                
+                if let err = connpass.error {
+                    observer.onError(err)
+                    return .empty()
                 }
+                if let err = supporterz.error {
+                    observer.onError(err)
+                    return .empty()
+                }
+                
                 let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] = cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
                     return (service: Service.connpass, event: event)
                 }
