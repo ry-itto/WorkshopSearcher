@@ -13,7 +13,7 @@ struct ConnpassResponse: Decodable {
     let resultsReturned: Int
     let resultsAvailable: Int
     let resultsStart: Int
-    let events: [Event]
+    var events: [Event]
     
     /// Connpassイベントモデル
     struct Event: Decodable, Registerable {

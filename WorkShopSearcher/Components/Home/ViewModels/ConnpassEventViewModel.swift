@@ -53,7 +53,6 @@ final class ConnpassEventViewModel {
                 .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: false).materialize() }
         fetchAdditionalEvents
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
-            .debug()
             .map { eventsRelay.value + $0 }
             .bind(to: eventsRelay)
             .disposed(by: disposeBag)

@@ -52,7 +52,14 @@ final class SupporterzColabDataProvider: SupporterzColabDataProviderProtocol {
                 
                 guard let data = response.data else { return }
                 do {
-                    let decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
+                    var decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
+                    decoded.events = decoded.events
+                        .filter { event -> Bool in
+                            event.startedAt.timeIntervalSinceNow > 0
+                        }
+                    if decoded.events.isEmpty {
+                        self?.searchEnd = true
+                    }
                     observer.onNext(decoded)
                     
                     /// 検索開始位置の更新

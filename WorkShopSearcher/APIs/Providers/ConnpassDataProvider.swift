@@ -53,8 +53,15 @@ final class ConnpassDataProvider: ConnpassDataProviderProtocol {
                 
                 guard let data = response.data else { return }
                 do {
-                    let decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
+                    var decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
+                    decoded.events = decoded.events
+                        .filter { event -> Bool in
+                            event.startedAt.timeIntervalSinceNow > 0
+                    }
                     observer.onNext(decoded)
+                    if decoded.events.isEmpty {
+                        self?.searchEnd = true
+                    }
                     
                     /// 検索開始位置の更新
                     self?.startPoint += decoded.resultsReturned
