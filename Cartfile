@@ -1,5 +1,4 @@
 github "ReactiveX/RxSwift"
-github "RxSwiftCommunity/RxDataSources"
 github "Alamofire/Alamofire"
 github "xmartlabs/XLPagerTabStrip"
 github "realm/realm-cocoa"
