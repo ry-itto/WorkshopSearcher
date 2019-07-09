@@ -10,24 +10,41 @@ import RxSwift
 
 /// Connpassイベントデータプロバイダープロトコル
 protocol ConnpassDataProviderProtocol {
-    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse>
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery, isRefresh: Bool) -> Observable<ConnpassResponse>
 }
 
 /// Connpassイベントデータプロバイダー
 final class ConnpassDataProvider: ConnpassDataProviderProtocol {
     
+    /// 検索終了フラグ
+    private var searchEnd: Bool = false
+    
+    /// 検索の開始位置(default: 1)
+    private var startPoint: Int = 1
+    
     /// イベント情報を取得
     ///
-    /// - Parameter searchQuery: 検索クエリ
+    /// - Parameters:
+    ///   - searchQuery: 検索クエリ
+    ///   - isRefresh: 更新フラグ
     /// - Returns: Observable(ConnpassResponse)
-    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> Observable<ConnpassResponse> {
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery, isRefresh: Bool) -> Observable<ConnpassResponse> {
+        
+        if isRefresh {
+            self.startPoint = 1
+        }
         
         let client = ConnpassAPIClient.shared
-        guard let request = client.fetchEvents(searchQuery: searchQuery) else {
+        searchQuery.updateStartPoint(startPoint: startPoint)
+        
+        guard
+            !searchEnd,
+            let request = client.fetchEvents(searchQuery: searchQuery)
+        else {
             return .empty()
         }
         
-        return Observable.create { observer -> Disposable in
+        return Observable.create { [weak self] observer -> Disposable in
             request.responseJSON { response in
                 if let err = response.error {
                     observer.onError(err)
@@ -38,6 +55,13 @@ final class ConnpassDataProvider: ConnpassDataProviderProtocol {
                 do {
                     let decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
                     observer.onNext(decoded)
+                    
+                    /// 検索開始位置の更新
+                    self?.startPoint += decoded.resultsReturned
+                    
+                    if decoded.resultsAvailable <= self?.startPoint ?? 1 {
+                        self?.searchEnd = true
+                    }
                 } catch(let e) {
                     observer.onError(e)
                 }

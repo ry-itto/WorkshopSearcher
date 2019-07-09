@@ -35,8 +35,8 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
     func search(query: ConnpassRequest.SearchQuery) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> {
         return Observable.create { [unowned self] observer -> Disposable in
             let event = Observable.zip(
-                self.connpassDataProvider.fetchEvents(searchQuery: query).materialize(),
-                self.supporterzColabDataProvider.fetchEvents(searchQuery: query).materialize()
+                self.connpassDataProvider.fetchEvents(searchQuery: query, isRefresh: false).materialize(),
+                self.supporterzColabDataProvider.fetchEvents(searchQuery: query, isRefresh: false).materialize()
                 ).share()
             event.flatMap { (connpass, supporterz) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> in
                 guard
