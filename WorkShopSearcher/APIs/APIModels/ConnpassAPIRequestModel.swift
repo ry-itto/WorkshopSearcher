@@ -20,7 +20,7 @@ enum ConnpassRequest {
         private let nickname: String?
         private let ownerNickname: String?
         private let seriesId: Int?
-        private let start: Int?
+        private var start: Int?
         private let order: Int?
         private let count: Int?
         private let format: String?
@@ -49,6 +49,13 @@ enum ConnpassRequest {
             self.order = order
             self.count = count
             self.format = format
+        }
+        
+        /// 検索開始位置を更新する
+        ///
+        /// - Parameter startPoint: 更新後の検索開始位置
+        func updateStartPoint(startPoint: Int) {
+            self.start = startPoint
         }
         
         /// 検索クエリの情報からqueryItemsを作成する

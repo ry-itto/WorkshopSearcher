@@ -17,6 +17,7 @@ final class SupporterzColabViewModel {
     // input
     let viewDidLoad = PublishRelay<Void>()
     let refreshView = PublishRelay<Void>()
+    let addEvents = PublishRelay<Void>()
     
     // output
     let events: Driver<[ConnpassResponse.Event]>
@@ -33,7 +34,7 @@ final class SupporterzColabViewModel {
                             refreshView.asObservable())
         
         let fetchEvents = initializeEvents
-            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3)).materialize() }
+            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: true).materialize() }
         
         fetchEvents
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
@@ -41,6 +42,20 @@ final class SupporterzColabViewModel {
             .disposed(by: disposeBag)
         
         fetchEvents
+            .flatMap { $0.error.map(Observable.just) ?? .empty() }
+            .bind(to: errorMessage)
+            .disposed(by: disposeBag)
+        
+        let fetchAdditionalEvents =
+            addEvents.asObservable()
+                .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: false).materialize() }
+        fetchAdditionalEvents
+            .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
+            .debug()
+            .map { eventsRelay.value + $0 }
+            .bind(to: eventsRelay)
+            .disposed(by: disposeBag)
+        fetchAdditionalEvents
             .flatMap { $0.error.map(Observable.just) ?? .empty() }
             .bind(to: errorMessage)
             .disposed(by: disposeBag)

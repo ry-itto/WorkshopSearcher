@@ -12,7 +12,6 @@ import RxRelay
 
 protocol SearchResultDataProviderProtocol {
     /// 検索する
-    /// onErrorを流さない実装になっています。
     ///
     /// - Parameter query: 検索するキーワード
     /// - Returns: 検索結果
@@ -35,21 +34,23 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
     func search(query: ConnpassRequest.SearchQuery) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> {
         return Observable.create { [unowned self] observer -> Disposable in
             let event = Observable.zip(
-                self.connpassDataProvider.fetchEvents(searchQuery: query).materialize(),
-                self.supporterzColabDataProvider.fetchEvents(searchQuery: query).materialize()
+                self.connpassDataProvider.fetchEvents(searchQuery: query, isRefresh: false).materialize(),
+                self.supporterzColabDataProvider.fetchEvents(searchQuery: query, isRefresh: false).materialize()
                 ).share()
             event.flatMap { (connpass, supporterz) -> Observable<[(service: Service, event: ConnpassResponse.Event)]> in
-                guard
-                    let cEvents = connpass.element?.events,
-                    let sEvents = supporterz.element?.events else {
-                        if let err = connpass.error {
-                            observer.onError(err)
-                            return .empty()
-                        } else {
-                            observer.onError(supporterz.error!)
-                            return .empty()
-                        }
+                
+                let cEvents = connpass.element?.events ?? []
+                let sEvents = supporterz.element?.events ?? []
+                
+                if let err = connpass.error {
+                    observer.onError(err)
+                    return .empty()
                 }
+                if let err = supporterz.error {
+                    observer.onError(err)
+                    return .empty()
+                }
+                
                 let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] = cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
                     return (service: Service.connpass, event: event)
                 }
@@ -57,9 +58,10 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
                     return (service: Service.supporterz, event: event)
                 }
                 return .just(cDicEvents + sDicEvents)
-                }.subscribe(onNext: { events in
-                    observer.onNext(self.sortByStartDate(events))
-                }).disposed(by: self.disposeBag)
+            }
+            .subscribe(onNext: { events in
+                observer.onNext(self.sortByStartDate(events))
+            }).disposed(by: self.disposeBag)
             
             return Disposables.create()
         }

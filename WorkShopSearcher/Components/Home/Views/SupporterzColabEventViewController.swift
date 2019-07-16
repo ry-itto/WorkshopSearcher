@@ -59,6 +59,12 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .emit(to: Binder(self) { me, indexPath in
                 me.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
+        tableView.rx.contentOffset
+            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .filter { ($0.y + self.view.bounds.height) / self.tableView.contentSize.height > 0.9 }
+            .map { _ in }
+            .bind(to: viewModel.addEvents)
+            .disposed(by: disposeBag)
         
         viewModel.errorMessage
             .emit(to: Binder(self) { me, _ in

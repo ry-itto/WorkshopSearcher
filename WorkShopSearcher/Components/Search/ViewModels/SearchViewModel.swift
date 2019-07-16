@@ -17,15 +17,18 @@ class SearchViewModel {
     
     // input
     let search = PublishRelay<String>()
+    let addEvents = PublishRelay<String>()
     
     // output
     let searchResult: Driver<[(service: Service, event: ConnpassResponse.Event)]>
-    let errorMessage: Driver<Void>
+    let errorMessage: Signal<Void>
     
     init(_ provider: SearchResultDataProviderProtocol = SearchResultDataProvider()) {
         let searchResultRelay = BehaviorRelay<[(service: Service, event: ConnpassResponse.Event)]>(value: [])
+        let errorMessageRelay = PublishRelay<Void>()
         
         self.searchResult = searchResultRelay.asDriver()
+        self.errorMessage = errorMessageRelay.asSignal()
         
         // 検索された時に一度テーブルビューをリセットする
         search
@@ -45,9 +48,28 @@ class SearchViewModel {
             .bind(to: searchResultRelay)
             .disposed(by: disposeBag)
         
-        errorMessage = searched
+        searched
             .flatMap { $0.error.map(Observable.just) ?? .empty() }
             .map { _ in }
-            .asDriver(onErrorJustReturn: ())
+            .bind(to: errorMessageRelay)
+            .disposed(by: disposeBag)
+        
+        let fetchAdditionalEvents =
+            addEvents.asObservable()
+                .flatMap { provider.search(query:  ConnpassRequest.SearchQuery(
+                    keyword: $0.components(separatedBy: " "),
+                    order: 3)).materialize() }
+                .share()
+        fetchAdditionalEvents
+            .flatMap { $0.element.map(Observable.just) ?? .empty() }
+            .filter { !$0.isEmpty }
+            .map { searchResultRelay.value + $0 }
+            .bind(to: searchResultRelay)
+            .disposed(by: disposeBag)
+        fetchAdditionalEvents
+            .flatMap { $0.error.map(Observable.just) ?? .empty() }
+            .map { _ in }
+            .bind(to: errorMessageRelay)
+            .disposed(by: disposeBag)
     }
 }

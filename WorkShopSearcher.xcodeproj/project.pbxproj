@@ -16,8 +16,6 @@
 		BF4C4262227B362F0007D68C /* Registerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4261227B362F0007D68C /* Registerable.swift */; };
 		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
-		BF58568622D438AE0015FFC9 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58568422D438AE0015FFC9 /* RxDataSources.framework */; };
-		BF58568722D438AE0015FFC9 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58568522D438AE0015FFC9 /* Differentiator.framework */; };
 		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
 		BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25168227AEDBC00328A43 /* Realm.framework */; };
 		BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25169227AEDBC00328A43 /* RealmSwift.framework */; };
@@ -110,8 +108,6 @@
 		BF4C4261227B362F0007D68C /* Registerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerable.swift; sourceTree = "<group>"; };
 		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
 		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
-		BF58568422D438AE0015FFC9 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
-		BF58568522D438AE0015FFC9 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
 		BFA25168227AEDBC00328A43 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		BFA25169227AEDBC00328A43 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -173,8 +169,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF58568622D438AE0015FFC9 /* RxDataSources.framework in Frameworks */,
-				BF58568722D438AE0015FFC9 /* Differentiator.framework in Frameworks */,
 				BFD5146722B9E16000368055 /* SwiftMessages.framework in Frameworks */,
 				BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */,
 				BFFF33EC22AE487700FA13DE /* RxRelay.framework in Frameworks */,
@@ -515,8 +509,6 @@
 		BFFFFBB122579EA1006D1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF58568522D438AE0015FFC9 /* Differentiator.framework */,
-				BF58568422D438AE0015FFC9 /* RxDataSources.framework */,
 				BFD5146622B9E16000368055 /* SwiftMessages.framework */,
 				BFA2516C227AF02C00328A43 /* RxRelay.framework */,
 				BFA25168227AEDBC00328A43 /* Realm.framework */,
@@ -697,8 +689,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftMessages.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			outputFileListPaths = (
 			);
