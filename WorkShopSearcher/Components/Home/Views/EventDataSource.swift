@@ -48,6 +48,9 @@ final class EventDataSource: NSObject, UITableViewDataSource, RxTableViewDataSou
     }
     
     func model(at indexPath: IndexPath) throws -> Any {
+        if events.count == 0 {
+            return ConnpassResponse.Event.emptyModel()
+        }
         return events[indexPath.row]
     }
 }
