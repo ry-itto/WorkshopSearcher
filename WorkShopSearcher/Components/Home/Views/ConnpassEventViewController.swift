@@ -51,6 +51,7 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
         // セルがタップされた時WebViewでイベントページを開く
         tableView.rx.modelSelected(ConnpassResponse.Event.self)
             .asSignal()
+            .filter { !$0.isEmptyModel() }
             .emit(to: Binder(self) {me, event in
                 me.navigationController?.pushViewController(ProjectDetailViewController(event: event, title: "Connpass"), animated: true)
             }).disposed(by: disposeBag)

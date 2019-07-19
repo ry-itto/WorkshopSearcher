@@ -89,5 +89,39 @@ struct ConnpassResponse: Decodable {
             
             return likeEvent
         }
+        
+        /// 空のEventモデルかどうか判定
+        ///
+        /// - Returns: true: 空, false: 空でない
+        func isEmptyModel() -> Bool {
+            return self.eventID == 0 && self.title.isEmpty
+        }
+        
+        /// 空のConnpassEventモデルを作成
+        ///
+        /// - Returns: 空のEventModel
+        static func emptyModel() -> Event {
+            return Event(eventID: 0,
+                         title: "",
+                         eventCatch: "",
+                         description: "",
+                         eventURL: URL(string: "http://example.com")!,
+                         hashTag: "",
+                         startedAt: Date(),
+                         endedAt: Date(),
+                         limit: nil,
+                         eventType: "",
+                         series: nil,
+                         address: nil,
+                         place: nil,
+                         lat: nil,
+                         lon: nil,
+                         ownerID: 0,
+                         ownerNickname: "",
+                         ownerDisplayName: "",
+                         accepted: 0,
+                         waiting: 0,
+                         updatedAt: Date())
+        }
     }
 }

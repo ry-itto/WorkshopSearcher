@@ -73,6 +73,7 @@ final class SearchViewController: UIViewController {
         // セルがタップされた時WebViewでイベントページを開く
         tableView.rx.modelSelected((service: Service, event: ConnpassResponse.Event).self)
             .asSignal()
+            .filter { !$0.event.isEmptyModel() }
             .emit(to: Binder(self) {me, event in
                 me.navigationController?.pushViewController(
                     ProjectDetailViewController(event: event.event, title: ""), animated: true)

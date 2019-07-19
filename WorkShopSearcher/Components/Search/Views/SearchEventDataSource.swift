@@ -47,6 +47,9 @@ final class SearchEventDataSource: NSObject, UITableViewDataSource, RxTableViewD
     }
     
     func model(at indexPath: IndexPath) throws -> Any {
+        if events.count == 0 {
+            return (service: Service.connpass, event: ConnpassResponse.Event.emptyModel())
+        }
         return events[indexPath.row]
     }
 }
