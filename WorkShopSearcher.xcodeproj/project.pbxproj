@@ -10,6 +10,9 @@
 		BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266922B0C23D00F472F0 /* LikeListViewController.swift */; };
 		BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */; };
 		BF20266E22B0C59E00F472F0 /* LikeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */; };
+		BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7E622E1A7F90047C921 /* SettingViewController.swift */; };
+		BF29E7E922E1A7F90047C921 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7E722E1A7F90047C921 /* SettingViewController.xib */; };
+		BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */; };
 		BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */; };
 		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
 		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
@@ -102,6 +105,9 @@
 		BF20266922B0C23D00F472F0 /* LikeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewController.swift; sourceTree = "<group>"; };
 		BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeListViewController.xib; sourceTree = "<group>"; };
 		BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewModel.swift; sourceTree = "<group>"; };
+		BF29E7E622E1A7F90047C921 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BF29E7E722E1A7F90047C921 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
 		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -237,6 +243,40 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		BF29E7E222E1A7C80047C921 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7E522E1A7E10047C921 /* Models */,
+				BF29E7E422E1A7DA0047C921 /* ViewModels */,
+				BF29E7E322E1A7D50047C921 /* Views */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BF29E7E322E1A7D50047C921 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7E622E1A7F90047C921 /* SettingViewController.swift */,
+				BF29E7E722E1A7F90047C921 /* SettingViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF29E7E422E1A7DA0047C921 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BF29E7E522E1A7E10047C921 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BF4C425C227B2E780007D68C /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +295,7 @@
 				BFE7621C2259B65700484AFF /* Home */,
 				BF20266622B0C20700F472F0 /* LikeList */,
 				BFCD4B8B22896FE2006EDBA5 /* Search */,
+				BF29E7E222E1A7C80047C921 /* Setting */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -649,6 +690,7 @@
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 				BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */,
+				BF29E7E922E1A7F90047C921 /* SettingViewController.xib in Resources */,
 				BFCD4B9122897015006EDBA5 /* SearchViewController.xib in Resources */,
 				BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */,
 				BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */,
@@ -731,6 +773,8 @@
 				BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
 				BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */,
+				BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */,
+				BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 				BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,

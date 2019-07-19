@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vcs = [
             HomeViewController.instantiateWithTabbarItem(),
             SearchViewController.instantiateWithTabbarItem(),
-            LikeListViewController.instantiateWithTabBarItem()
+            LikeListViewController.instantiateWithTabBarItem(),
+            SettingViewController.instantiateWithTabbarItem(),
         ]
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = vcs
