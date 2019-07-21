@@ -11,8 +11,8 @@
 		BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */; };
 		BF20266E22B0C59E00F472F0 /* LikeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */; };
 		BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7E622E1A7F90047C921 /* SettingViewController.swift */; };
-		BF29E7E922E1A7F90047C921 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7E722E1A7F90047C921 /* SettingViewController.xib */; };
 		BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */; };
+		BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */; };
 		BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */; };
 		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
 		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
@@ -106,8 +106,8 @@
 		BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeListViewController.xib; sourceTree = "<group>"; };
 		BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewModel.swift; sourceTree = "<group>"; };
 		BF29E7E622E1A7F90047C921 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		BF29E7E722E1A7F90047C921 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
 		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				BF29E7E622E1A7F90047C921 /* SettingViewController.swift */,
-				BF29E7E722E1A7F90047C921 /* SettingViewController.xib */,
+				BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -683,6 +683,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */,
 				BFE762222259B83000484AFF /* ConnpassEventViewController.xib in Resources */,
 				BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */,
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
@@ -690,7 +691,6 @@
 				BFE762262259B97E00484AFF /* SupporterzColabEventViewController.xib in Resources */,
 				BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */,
 				BFE762132259AACE00484AFF /* HomeViewController.xib in Resources */,
-				BF29E7E922E1A7F90047C921 /* SettingViewController.xib in Resources */,
 				BFCD4B9122897015006EDBA5 /* SearchViewController.xib in Resources */,
 				BFE7622B225A2DB600484AFF /* EventCell.xib in Resources */,
 				BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */,
