@@ -12,9 +12,24 @@ import RxCocoa
 
 final class SettingViewController: UITableViewController {
     
-    @IBOutlet weak var hourTextField: UITextField!
-    @IBOutlet weak var minTextField: UITextField!
+    private let disposeBag = DisposeBag()
+    private let viewModel = SettingViewModel()
+    
+    @IBOutlet weak var hourTextField: UITextField! {
+        didSet {
+            self.hourTextField.inputView = hourPicker
+        }
+    }
+    @IBOutlet weak var minTextField: UITextField! {
+        didSet {
+            self.minTextField.inputView = minPicker
+        }
+    }
     @IBOutlet weak var notificationSwitch: UISwitch!
+    
+    // Picker
+    private let hourPicker = UIPickerView()
+    private let minPicker = UIPickerView()
     
     override var tableView: UITableView! {
         didSet {
@@ -34,5 +49,28 @@ final class SettingViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+        viewModel.viewDidLoad.accept(())
+    }
+    
+    private func bindViewModel() {
+        viewModel.hourValues
+            .drive(hourPicker.rx.itemTitles) { _, num in
+                "\(num)"
+            }.disposed(by: disposeBag)
+        viewModel.minValues
+            .drive(minPicker.rx.itemTitles) { _, num in
+                "\(num)"
+            }.disposed(by: disposeBag)
+        hourPicker.rx.modelSelected(String.self)
+            .distinctUntilChanged()
+            .flatMap { Int($0.first ?? "").map(Observable.just) ?? .empty() }
+            .bind(to: viewModel.setHour)
+            .disposed(by: disposeBag)
+        minPicker.rx.modelSelected(String.self)
+            .distinctUntilChanged()
+            .flatMap { Int($0.first ?? "").map(Observable.just) ?? .empty() }
+            .bind(to: viewModel.setMin)
+            .disposed(by: disposeBag)
     }
 }

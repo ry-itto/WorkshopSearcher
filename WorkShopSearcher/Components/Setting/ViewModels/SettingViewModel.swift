@@ -11,26 +11,28 @@ import RxCocoa
 final class SettingViewModel {
     private let disposeBag = DisposeBag()
     
-    /// 定数
-    /// 時間ピッカーの値一覧
-    let hourPickerValues: [Int] = Array((0...12))
-    
-    /// 分ピッカーの値一覧
-    let minPickerValues: [Int] = Array((0...60))
-    
     // input
     let viewDidLoad = PublishRelay<Void>()
     let setHour = PublishRelay<Int>()
     let setMin = PublishRelay<Int>()
     
     // output
+    let hourValues: Driver<[Int]>
+    let minValues: Driver<[Int]>
     let hourValue: Driver<Int>
     let minValue: Driver<Int>
     
     init() {
+        /// 時間ピッカーの値一覧
+        let hourPickerValuesRelay = BehaviorRelay<[Int]>(value: Array(0...12))
+        /// 分ピッカーの値一覧(5分おき)
+        let minPickerValuesRelay = BehaviorRelay<[Int]>(value: (0...60).filter { $0 % 5 == 0 })
+        
         let hourValueRelay = BehaviorRelay<Int>(value: 0)
         let minValueRelay = BehaviorRelay<Int>(value: 0)
         
+        self.hourValues = hourPickerValuesRelay.asDriver()
+        self.minValues = minPickerValuesRelay.asDriver()
         self.hourValue = hourValueRelay.asDriver()
         self.minValue = minValueRelay.asDriver()
         
