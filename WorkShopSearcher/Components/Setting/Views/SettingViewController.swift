@@ -62,15 +62,27 @@ final class SettingViewController: UITableViewController {
             .drive(minPicker.rx.itemTitles) { _, num in
                 "\(num)"
             }.disposed(by: disposeBag)
-        hourPicker.rx.modelSelected(String.self)
+        let hourSelected = hourPicker.rx.modelSelected(Int.self)
             .distinctUntilChanged()
-            .flatMap { Int($0.first ?? "").map(Observable.just) ?? .empty() }
+            .flatMap { $0.first.map(Observable.just) ?? .empty() }
+            .share()
+        hourSelected
             .bind(to: viewModel.setHour)
             .disposed(by: disposeBag)
-        minPicker.rx.modelSelected(String.self)
+        hourSelected
+            .map { "\($0)" }
+            .bind(to: hourTextField.rx.text)
+            .disposed(by: disposeBag)
+        let minSelected = minPicker.rx.modelSelected(Int.self)
             .distinctUntilChanged()
-            .flatMap { Int($0.first ?? "").map(Observable.just) ?? .empty() }
+            .flatMap { $0.first.map(Observable.just) ?? .empty() }
+            .share()
+        minSelected
             .bind(to: viewModel.setMin)
+            .disposed(by: disposeBag)
+        minSelected
+            .map { "\($0)" }
+            .bind(to: minTextField.rx.text)
             .disposed(by: disposeBag)
     }
 }
