@@ -17,19 +17,22 @@ final class SettingViewController: UITableViewController {
     
     @IBOutlet weak var hourTextField: UITextField! {
         didSet {
-            self.hourTextField.inputView = hourPicker
+            self.hourTextField.inputView = hourPicker.pickerView
+            self.hourTextField.inputAccessoryView = hourPicker.toolBar
+            
         }
     }
     @IBOutlet weak var minTextField: UITextField! {
         didSet {
-            self.minTextField.inputView = minPicker
+            self.minTextField.inputView = minPicker.pickerView
+            self.minTextField.inputAccessoryView = minPicker.toolBar
         }
     }
     @IBOutlet weak var notificationSwitch: UISwitch!
     
     // Picker
-    private let hourPicker = UIPickerView()
-    private let minPicker = UIPickerView()
+    private var hourPicker = PickerViewParts()
+    private var minPicker = PickerViewParts()
     
     override var tableView: UITableView! {
         didSet {
@@ -55,14 +58,14 @@ final class SettingViewController: UITableViewController {
     
     private func bindViewModel() {
         viewModel.hourValues
-            .drive(hourPicker.rx.itemTitles) { _, num in
+            .drive(hourPicker.pickerView.rx.itemTitles) { _, num in
                 "\(num)"
             }.disposed(by: disposeBag)
         viewModel.minValues
-            .drive(minPicker.rx.itemTitles) { _, num in
+            .drive(minPicker.pickerView.rx.itemTitles) { _, num in
                 "\(num)"
             }.disposed(by: disposeBag)
-        let hourSelected = hourPicker.rx.modelSelected(Int.self)
+        let hourSelected = hourPicker.pickerView.rx.modelSelected(Int.self)
             .distinctUntilChanged()
             .flatMap { $0.first.map(Observable.just) ?? .empty() }
             .share()
@@ -73,7 +76,7 @@ final class SettingViewController: UITableViewController {
             .map { "\($0)" }
             .bind(to: hourTextField.rx.text)
             .disposed(by: disposeBag)
-        let minSelected = minPicker.rx.modelSelected(Int.self)
+        let minSelected = minPicker.pickerView.rx.modelSelected(Int.self)
             .distinctUntilChanged()
             .flatMap { $0.first.map(Observable.just) ?? .empty() }
             .share()
@@ -84,5 +87,13 @@ final class SettingViewController: UITableViewController {
             .map { "\($0)" }
             .bind(to: minTextField.rx.text)
             .disposed(by: disposeBag)
+        hourPicker.doneButton.rx.tap
+            .bind(to: Binder(self) { me, _ in
+                me.hourTextField.endEditing(true)
+            }).disposed(by: disposeBag)
+        minPicker.doneButton.rx.tap
+            .bind(to: Binder(self) { me, _ in
+                me.minTextField.endEditing(true)
+            }).disposed(by: disposeBag)
     }
 }
