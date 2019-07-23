@@ -10,10 +10,27 @@ import UserNotifications
 protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate {
     /// ユーザに通知の許可を求める
     func requestAuthorization()
+    
+    /// 通知の登録をする
+    ///
+    /// - Parameters:
+    ///   - eventID: イベントID
+    ///   - title: 通知タイトル
+    ///   - body: 通知内容
+    ///   - holdDate: 開催日
+    /// - Returns: identifier(イベントID)
+    func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String
 }
 
 @available(iOS 10.0, *)
 final class NotificationService: NSObject, UNUserNotificationCenterDelegate, NotificationServiceProtocol {
+    
+    private let userDefaultsDataProvider: UserDefaultDataProviderProtocol
+    
+    init(_ userDefaultsDataProvider: UserDefaultDataProviderProtocol = UserDefaultDataProvider()) {
+        self.userDefaultsDataProvider = userDefaultsDataProvider
+    }
+    
     func requestAuthorization() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.requestAuthorization(options: [.alert]) { granted, error in
@@ -25,5 +42,45 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
                 notificationCenter.delegate = self
             }
         }
+    }
+    
+    func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String {
+        let identifier = "\(eventID)"
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        
+        let calendar = Calendar.current
+        let holdHour = calendar.component(.hour, from: holdDate)
+        let holdMin = calendar.component(.minute, from: holdDate)
+        
+        let notificationBeforeHour = userDefaultsDataProvider.getNotificationTimeBeforeHour()
+        let notificationBeforeMin = userDefaultsDataProvider.getNotificationTimeBeforeMin()
+        
+        var notificationHour = holdHour - notificationBeforeHour
+        var notificationMin: Int = holdMin
+        if notificationMin - notificationBeforeMin < 0 {
+            notificationHour -= 1
+            notificationMin = 60 - notificationMin
+        }
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = calendar.component(.year, from: holdDate)
+        dateComponents.month = calendar.component(.month, from: holdDate)
+        dateComponents.day = calendar.component(.day, from: holdDate)
+        dateComponents.hour = notificationHour
+        dateComponents.minute = notificationMin
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: "\(eventID)", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { err in
+            if let err = err {
+                assertionFailure(err.localizedDescription)
+            }
+        }
+        
+        return identifier
     }
 }
