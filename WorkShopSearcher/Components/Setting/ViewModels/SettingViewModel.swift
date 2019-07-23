@@ -22,7 +22,7 @@ final class SettingViewModel {
     let hourValue: Driver<Int>
     let minValue: Driver<Int>
     
-    init() {
+    init(_ notificationService: NotificationServiceProtocol = NotificationService()) {
         /// 時間ピッカーの値一覧
         let hourPickerValuesRelay = BehaviorRelay<[Int]>(value: Array(0...12))
         /// 分ピッカーの値一覧(5分おき)
@@ -35,6 +35,11 @@ final class SettingViewModel {
         self.minValues = minPickerValuesRelay.asDriver()
         self.hourValue = hourValueRelay.asDriver()
         self.minValue = minValueRelay.asDriver()
+        
+        viewDidLoad.asObservable()
+            .subscribe(onNext: {
+                notificationService.requestAuthorization()
+            }).disposed(by: disposeBag)
         
         // Binding
         setHour.asSignal()

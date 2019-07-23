@@ -13,6 +13,7 @@
 		BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7E622E1A7F90047C921 /* SettingViewController.swift */; };
 		BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */; };
 		BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */; };
+		BF34B58422E6F63E00E5A17F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B58322E6F63E00E5A17F /* NotificationService.swift */; };
 		BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */; };
 		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
 		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
@@ -109,6 +110,7 @@
 		BF29E7E622E1A7F90047C921 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		BF34B58322E6F63E00E5A17F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
 		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -275,8 +277,16 @@
 		BF29E7E522E1A7E10047C921 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BF34B58522E6F9C700E5A17F /* Services */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BF34B58522E6F9C700E5A17F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BF4C425C227B2E780007D68C /* DB */ = {
@@ -341,6 +351,7 @@
 		BFA2516F227AFC1800328A43 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BF34B58322E6F63E00E5A17F /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -776,6 +787,7 @@
 				BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */,
 				BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
+				BF34B58422E6F63E00E5A17F /* NotificationService.swift in Sources */,
 				BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */,
 				BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */,
 				BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */,
