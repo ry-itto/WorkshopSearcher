@@ -20,6 +20,11 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     ///   - holdDate: 開催日
     /// - Returns: identifier(イベントID)
     func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String
+    
+    /// 通知の取り消しをする
+    ///
+    /// - Parameter eventID: イベントID
+    func cancelNotification(eventID: Int)
 }
 
 @available(iOS 10.0, *)
@@ -82,5 +87,12 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         }
         
         return identifier
+    }
+    
+    func cancelNotification(eventID: Int) {
+        let identifier = "\(eventID)"
+        
+        UNUserNotificationCenter.current()
+            .removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 }
