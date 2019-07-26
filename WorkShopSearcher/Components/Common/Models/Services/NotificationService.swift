@@ -25,6 +25,11 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     ///
     /// - Parameter eventID: イベントID
     func cancelNotification(eventID: Int)
+    
+    /// 配信前の通知を取得する
+    ///
+    /// - Parameter completion: 配信前の通知一覧に対する処理
+    func getPendingNotificationRequests(completion: @escaping ([UNNotificationRequest]) -> Void)
 }
 
 @available(iOS 10.0, *)
@@ -94,5 +99,9 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         
         UNUserNotificationCenter.current()
             .removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
+    func getPendingNotificationRequests(completion: @escaping ([UNNotificationRequest]) -> Void) {
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: completion)
     }
 }

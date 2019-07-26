@@ -23,7 +23,7 @@ class ProjectDetailViewModel {
     let likeEventSuccess: Observable<Void>
     let likeEventFailure: Observable<Error>
     
-    init() {
+    init(_ notificationService: NotificationServiceProtocol = NotificationService()) {
         /// 初期化時いいねボタンの状態を操作
         self.liked = viewDidLoad
             .map(DBManager.shared.isLiked)
@@ -33,8 +33,17 @@ class ProjectDetailViewModel {
         let likeEvent = like.asObservable()
             .flatMap { likeEvent -> Observable<Event<Void>> in
                 if DBManager.shared.isExisted(item: likeEvent) {
+                    
+                    if DBManager.shared.isLiked(item: likeEvent) {
+                        // 変える前にいいねしている場合
+                        notificationService.cancelNotification(eventID: likeEvent.id)
+                    } else {
+                        // 変える前にいいねしていない場合
+                        _ = notificationService.registerNotification(eventID: likeEvent.id, title: likeEvent.title, body: "", holdDate: likeEvent.startedAt)
+                    }
                     return DBManager.shared.toggleLikeState(item: likeEvent).materialize()
                 } else {
+                    _ = notificationService.registerNotification(eventID: likeEvent.id, title: likeEvent.title, body: "", holdDate: likeEvent.startedAt)
                     return DBManager.shared.create(item: likeEvent).materialize()
                 }
             }.share()
