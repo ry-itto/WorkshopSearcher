@@ -82,6 +82,9 @@ final class SettingViewModel {
                 notificationService.getPendingNotificationRequests { requests in
                     print(requests)
                 }
+                notificationService.getDeliveredNotificationRequests {notifications in
+                    print(notifications)
+                }
             }).disposed(by: disposeBag)
         #endif
     }

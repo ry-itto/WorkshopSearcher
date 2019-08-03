@@ -30,6 +30,11 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     ///
     /// - Parameter completion: 配信前の通知一覧に対する処理
     func getPendingNotificationRequests(completion: @escaping ([UNNotificationRequest]) -> Void)
+    
+    /// 配信後の通知を取得する
+    ///
+    /// - Parameter completion: 配信後の通知一覧に対する処理
+    func getDeliveredNotificationRequests(completion: @escaping ([UNNotification]) -> Void)
 }
 
 @available(iOS 10.0, *)
@@ -83,7 +88,7 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         dateComponents.minute = notificationMin
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: "\(eventID)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { err in
             if let err = err {
@@ -103,5 +108,9 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
     
     func getPendingNotificationRequests(completion: @escaping ([UNNotificationRequest]) -> Void) {
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: completion)
+    }
+    
+    func getDeliveredNotificationRequests(completion: @escaping ([UNNotification]) -> Void) {
+        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: completion)
     }
 }
