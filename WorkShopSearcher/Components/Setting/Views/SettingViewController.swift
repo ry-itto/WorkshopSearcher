@@ -73,9 +73,6 @@ final class SettingViewController: UITableViewController {
             .flatMap { $0.first.map(Observable.just) ?? .empty() }
             .share()
         hourSelected
-            .bind(to: viewModel.setHour)
-            .disposed(by: disposeBag)
-        hourSelected
             .map { "\($0)" }
             .bind(to: hourTextField.rx.text)
             .disposed(by: disposeBag)
@@ -83,9 +80,6 @@ final class SettingViewController: UITableViewController {
             .distinctUntilChanged()
             .flatMap { $0.first.map(Observable.just) ?? .empty() }
             .share()
-        minSelected
-            .bind(to: viewModel.setMin)
-            .disposed(by: disposeBag)
         minSelected
             .map { "\($0)" }
             .bind(to: minTextField.rx.text)
@@ -109,10 +103,24 @@ final class SettingViewController: UITableViewController {
             .bind(to: Binder(self) { me, _ in
                 me.hourTextField.endEditing(true)
             }).disposed(by: disposeBag)
+        hourPicker.doneButton.rx.tap
+            .flatMap { [weak self] in
+                Int(self?.hourTextField.text ?? "").map(Observable.just) ?? .empty()
+            }
+            .distinctUntilChanged()
+            .bind(to: viewModel.setHour)
+            .disposed(by: disposeBag)
         minPicker.doneButton.rx.tap
             .bind(to: Binder(self) { me, _ in
                 me.minTextField.endEditing(true)
             }).disposed(by: disposeBag)
+        minPicker.doneButton.rx.tap
+            .flatMap { [weak self] in
+                Int(self?.minTextField.text ?? "").map(Observable.just) ?? .empty()
+            }
+            .distinctUntilChanged()
+            .bind(to: viewModel.setMin)
+            .disposed(by: disposeBag)
         
         // Switch
         notificationSwitch.rx.value
