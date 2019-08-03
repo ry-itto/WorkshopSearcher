@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = tabBarController
         self.window = window
         self.window?.makeKeyAndVisible()
-        
+
         return true
     }
 

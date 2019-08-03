@@ -72,7 +72,7 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         var notificationMin: Int = holdMin
         if notificationMin - notificationBeforeMin < 0 {
             notificationHour -= 1
-            notificationMin = 60 - notificationMin
+            notificationMin = 60 - notificationBeforeMin
         }
         
         var dateComponents = DateComponents()

@@ -75,5 +75,14 @@ final class SettingViewModel {
             .emit(to: Binder(self) { me, value in
                 userDefaultDataProvider.setNotificationEnabled(enable: value)
             }).disposed(by: disposeBag)
+        
+        #if DEBUG
+        setEnable.asSignal()
+            .emit(onNext: { _ in
+                notificationService.getPendingNotificationRequests { requests in
+                    print(requests)
+                }
+            }).disposed(by: disposeBag)
+        #endif
     }
 }
