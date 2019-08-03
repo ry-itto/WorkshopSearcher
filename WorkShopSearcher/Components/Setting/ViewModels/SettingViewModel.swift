@@ -64,7 +64,6 @@ final class SettingViewModel {
             .emit(onNext: { hour in
                 userDefaultDataProvider.setNotificationTimeBefore(hour: hour)
             }).disposed(by: disposeBag)
-        
         setMin.asSignal()
             .emit(to: minValueRelay)
             .disposed(by: disposeBag)
