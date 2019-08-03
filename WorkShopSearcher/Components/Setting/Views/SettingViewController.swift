@@ -57,6 +57,7 @@ final class SettingViewController: UITableViewController {
     }
     
     private func bindViewModel() {
+        // Pickerの選択可能値をセット
         viewModel.hourValues
             .drive(hourPicker.pickerView.rx.itemTitles) { _, num in
                 "\(num)"
@@ -65,6 +66,8 @@ final class SettingViewController: UITableViewController {
             .drive(minPicker.pickerView.rx.itemTitles) { _, num in
                 "\(num)"
             }.disposed(by: disposeBag)
+        
+        // 時間など選択時
         let hourSelected = hourPicker.pickerView.rx.modelSelected(Int.self)
             .distinctUntilChanged()
             .flatMap { $0.first.map(Observable.just) ?? .empty() }
@@ -87,6 +90,21 @@ final class SettingViewController: UITableViewController {
             .map { "\($0)" }
             .bind(to: minTextField.rx.text)
             .disposed(by: disposeBag)
+        
+        // 値自体をセット
+        viewModel.hourValue
+            .map { "\($0)"}
+            .drive(hourTextField.rx.text)
+            .disposed(by: disposeBag)
+        viewModel.minValue
+            .map { "\($0)" }
+            .drive(minTextField.rx.text)
+            .disposed(by: disposeBag)
+        viewModel.notificationEnable
+            .drive(notificationSwitch.rx.value)
+            .disposed(by: disposeBag)
+        
+        // Picker
         hourPicker.doneButton.rx.tap
             .bind(to: Binder(self) { me, _ in
                 me.hourTextField.endEditing(true)
@@ -95,5 +113,10 @@ final class SettingViewController: UITableViewController {
             .bind(to: Binder(self) { me, _ in
                 me.minTextField.endEditing(true)
             }).disposed(by: disposeBag)
+        
+        // Switch
+        notificationSwitch.rx.value
+            .bind(to: viewModel.setEnable)
+            .disposed(by: disposeBag)
     }
 }
