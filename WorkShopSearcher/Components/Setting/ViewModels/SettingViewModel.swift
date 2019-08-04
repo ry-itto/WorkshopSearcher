@@ -64,6 +64,8 @@ final class SettingViewModel {
             .emit(onNext: { hour in
                 userDefaultDataProvider.setNotificationTimeBefore(hour: hour)
             }).disposed(by: disposeBag)
+        /// TODO:- setHour, setMin 両方合わせて1分くらい変更がなかったら通知の更新処理をする
+        /// 通知の更新処理：登録済みのものを全て消す -> 新しく全て登録する
         setMin.asSignal()
             .emit(to: minValueRelay)
             .disposed(by: disposeBag)

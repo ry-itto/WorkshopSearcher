@@ -21,6 +21,11 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     /// - Returns: identifier(イベントID)
     func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String
     
+    /// 通知の更新をする
+    ///
+    /// - Parameter events: イベント一覧
+    func updateNotifications(events: [LikeEvent])
+    
     /// 通知の取り消しをする
     ///
     /// - Parameter eventID: イベントID
@@ -97,6 +102,13 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         }
         
         return identifier
+    }
+    
+    func updateNotifications(events: [LikeEvent]) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        events.forEach { event in
+            _ = registerNotification(eventID: event.id, title: event.title, body: "", holdDate: event.startedAt)
+        }
     }
     
     func cancelNotification(eventID: Int) {
