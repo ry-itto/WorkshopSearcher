@@ -42,12 +42,10 @@ final class SettingViewModel {
         self.notificationEnable = notificationEnableRelay.asDriver()
         
         viewDidLoad.asObservable()
-            .debug()
             .subscribe(onNext: {
                 notificationService.requestAuthorization()
             }).disposed(by: disposeBag)
         viewDidLoad.asObservable()
-            .debug()
             .map { userDefaultDataProvider.getNotificationTimeBeforeHour() }
             .bind(to: hourValueRelay)
             .disposed(by: disposeBag)
