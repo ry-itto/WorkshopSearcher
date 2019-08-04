@@ -25,7 +25,8 @@ final class SettingViewModel {
     let notificationEnable: Driver<Bool>
     
     init(_ notificationService: NotificationServiceProtocol = NotificationService(),
-         _ userDefaultDataProvider: UserDefaultDataProviderProtocol = UserDefaultDataProvider()) {
+         _ userDefaultDataProvider: UserDefaultDataProviderProtocol = UserDefaultDataProvider(),
+         _ dbManager: DBManagerProtocol = DBManager()) {
         /// 時間ピッカーの値一覧
         let hourPickerValuesRelay = BehaviorRelay<[Int]>(value: Array(0...12))
         /// 分ピッカーの値一覧(5分おき)
@@ -77,7 +78,7 @@ final class SettingViewModel {
         setEnable.asObservable()
             .debounce(RxTimeInterval.seconds(5), scheduler: MainScheduler.asyncInstance)
             .filter { $0 }
-            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .flatMap { _ in dbManager.fetchAllLikeEvents() }
             .subscribe(onNext: { events in
                 notificationService.registerNotifications(events: events)
             }).disposed(by: disposeBag)
@@ -85,14 +86,14 @@ final class SettingViewModel {
         setEnable.asObservable()
             .debounce(RxTimeInterval.seconds(5), scheduler: MainScheduler.asyncInstance)
             .filter { !$0 }
-            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .flatMap { _ in dbManager.fetchAllLikeEvents() }
             .subscribe(onNext: { events in
                 notificationService.cancelAllNotifications()
             }).disposed(by: disposeBag)
         Observable.merge(setHour.asObservable(),
                          setMin.asObservable())
             .debounce(.seconds(5), scheduler: MainScheduler.asyncInstance)
-            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .flatMap { _ in dbManager.fetchAllLikeEvents() }
             .subscribe(onNext: { events in
                 notificationService.updateNotifications(events: events)
             }).disposed(by: disposeBag)

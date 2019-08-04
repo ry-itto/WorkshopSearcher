@@ -18,7 +18,7 @@ final class LikeListViewModel {
     // output
     let likeEvents: Driver<[LikeEvent]>
     
-    init(_ dbManager: DBManager = DBManager.shared) {
+    init(_ dbManager: DBManagerProtocol = DBManager()) {
         let likeEventsRelay = BehaviorRelay<[LikeEvent]>(value: [])
         
         self.likeEvents = likeEventsRelay.asDriver()
