@@ -64,8 +64,6 @@ final class SettingViewModel {
             .emit(onNext: { hour in
                 userDefaultDataProvider.setNotificationTimeBefore(hour: hour)
             }).disposed(by: disposeBag)
-        /// TODO:- setHour, setMin 両方合わせて1分くらい変更がなかったら通知の更新処理をする
-        /// 通知の更新処理：登録済みのものを全て消す -> 新しく全て登録する
         setMin.asSignal()
             .emit(to: minValueRelay)
             .disposed(by: disposeBag)
@@ -76,6 +74,13 @@ final class SettingViewModel {
         setEnable.asSignal()
             .emit(to: Binder(self) { me, value in
                 userDefaultDataProvider.setNotificationEnabled(enable: value)
+            }).disposed(by: disposeBag)
+        Observable.merge(setHour.asObservable(),
+                         setMin.asObservable())
+            .debounce(.seconds(5), scheduler: MainScheduler.asyncInstance)
+            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .subscribe(onNext: { events in
+                notificationService.updateNotifications(events: events)
             }).disposed(by: disposeBag)
         
         #if DEBUG
