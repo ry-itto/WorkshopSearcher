@@ -21,6 +21,11 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     /// - Returns: identifier(イベントID)
     func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String
     
+    /// 通知の登録をする(複数)
+    ///
+    /// - Parameter events: 通知一覧
+    func registerNotifications(events: [LikeEvent])
+    
     /// 通知の更新をする
     ///
     /// - Parameter events: イベント一覧
@@ -30,6 +35,9 @@ protocol NotificationServiceProtocol where Self:UNUserNotificationCenterDelegate
     ///
     /// - Parameter eventID: イベントID
     func cancelNotification(eventID: Int)
+    
+    /// 全通知の取り消しをする
+    func cancelAllNotifications()
     
     /// 配信前の通知を取得する
     ///
@@ -104,11 +112,15 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         return identifier
     }
     
-    func updateNotifications(events: [LikeEvent]) {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    func registerNotifications(events: [LikeEvent]) {
         events.forEach { event in
             _ = registerNotification(eventID: event.id, title: event.title, body: "", holdDate: event.startedAt)
         }
+    }
+    
+    func updateNotifications(events: [LikeEvent]) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        registerNotifications(events: events)
     }
     
     func cancelNotification(eventID: Int) {
@@ -116,6 +128,10 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
         
         UNUserNotificationCenter.current()
             .removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
+    func cancelAllNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     func getPendingNotificationRequests(completion: @escaping ([UNNotificationRequest]) -> Void) {

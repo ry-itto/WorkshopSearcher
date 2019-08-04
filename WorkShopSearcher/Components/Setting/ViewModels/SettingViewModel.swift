@@ -73,6 +73,22 @@ final class SettingViewModel {
             .emit(to: Binder(self) { me, value in
                 userDefaultDataProvider.setNotificationEnabled(enable: value)
             }).disposed(by: disposeBag)
+        // Enable
+        setEnable.asObservable()
+            .debounce(RxTimeInterval.seconds(5), scheduler: MainScheduler.asyncInstance)
+            .filter { $0 }
+            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .subscribe(onNext: { events in
+                notificationService.registerNotifications(events: events)
+            }).disposed(by: disposeBag)
+        // Disable
+        setEnable.asObservable()
+            .debounce(RxTimeInterval.seconds(5), scheduler: MainScheduler.asyncInstance)
+            .filter { !$0 }
+            .flatMap { _ in DBManager.shared.fetchAllLikeEvents() }
+            .subscribe(onNext: { events in
+                notificationService.cancelAllNotifications()
+            }).disposed(by: disposeBag)
         Observable.merge(setHour.asObservable(),
                          setMin.asObservable())
             .debounce(.seconds(5), scheduler: MainScheduler.asyncInstance)
