@@ -10,12 +10,18 @@
 		BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266922B0C23D00F472F0 /* LikeListViewController.swift */; };
 		BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */; };
 		BF20266E22B0C59E00F472F0 /* LikeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */; };
+		BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7E622E1A7F90047C921 /* SettingViewController.swift */; };
+		BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */; };
+		BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */; };
+		BF34B58422E6F63E00E5A17F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B58322E6F63E00E5A17F /* NotificationService.swift */; };
+		BF34B58822E700BA00E5A17F /* UserDefaultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B58722E700BA00E5A17F /* UserDefaultDataProvider.swift */; };
 		BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */; };
 		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
 		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
 		BF4C4262227B362F0007D68C /* Registerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4261227B362F0007D68C /* Registerable.swift */; };
 		BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */; };
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
+		BF9C09CC22E4D6B3008094F9 /* PickerViewParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C09CB22E4D6B3008094F9 /* PickerViewParts.swift */; };
 		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
 		BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25168227AEDBC00328A43 /* Realm.framework */; };
 		BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25169227AEDBC00328A43 /* RealmSwift.framework */; };
@@ -102,12 +108,18 @@
 		BF20266922B0C23D00F472F0 /* LikeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewController.swift; sourceTree = "<group>"; };
 		BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeListViewController.xib; sourceTree = "<group>"; };
 		BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewModel.swift; sourceTree = "<group>"; };
+		BF29E7E622E1A7F90047C921 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		BF34B58322E6F63E00E5A17F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		BF34B58722E700BA00E5A17F /* UserDefaultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDataProvider.swift; sourceTree = "<group>"; };
 		BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
 		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		BF4C4261227B362F0007D68C /* Registerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registerable.swift; sourceTree = "<group>"; };
 		BF55323C2257B03600A9B7F6 /* ForAPITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForAPITestViewController.swift; sourceTree = "<group>"; };
 		BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForAPITestViewController.xib; sourceTree = "<group>"; };
+		BF9C09CB22E4D6B3008094F9 /* PickerViewParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewParts.swift; sourceTree = "<group>"; };
 		BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
 		BFA25168227AEDBC00328A43 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		BFA25169227AEDBC00328A43 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -237,6 +249,56 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		BF29E7E222E1A7C80047C921 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7E522E1A7E10047C921 /* Models */,
+				BF29E7E422E1A7DA0047C921 /* ViewModels */,
+				BF29E7E322E1A7D50047C921 /* Views */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BF29E7E322E1A7D50047C921 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7E622E1A7F90047C921 /* SettingViewController.swift */,
+				BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF29E7E422E1A7DA0047C921 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF29E7EA22E1A8140047C921 /* SettingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BF29E7E522E1A7E10047C921 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF34B58522E6F9C700E5A17F /* Services */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BF34B58522E6F9C700E5A17F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF34B58622E700A000E5A17F /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BF34B58722E700BA00E5A17F /* UserDefaultDataProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		BF4C425C227B2E780007D68C /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +317,7 @@
 				BFE7621C2259B65700484AFF /* Home */,
 				BF20266622B0C20700F472F0 /* LikeList */,
 				BFCD4B8B22896FE2006EDBA5 /* Search */,
+				BF29E7E222E1A7C80047C921 /* Setting */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -290,6 +353,7 @@
 		BFA2516E227AFC0B00328A43 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BF34B58622E700A000E5A17F /* Provider */,
 				BFA2516F227AFC1800328A43 /* Services */,
 			);
 			path = Models;
@@ -298,6 +362,7 @@
 		BFA2516F227AFC1800328A43 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BF34B58322E6F63E00E5A17F /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -444,6 +509,7 @@
 				BFE76227225A2D3400484AFF /* Cells */,
 				BFFBDF8422663DEE0076100B /* ProjectDetailViewController.swift */,
 				BFFBDF8522663DEE0076100B /* ProjectDetailViewController.xib */,
+				BF9C09CB22E4D6B3008094F9 /* PickerViewParts.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -642,6 +708,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */,
 				BFE762222259B83000484AFF /* ConnpassEventViewController.xib in Resources */,
 				BFFBDF8722663DEE0076100B /* ProjectDetailViewController.xib in Resources */,
 				BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */,
@@ -710,6 +777,7 @@
 				BFE76233225AE24D00484AFF /* SupporterzColabViewModel.swift in Sources */,
 				BF4C4262227B362F0007D68C /* Registerable.swift in Sources */,
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
+				BF9C09CC22E4D6B3008094F9 /* PickerViewParts.swift in Sources */,
 				BFCD4B9022897015006EDBA5 /* SearchViewController.swift in Sources */,
 				BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
@@ -717,6 +785,7 @@
 				BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */,
 				BFFBDF8622663DEE0076100B /* ProjectDetailViewController.swift in Sources */,
 				BFCD4B9322897020006EDBA5 /* SearchViewModel.swift in Sources */,
+				BF34B58822E700BA00E5A17F /* UserDefaultDataProvider.swift in Sources */,
 				BFE762252259B97E00484AFF /* SupporterzColabEventViewController.swift in Sources */,
 				BFE7621B2259B64100484AFF /* HomeViewModel.swift in Sources */,
 				BFE762122259AACE00484AFF /* HomeViewController.swift in Sources */,
@@ -730,7 +799,10 @@
 				BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */,
 				BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */,
 				BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */,
+				BF34B58422E6F63E00E5A17F /* NotificationService.swift in Sources */,
 				BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */,
+				BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */,
+				BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 				BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,

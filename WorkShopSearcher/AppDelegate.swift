@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vcs = [
             HomeViewController.instantiateWithTabbarItem(),
             SearchViewController.instantiateWithTabbarItem(),
-            LikeListViewController.instantiateWithTabBarItem()
+            LikeListViewController.instantiateWithTabBarItem(),
+            SettingViewController.instantiateWithTabbarItem(),
         ]
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = vcs
@@ -31,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = tabBarController
         self.window = window
         self.window?.makeKeyAndVisible()
-        
+
         return true
     }
 
