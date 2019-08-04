@@ -52,10 +52,6 @@ final class DBManager: DBManagerProtocol {
     
     let realm: Realm = try! Realm()
     
-    static let shared = DBManager()
-    
-    private init() {}
-    
     static func configure() {
         let config = Realm.Configuration(schemaVersion: 1)
         Realm.Configuration.defaultConfiguration = config
