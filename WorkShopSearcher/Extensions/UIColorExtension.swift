@@ -25,6 +25,20 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
+    enum Base {
+        case main
+        case sub
+        
+        func color() -> UIColor {
+            switch self {
+            case .main:
+                return UIColor(rgb: 0x17679E)
+            case .sub:
+                return UIColor(rgb: 0xF4EFE7)
+            }
+        }
+    }
+    
     /// NipponColors.com の色格納列挙型
     /// http://nipponcolors.com/
     ///

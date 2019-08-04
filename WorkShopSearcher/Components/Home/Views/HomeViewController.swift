@@ -18,6 +18,9 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         let nc = UINavigationController(rootViewController: hvc)
         nc.title = "ホーム"
         nc.tabBarItem.image = UIImage(named: "home")
+        nc.navigationBar.barTintColor = UIColor.Base.main.color()
+        nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+
         return nc
     }
 
@@ -25,10 +28,10 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarItemTitleColor = .darkGray
-        settings.style.selectedBarBackgroundColor = .orange
+        settings.style.selectedBarBackgroundColor = .darkGray
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
-            oldCell?.label.textColor = .darkGray
-            newCell?.label.textColor = .orange
+            oldCell?.label.textColor = .lightGray
+            newCell?.label.textColor = .darkGray
         }
         buttonBarView.layer.borderWidth = 0.5
         buttonBarView.layer.borderColor = UIColor.lightGray.cgColor

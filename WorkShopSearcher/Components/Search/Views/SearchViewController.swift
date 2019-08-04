@@ -34,6 +34,8 @@ final class SearchViewController: UIViewController {
         let nc = UINavigationController(rootViewController: svc)
         nc.title = "検索"
         nc.tabBarItem.image = UIImage(named: "search")
+        nc.navigationBar.barTintColor = UIColor.Base.main.color()
+        nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
         return nc
     }
 
