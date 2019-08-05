@@ -27,12 +27,15 @@ extension UIColor {
     
     enum Base {
         case main
+        case select
         case sub
         
         func color() -> UIColor {
             switch self {
             case .main:
                 return UIColor(rgb: 0x17679E)
+            case .select:
+                return UIColor(rgb: 0x80CBF0)
             case .sub:
                 return UIColor(rgb: 0xF4EFE7)
             }
