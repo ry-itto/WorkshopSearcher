@@ -20,6 +20,7 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         nc.tabBarItem.image = UIImage(named: "home")
         nc.navigationBar.barTintColor = UIColor.Base.main.color()
         nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nc.navigationBar.tintColor = .white
 
         return nc
     }

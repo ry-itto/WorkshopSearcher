@@ -49,6 +49,7 @@ final class SettingViewController: UITableViewController {
         nc.tabBarItem.image = UIImage(named: "setting")
         nc.navigationBar.barTintColor = UIColor.Base.main.color()
         nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nc.navigationBar.tintColor = .white
         return nc
     }
 

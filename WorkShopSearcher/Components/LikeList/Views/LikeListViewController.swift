@@ -31,6 +31,7 @@ final class LikeListViewController: UIViewController {
         nvc.title = "いいねしたイベント一覧"
         nvc.navigationBar.barTintColor = UIColor.Base.main.color()
         nvc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nvc.navigationBar.tintColor = .white
         return nvc
     }
     

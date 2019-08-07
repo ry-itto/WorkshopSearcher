@@ -36,6 +36,7 @@ final class SearchViewController: UIViewController {
         nc.tabBarItem.image = UIImage(named: "search")
         nc.navigationBar.barTintColor = UIColor.Base.main.color()
         nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nc.navigationBar.tintColor = .white
         return nc
     }
 
