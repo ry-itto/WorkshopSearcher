@@ -43,7 +43,6 @@ class SearchViewModel {
             .share()
         
         searched
-            .debug("searched", trimOutput: true)
             .flatMap { $0.element.map(Observable.just) ?? .empty() }
             .bind(to: searchResultRelay)
             .disposed(by: disposeBag)
