@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A7D5B1BF375EF006B462447D /* Pods_WorkShopSearcherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339E4C9FA085690CF66C898F /* Pods_WorkShopSearcherUITests.framework */; };
+		BF1E191022FD6D5F001306E9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
 		BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266922B0C23D00F472F0 /* LikeListViewController.swift */; };
 		BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */; };
 		BF20266E22B0C59E00F472F0 /* LikeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */; };
@@ -183,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1E191022FD6D5F001306E9 /* WebKit.framework in Frameworks */,
 				E55163DA40AD955B712174F4 /* Pods_WorkShopSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
