@@ -29,6 +29,9 @@ final class LikeListViewController: UIViewController {
         let nvc = UINavigationController(rootViewController: vc)
         nvc.tabBarItem.image = UIImage(named: "heart")
         nvc.title = "いいねしたイベント一覧"
+        nvc.navigationBar.barTintColor = UIColor.Base.main.color()
+        nvc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nvc.navigationBar.tintColor = .white
         return nvc
     }
     

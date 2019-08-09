@@ -25,6 +25,10 @@
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
 		BF9C09CC22E4D6B3008094F9 /* PickerViewParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C09CB22E4D6B3008094F9 /* PickerViewParts.swift */; };
 		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
+		BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25168227AEDBC00328A43 /* Realm.framework */; };
+		BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25169227AEDBC00328A43 /* RealmSwift.framework */; };
+		BFA5269F22F71D34002A0EB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */; };
+		BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
 		BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5F61C226957D8006C698C /* UIImageExtension.swift */; };
 		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
@@ -125,6 +129,7 @@
 		BFA25168227AEDBC00328A43 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		BFA25169227AEDBC00328A43 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		BFA2516C227AF02C00328A43 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BFA5F61A22694FB8006C698C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BFA5F61C226957D8006C698C /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIResponseModel.swift; sourceTree = "<group>"; };
@@ -380,6 +385,7 @@
 			children = (
 				BFA5F61C226957D8006C698C /* UIImageExtension.swift */,
 				BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */,
+				BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -885,6 +891,7 @@
 				BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */,
 				BFE7622A225A2DB600484AFF /* EventCell.swift in Sources */,
 				BFE762182259AF8A00484AFF /* ConnpassDataProvider.swift in Sources */,
+				BFA5269F22F71D34002A0EB9 /* UIColorExtension.swift in Sources */,
 				BFE6E5EE2258FBD90063F4F0 /* SupporterzColabAPIClient.swift in Sources */,
 				BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */,
 				BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */,

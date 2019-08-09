@@ -15,6 +15,7 @@ class ProjectDetailViewController: UIViewController {
 
     @IBOutlet weak var likeButton: UIButton! {
         didSet {
+            likeButton.backgroundColor = UIColor.Base.main.color()
             likeButton.setImage(UIImage(named: "check_mark"), for: .selected)
             likeButton.setImage(UIImage(named: "good"), for: .normal)
         }
@@ -52,7 +53,6 @@ class ProjectDetailViewController: UIViewController {
         webView.load(request)
         likeButton.layer.cornerRadius = 25
         likeButton.clipsToBounds = true
-        
     }
     
     private func bindViewModel() {
