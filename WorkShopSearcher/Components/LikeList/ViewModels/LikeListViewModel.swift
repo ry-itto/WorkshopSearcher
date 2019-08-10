@@ -6,23 +6,23 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class LikeListViewModel {
     private let disposeBag = DisposeBag()
-    
+
     // input
     let viewWillAppear = PublishRelay<Void>()
-    
+
     // output
     let likeEvents: Driver<[LikeEvent]>
-    
+
     init(_ dbManager: DBManagerProtocol = DBManager()) {
         let likeEventsRelay = BehaviorRelay<[LikeEvent]>(value: [])
-        
+
         self.likeEvents = likeEventsRelay.asDriver()
-        
+
         viewWillAppear.asObservable()
             .flatMap { _ in dbManager.fetchAllLikeEvents() }
             .bind(to: likeEventsRelay)

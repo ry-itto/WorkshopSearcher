@@ -9,15 +9,15 @@
 import UIKit
 
 final class PickerViewParts {
-    
+
     private(set) var pickerView: UIPickerView!
     private(set) var toolBar: UIToolbar!
     private(set) var doneButton: UIBarButtonItem!
-    
+
     init() {
         createView()
     }
-    
+
     private func createView() {
         /// Toolbar for picker
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
@@ -25,7 +25,7 @@ final class PickerViewParts {
         toolbar.setItems([UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil), doneButton], animated: true)
         self.toolBar = toolbar
         self.doneButton = doneButton
-        
+
         /// Picker
         let pickerView = UIPickerView()
         pickerView.frame.size.width = 40

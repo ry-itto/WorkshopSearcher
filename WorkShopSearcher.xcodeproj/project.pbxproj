@@ -25,10 +25,7 @@
 		BF55323F2257B03600A9B7F6 /* ForAPITestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55323D2257B03600A9B7F6 /* ForAPITestViewController.xib */; };
 		BF9C09CC22E4D6B3008094F9 /* PickerViewParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C09CB22E4D6B3008094F9 /* PickerViewParts.swift */; };
 		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
-		BFA2516A227AEDBC00328A43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25168227AEDBC00328A43 /* Realm.framework */; };
-		BFA2516B227AEDBC00328A43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA25169227AEDBC00328A43 /* RealmSwift.framework */; };
 		BFA5269F22F71D34002A0EB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */; };
-		BFA5F61B22694FB8006C698C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
 		BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5F61C226957D8006C698C /* UIImageExtension.swift */; };
 		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
@@ -632,6 +629,7 @@
 				BFFFFB7D22579AC2006D1522 /* Frameworks */,
 				BFFFFB7E22579AC2006D1522 /* Resources */,
 				9B423F16FDDEC1A5AC1895FB /* [CP] Embed Pods Frameworks */,
+				BFCFC1C922FD78040052BFF8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -838,6 +836,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BFCFC1C922FD78040052BFF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		DD3C94804703BE284F7F2517 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

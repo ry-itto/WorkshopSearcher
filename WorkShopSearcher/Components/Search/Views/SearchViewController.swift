@@ -1,4 +1,4 @@
- //
+//
 //  SearchViewController.swift
 //  WorkShopSearcher
 //
@@ -6,16 +6,16 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 /// 検索画面
 final class SearchViewController: UIViewController {
-    
+
     private let disposeBag = DisposeBag()
     private let viewModel = SearchViewModel()
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
@@ -24,7 +24,7 @@ final class SearchViewController: UIViewController {
         }
     }
     @IBOutlet weak var searchBar: UISearchBar!
-    
+
     /// タブバーアイテムに値をセットし、初期化
     ///
     /// - Returns: タブバーアイテムに値がセットされたVC
@@ -44,10 +44,10 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
     }
-    
+
     private func bindViewModel() {
         let dataSource = SearchEventDataSource()
-        
+
         // 検索ボタンが押された時
         searchBar.rx.searchButtonClicked
             .flatMap { [weak self] in
@@ -63,7 +63,7 @@ final class SearchViewController: UIViewController {
             .bind(to: Binder(self) { me, _ in
                 me.searchBar.resignFirstResponder()
             }).disposed(by: disposeBag)
-        
+
         // table view
         viewModel.searchResult
             .drive(tableView.rx.items(dataSource: dataSource))
@@ -72,7 +72,7 @@ final class SearchViewController: UIViewController {
             .emit(to: Binder(self) { me, _ in
                 me.showConnectionAlert()
             }).disposed(by: disposeBag)
-        
+
         // セルがタップされた時WebViewでイベントページを開く
         tableView.rx.modelSelected((service: Service, event: ConnpassResponse.Event).self)
             .asSignal()

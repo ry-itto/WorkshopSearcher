@@ -6,15 +6,15 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
 import SkeletonView
+import UIKit
 import XLPagerTabStrip
 
 /// Connpassのイベント一覧ホーム画面
 class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
-    
+
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView! {
@@ -24,19 +24,19 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
             tableView.refreshControl = UIRefreshControl()
         }
     }
-    
+
     private let viewModel = ConnpassEventViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         viewModel.viewDidLoad.accept(())
     }
-    
+
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "Connpass")
     }
-    
+
     private func bindViewModel() {
         guard let refreshControl = tableView.refreshControl else { return }
         // tableView
@@ -67,7 +67,7 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
             .map { _ in }
             .bind(to: viewModel.addEvents)
             .disposed(by: disposeBag)
-        
+
         viewModel.errorMessage
             .emit(to: Binder(self) { me, _ in
                 me.showConnectionAlert()
@@ -76,14 +76,14 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
             .map { _ in false }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
-        
+
         // pull to refresh
         let refreshView = refreshControl.rx.controlEvent(.valueChanged).asSignal()
         refreshView
             .emit(to: viewModel.refreshView)
             .disposed(by: disposeBag)
         refreshView
-            .map{ true }
+            .map { true }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
     }

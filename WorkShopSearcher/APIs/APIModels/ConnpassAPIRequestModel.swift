@@ -24,7 +24,7 @@ enum ConnpassRequest {
         private let order: Int?
         private let count: Int?
         private let format: String?
-        
+
         init(eventId: Int? = nil,
              keyword: [String]? = nil,
              keywordOr: [String]? = nil,
@@ -50,14 +50,14 @@ enum ConnpassRequest {
             self.count = count
             self.format = format
         }
-        
+
         /// 検索開始位置を更新する
         ///
         /// - Parameter startPoint: 更新後の検索開始位置
         func updateStartPoint(startPoint: Int) {
             self.start = startPoint
         }
-        
+
         /// 検索クエリの情報からqueryItemsを作成する
         ///
         /// - Returns: 入力された検索条件を持つqueryItems

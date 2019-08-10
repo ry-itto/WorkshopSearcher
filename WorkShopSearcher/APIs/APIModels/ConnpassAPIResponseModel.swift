@@ -14,7 +14,7 @@ struct ConnpassResponse: Decodable {
     let resultsAvailable: Int
     let resultsStart: Int
     var events: [Event]
-    
+
     /// Connpassイベントモデル
     struct Event: Decodable, Registerable {
         let eventID: Int
@@ -38,20 +38,20 @@ struct ConnpassResponse: Decodable {
         let accepted: Int
         let waiting: Int
         let updatedAt: Date
-        
+
         /// イベント開催グループモデル
         struct Series: Decodable {
             let id: Int
             let title: String
             let URL: URL
-            
+
             enum CodingKeys: String, CodingKey {
                 case id
                 case title
                 case URL = "url"
             }
         }
-        
+
         enum CodingKeys: String, CodingKey {
             case eventID = "eventId"
             case title
@@ -75,7 +75,7 @@ struct ConnpassResponse: Decodable {
             case waiting
             case updatedAt
         }
-        
+
         /// いいねしたイベントに変換するメソッド
         ///
         /// - Returns: いいねしたイベントモデル
@@ -86,17 +86,17 @@ struct ConnpassResponse: Decodable {
             likeEvent.startedAt = self.startedAt
             likeEvent.limit = self.limit ?? 0
             likeEvent.present = self.accepted
-            
+
             return likeEvent
         }
-        
+
         /// 空のEventモデルかどうか判定
         ///
         /// - Returns: true: 空, false: 空でない
         func isEmptyModel() -> Bool {
             return self.eventID == 0 && self.title.isEmpty
         }
-        
+
         /// 空のConnpassEventモデルを作成
         ///
         /// - Returns: 空のEventModel

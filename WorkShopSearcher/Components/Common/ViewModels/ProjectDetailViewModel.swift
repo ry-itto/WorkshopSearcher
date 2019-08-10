@@ -7,34 +7,34 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class ProjectDetailViewModel {
-    
+
     private let disposeBag = DisposeBag()
-    
+
     /// input
     let viewDidLoad = PublishRelay<LikeEvent>()
     let like = PublishRelay<LikeEvent>()
-    
+
     /// output
     let liked: Driver<Bool>
     let likeEventSuccess: Observable<Void>
     let likeEventFailure: Observable<Error>
-    
+
     init(_ notificationService: NotificationServiceProtocol = NotificationService(),
          _ dbManager: DBManagerProtocol = DBManager()) {
         /// 初期化時いいねボタンの状態を操作
         self.liked = viewDidLoad
             .map(dbManager.isLiked)
             .asDriver(onErrorJustReturn: false)
-        
+
         /// いいねしたイベント登録/更新
         let likeEvent = like.asObservable()
             .flatMap { likeEvent -> Observable<Event<Void>> in
                 if dbManager.isExisted(item: likeEvent) {
-                    
+
                     if dbManager.isLiked(item: likeEvent) {
                         // 変える前にいいねしている場合
                         notificationService.cancelNotification(eventID: likeEvent.id)

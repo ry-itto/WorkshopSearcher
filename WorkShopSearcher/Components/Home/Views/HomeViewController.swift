@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 /// ホーム画面
 final class HomeViewController: ButtonBarPagerTabStripViewController {
-    
+
     static func instantiateWithTabbarItem() -> UINavigationController {
         let hvc = HomeViewController()
         hvc.title = "ホーム"
@@ -38,7 +38,7 @@ final class HomeViewController: ButtonBarPagerTabStripViewController {
         buttonBarView.layer.borderColor = UIColor.lightGray.cgColor
         super.viewDidLoad()
     }
-    
+
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return [ConnpassEventViewController(), SupporterzColabEventViewController()]
     }

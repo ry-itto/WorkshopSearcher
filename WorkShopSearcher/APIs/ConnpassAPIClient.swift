@@ -6,26 +6,26 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 /// ConnpassAPIクライアント
 class ConnpassAPIClient {
-    
+
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
-    
+
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
-    
+
     static let shared = ConnpassAPIClient()
-    
-    private init(){}
-    
+
+    private init() {}
+
     /// ConnpassAPIを用いてイベント情報を取得
     ///
     /// - Parameter searchQuery: 検索クエリ
@@ -36,7 +36,7 @@ class ConnpassAPIClient {
         components?.queryItems = searchQuery.createQueryItems()
         guard let url = components?.url else { return nil }
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
-        
+
         return Alamofire.request(request)
     }
 }

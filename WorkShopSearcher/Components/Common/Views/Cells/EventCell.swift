@@ -6,15 +6,15 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
 import SkeletonView
+import UIKit
 
 /// 勉強会検索サービスの列挙型
 enum Service {
     case connpass
     case supporterz
     case doorkeeper
-    
+
     var image: UIImage? {
         switch self {
         case .connpass:
@@ -29,18 +29,18 @@ enum Service {
 
 /// イベント情報セル
 class EventCell: UITableViewCell {
-    
+
     static let rowHeight: CGFloat = 92.5
     class var cellIdentifier: String {
         return String(describing: type(of: self))
     }
-    
+
     private var holdDateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd hh:mm"
         return formatter
     }
-    
+
     @IBOutlet weak var serviceLogoImage: UIImageView! {
         didSet {
             serviceLogoImage.isSkeletonable = true
@@ -76,7 +76,7 @@ class EventCell: UITableViewCell {
             numOfParticipantLabel.showAnimatedSkeleton()
         }
     }
-    
+
     /// スケルトンビューを表示する
     func showAllAnimatedSkeleton() {
         serviceLogoImage.showAnimatedSkeleton()
@@ -85,7 +85,7 @@ class EventCell: UITableViewCell {
         participantView.showAnimatedSkeleton()
         numOfParticipantLabel.showAnimatedSkeleton()
     }
-    
+
     /// セルの値を設定する
     ///
     /// - Parameters:
@@ -97,7 +97,7 @@ class EventCell: UITableViewCell {
         holdDateLabel.hideSkeleton()
         participantView.hideSkeleton()
         numOfParticipantLabel.hideSkeleton()
-        
+
         eventTitleLabel.text = event.title
         holdDateLabel.text = "\(holdDateFormatter.string(from: event.startedAt)) ~ 開催"
         if let limit = event.limit {
@@ -105,17 +105,17 @@ class EventCell: UITableViewCell {
         } else {
             numOfParticipantLabel.text = "\(event.accepted)"
         }
-        
+
         serviceLogoImage.image = service.image
     }
-    
+
     func configure(likeEvent: LikeEvent) {
         serviceLogoImage.hideSkeleton()
         eventTitleLabel.hideSkeleton()
         holdDateLabel.hideSkeleton()
         participantView.hideSkeleton()
         numOfParticipantLabel.hideSkeleton()
-        
+
         eventTitleLabel.text = likeEvent.title
         holdDateLabel.text = "\(holdDateFormatter.string(from: likeEvent.startedAt)) ~ 開催"
         if likeEvent.limit != 0 {
@@ -123,7 +123,7 @@ class EventCell: UITableViewCell {
         } else {
             numOfParticipantLabel.text = "\(likeEvent.present)"
         }
-        
-//        serviceLogoImage.image = service.image
+
+        //        serviceLogoImage.image = service.image
     }
 }

@@ -6,12 +6,12 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 final class LikeListViewController: UIViewController {
-    
+
     private let disposeBag = DisposeBag()
     private let viewModel = LikeListViewModel()
 
@@ -22,7 +22,7 @@ final class LikeListViewController: UIViewController {
             tableView.tableFooterView = UIView()
         }
     }
-    
+
     static func instantiateWithTabBarItem() -> UINavigationController {
         let vc = LikeListViewController()
         vc.title = "いいねしたイベント一覧"
@@ -34,28 +34,28 @@ final class LikeListViewController: UIViewController {
         nvc.navigationBar.tintColor = .white
         return nvc
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewWillAppear.accept(())
     }
-    
+
     private func bindViewModel() {
         viewModel.likeEvents
             .drive(tableView.rx.items(cellIdentifier: EventCell.cellIdentifier, cellType: EventCell.self)) { _, event, cell in
                 cell.configure(likeEvent: event)
             }.disposed(by: disposeBag)
-        
+
         tableView.rx.itemSelected
             .bind(to: Binder(self) { me, indexPath in
                 me.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
-        
+
         tableView.rx.modelSelected(LikeEvent.self)
             .bind(to: Binder(self) { me, event in
                 me.navigationController?.pushViewController(ProjectDetailViewController(event: event), animated: true)

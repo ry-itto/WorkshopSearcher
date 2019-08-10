@@ -6,8 +6,8 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
 import SwiftMessages
+import UIKit
 
 extension UIViewController {
     func showConnectionAlert() {

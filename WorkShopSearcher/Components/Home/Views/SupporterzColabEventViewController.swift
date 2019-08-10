@@ -6,17 +6,17 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 import XLPagerTabStrip
 
 /// SupporterzColabのイベント一覧ホーム画面
 class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvider {
-    
+
     private let disposeBag = DisposeBag()
     private let viewModel = SupporterzColabViewModel()
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
@@ -30,14 +30,14 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         bindViewModel()
         viewModel.viewDidLoad.accept(())
     }
-    
+
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "Supporterz Colab")
     }
-    
+
     private func bindViewModel() {
         guard let refreshControl = tableView.refreshControl else { return }
-        
+
         // tableview
         let dataSource = EventDataSource(service: .supporterz)
         viewModel.events
@@ -66,7 +66,7 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .map { _ in }
             .bind(to: viewModel.addEvents)
             .disposed(by: disposeBag)
-        
+
         viewModel.errorMessage
             .emit(to: Binder(self) { me, _ in
                 me.showConnectionAlert()
@@ -75,14 +75,14 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .map { _ in false }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
-        
+
         // pull to refresh
         let refreshView = refreshControl.rx.controlEvent(.valueChanged).asSignal()
         refreshView
             .emit(to: viewModel.refreshView)
             .disposed(by: disposeBag)
         refreshView
-            .map{ true }
+            .map { true }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
     }

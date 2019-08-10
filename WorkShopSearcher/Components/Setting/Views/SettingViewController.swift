@@ -6,20 +6,20 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 final class SettingViewController: UITableViewController {
-    
+
     private let disposeBag = DisposeBag()
     private let viewModel = SettingViewModel()
-    
+
     @IBOutlet weak var hourTextField: UITextField! {
         didSet {
             self.hourTextField.inputView = hourPicker.pickerView
             self.hourTextField.inputAccessoryView = hourPicker.toolBar
-            
+
         }
     }
     @IBOutlet weak var minTextField: UITextField! {
@@ -29,28 +29,31 @@ final class SettingViewController: UITableViewController {
         }
     }
     @IBOutlet weak var notificationSwitch: UISwitch!
-    
+
     // Picker
     private var hourPicker = PickerViewParts()
     private var minPicker = PickerViewParts()
-    
+
     override var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView()
         }
     }
-    
+
     static func instantiateWithTabbarItem() -> UINavigationController {
         let storyboard = UIStoryboard(name: "SettingViewController", bundle: nil)
-        let svc = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        guard let svc = storyboard.instantiateViewController(withIdentifier: "SettingViewController")
+            as? SettingViewController else {
+                fatalError("Can't instantiate SettingViewController")
+        }
         svc.title = "設定"
-        let nc = UINavigationController(rootViewController: svc)
-        nc.title = "設定"
-        nc.tabBarItem.image = UIImage(named: "setting")
-        nc.navigationBar.barTintColor = UIColor.Base.main.color()
-        nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
-        nc.navigationBar.tintColor = .white
-        return nc
+        let nvc = UINavigationController(rootViewController: svc)
+        nvc.title = "設定"
+        nvc.tabBarItem.image = UIImage(named: "setting")
+        nvc.navigationBar.barTintColor = UIColor.Base.main.color()
+        nvc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        nvc.navigationBar.tintColor = .white
+        return nvc
     }
 
     override func viewDidLoad() {
@@ -58,7 +61,7 @@ final class SettingViewController: UITableViewController {
         bindViewModel()
         viewModel.viewDidLoad.accept(())
     }
-    
+
     private func bindViewModel() {
         // Pickerの選択可能値をセット
         viewModel.hourValues
@@ -69,7 +72,7 @@ final class SettingViewController: UITableViewController {
             .drive(minPicker.pickerView.rx.itemTitles) { _, num in
                 "\(num)"
             }.disposed(by: disposeBag)
-        
+
         // 時間など選択時
         let hourSelected = hourPicker.pickerView.rx.modelSelected(Int.self)
             .distinctUntilChanged()
@@ -87,10 +90,10 @@ final class SettingViewController: UITableViewController {
             .map { "\($0)" }
             .bind(to: minTextField.rx.text)
             .disposed(by: disposeBag)
-        
+
         // 値自体をセット
         viewModel.hourValue
-            .map { "\($0)"}
+            .map { "\($0)" }
             .drive(hourTextField.rx.text)
             .disposed(by: disposeBag)
         viewModel.minValue
@@ -100,11 +103,11 @@ final class SettingViewController: UITableViewController {
         viewModel.notificationEnable
             .drive(notificationSwitch.rx.value)
             .disposed(by: disposeBag)
-        
+
         // Picker
         hourPicker.doneButton.rx.tap
-            .bind(to: Binder(self) { me, _ in
-                me.hourTextField.endEditing(true)
+            .bind(to: Binder(self) { settingVC, _ in
+                settingVC.hourTextField.endEditing(true)
             }).disposed(by: disposeBag)
         hourPicker.doneButton.rx.tap
             .flatMap { [weak self] in
@@ -114,8 +117,8 @@ final class SettingViewController: UITableViewController {
             .bind(to: viewModel.setHour)
             .disposed(by: disposeBag)
         minPicker.doneButton.rx.tap
-            .bind(to: Binder(self) { me, _ in
-                me.minTextField.endEditing(true)
+            .bind(to: Binder(self) { settingVC, _ in
+                settingVC.minTextField.endEditing(true)
             }).disposed(by: disposeBag)
         minPicker.doneButton.rx.tap
             .flatMap { [weak self] in
@@ -124,7 +127,7 @@ final class SettingViewController: UITableViewController {
             .distinctUntilChanged()
             .bind(to: viewModel.setMin)
             .disposed(by: disposeBag)
-        
+
         // Switch
         notificationSwitch.rx.value
             .bind(to: viewModel.setEnable)

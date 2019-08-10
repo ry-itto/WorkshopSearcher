@@ -25,7 +25,7 @@ final class LikeEvent: Object {
     @objc dynamic var present: Int = 0
     /// いいねしたかどうか
     @objc dynamic var liked: Bool = true
-    
+
     override static func primaryKey() -> String? {
         return "id"
     }

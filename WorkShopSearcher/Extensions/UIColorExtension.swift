@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIColor {
-    
+
     convenience init(rgb: Int) {
         let red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
         let green = CGFloat((rgb & 0x00FF00) >>  8) / 255.0
         let blue = CGFloat( rgb & 0x0000FF       ) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
-    
+
     convenience init(rgba: Int) {
         let red: CGFloat = CGFloat((rgba & 0xFF000000) >> 24) / 255.0
         let green: CGFloat = CGFloat((rgba & 0x00FF0000) >> 16) / 255.0
@@ -24,12 +24,12 @@ extension UIColor {
         let alpha: CGFloat = CGFloat( rgba & 0x000000FF       ) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+
     enum Base {
         case main
         case select
         case sub
-        
+
         func color() -> UIColor {
             switch self {
             case .main:
@@ -41,14 +41,14 @@ extension UIColor {
             }
         }
     }
-    
+
     /// NipponColors.com の色格納列挙型
     /// http://nipponcolors.com/
     ///
     /// - sakura: 桜
     enum Nippon {
         case sakura
-        
+
         func color() -> UIColor {
             switch self {
             case .sakura:
