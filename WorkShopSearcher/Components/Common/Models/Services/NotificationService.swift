@@ -74,17 +74,17 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
 
     func registerNotification(eventID: Int, title: String, body: String, holdDate: Date) -> String {
         let identifier = "\(eventID)"
+        
+        let notificationBeforeHour = userDefaultsDataProvider.getNotificationTimeBeforeHour()
+        let notificationBeforeMin = userDefaultsDataProvider.getNotificationTimeBeforeMin()
 
         let content = UNMutableNotificationContent()
         content.title = title
-        content.body = body
+        content.body = "\(notificationBeforeHour)時間\(notificationBeforeMin)分前"
 
         let calendar = Calendar.current
         let holdHour = calendar.component(.hour, from: holdDate)
         let holdMin = calendar.component(.minute, from: holdDate)
-
-        let notificationBeforeHour = userDefaultsDataProvider.getNotificationTimeBeforeHour()
-        let notificationBeforeMin = userDefaultsDataProvider.getNotificationTimeBeforeMin()
 
         var notificationHour = holdHour - notificationBeforeHour
         var notificationMin: Int = holdMin
