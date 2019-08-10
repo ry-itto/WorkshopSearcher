@@ -6,20 +6,21 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 import XLPagerTabStrip
 
 /// SupporterzColabのイベント一覧ホーム画面
 class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvider {
-    
+
     private let disposeBag = DisposeBag()
     private let viewModel = SupporterzColabViewModel()
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
+            tableView.register(UINib(nibName: "EventCell", bundle: nil),
+                               forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
             tableView.refreshControl = UIRefreshControl()
         }
@@ -30,14 +31,16 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         bindViewModel()
         viewModel.viewDidLoad.accept(())
     }
-    
+
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "Supporterz Colab")
     }
-    
+
     private func bindViewModel() {
-        guard let refreshControl = tableView.refreshControl else { return }
-        
+        guard let refreshControl = tableView.refreshControl else {
+            return
+        }
+
         // tableview
         let dataSource = EventDataSource(service: .supporterz)
         viewModel.events
@@ -51,14 +54,15 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
         tableView.rx.modelSelected(ConnpassResponse.Event.self)
             .asSignal()
             .filter { !$0.isEmptyModel() }
-            .emit(to: Binder(self) {me, event in
-                me.navigationController?.pushViewController(ProjectDetailViewController(event: event, title: "Supporterz Colab"), animated: true)
+            .emit(to: Binder(self) {viewController, event in
+                viewController.navigationController?.pushViewController(
+                    ProjectDetailViewController(event: event, title: "Supporterz Colab"), animated: true)
             }).disposed(by: disposeBag)
         // セルタップ時セルの選択状態を解除
         tableView.rx.itemSelected
             .asSignal()
-            .emit(to: Binder(self) { me, indexPath in
-                me.tableView.cellForRow(at: indexPath)?.isSelected = false
+            .emit(to: Binder(self) { viewController, indexPath in
+                viewController.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
         tableView.rx.contentOffset
             .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
@@ -66,23 +70,23 @@ class SupporterzColabEventViewController: UIViewController, IndicatorInfoProvide
             .map { _ in }
             .bind(to: viewModel.addEvents)
             .disposed(by: disposeBag)
-        
+
         viewModel.errorMessage
-            .emit(to: Binder(self) { me, _ in
-                me.showConnectionAlert()
+            .emit(to: Binder(self) { viewController, _ in
+                viewController.showConnectionAlert()
             }).disposed(by: disposeBag)
         viewModel.errorMessage
             .map { _ in false }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
-        
+
         // pull to refresh
         let refreshView = refreshControl.rx.controlEvent(.valueChanged).asSignal()
         refreshView
             .emit(to: viewModel.refreshView)
             .disposed(by: disposeBag)
         refreshView
-            .map{ true }
+            .map { true }
             .emit(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
     }

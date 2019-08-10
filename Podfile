@@ -13,6 +13,7 @@ target 'WorkShopSearcher' do
   pod 'RealmSwift'
   pod 'SkeletonView'
   pod 'SwiftMessages'
+  pod 'SwiftLint'
 
   target 'WorkShopSearcherTests' do
     inherit! :search_paths
