@@ -51,7 +51,9 @@ final class ConnpassDataProvider: ConnpassDataProviderProtocol {
                     return
                 }
 
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    return
+                }
                 do {
                     var decoded = try client.decoder.decode(ConnpassResponse.self, from: data)
                     decoded.events = decoded.events
@@ -69,7 +71,7 @@ final class ConnpassDataProvider: ConnpassDataProviderProtocol {
                     if decoded.resultsAvailable <= self?.startPoint ?? 1 {
                         self?.searchEnd = true
                     }
-                } catch(let err) {
+                } catch let err {
                     observer.onError(err)
                 }
             }

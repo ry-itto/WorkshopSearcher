@@ -75,7 +75,7 @@ final class DBManager: DBManagerProtocol {
                     self.realm.add(item)
                 }
                 observer.onNext(())
-            } catch (let err) {
+            } catch let err {
                 observer.onError(err)
             }
             return Disposables.create()
@@ -90,7 +90,7 @@ final class DBManager: DBManagerProtocol {
                     self.realm.delete(object)
                 }
                 observer.onNext(())
-            } catch(let err) {
+            } catch let err {
                 observer.onError(err)
             }
             return Disposables.create()
@@ -105,7 +105,7 @@ final class DBManager: DBManagerProtocol {
                     object.liked = !object.liked
                     observer.onNext(())
                 }
-            } catch (let err) {
+            } catch let err {
                 observer.onError(err)
             }
             return Disposables.create()

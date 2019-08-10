@@ -19,7 +19,8 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
+            tableView.register(UINib(nibName: "EventCell", bundle: nil),
+                               forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
             tableView.refreshControl = UIRefreshControl()
         }
@@ -38,7 +39,9 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
     }
 
     private func bindViewModel() {
-        guard let refreshControl = tableView.refreshControl else { return }
+        guard let refreshControl = tableView.refreshControl else {
+            return
+        }
         // tableView
         let dataSource = EventDataSource(service: .connpass)
         viewModel.events
@@ -52,14 +55,15 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
         tableView.rx.modelSelected(ConnpassResponse.Event.self)
             .asSignal()
             .filter { !$0.isEmptyModel() }
-            .emit(to: Binder(self) {me, event in
-                me.navigationController?.pushViewController(ProjectDetailViewController(event: event, title: "Connpass"), animated: true)
+            .emit(to: Binder(self) {viewController, event in
+                viewController.navigationController?.pushViewController(
+                    ProjectDetailViewController(event: event, title: "Connpass"), animated: true)
             }).disposed(by: disposeBag)
         // セルタップ時セルの選択状態を解除
         tableView.rx.itemSelected
             .asSignal()
-            .emit(to: Binder(self) { me, indexPath in
-                me.tableView.cellForRow(at: indexPath)?.isSelected = false
+            .emit(to: Binder(self) { viewController, indexPath in
+                viewController.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
         tableView.rx.contentOffset
             .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
@@ -69,8 +73,8 @@ class ConnpassEventViewController: UIViewController, IndicatorInfoProvider {
             .disposed(by: disposeBag)
 
         viewModel.errorMessage
-            .emit(to: Binder(self) { me, _ in
-                me.showConnectionAlert()
+            .emit(to: Binder(self) { viewController, _ in
+                viewController.showConnectionAlert()
             }).disposed(by: disposeBag)
         viewModel.errorMessage
             .map { _ in false }

@@ -62,7 +62,7 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate, Not
     func requestAuthorization() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.requestAuthorization(options: [.alert]) { granted, error in
-            if let _ = error {
+            if error == nil {
                 return
             }
 

@@ -40,11 +40,17 @@ class ProjectDetailViewModel {
                         notificationService.cancelNotification(eventID: likeEvent.id)
                     } else {
                         // 変える前にいいねしていない場合
-                        _ = notificationService.registerNotification(eventID: likeEvent.id, title: likeEvent.title, body: "", holdDate: likeEvent.startedAt)
+                        _ = notificationService.registerNotification(eventID: likeEvent.id,
+                                                                     title: likeEvent.title,
+                                                                     body: "",
+                                                                     holdDate: likeEvent.startedAt)
                     }
                     return dbManager.toggleLikeState(item: likeEvent).materialize()
                 } else {
-                    _ = notificationService.registerNotification(eventID: likeEvent.id, title: likeEvent.title, body: "", holdDate: likeEvent.startedAt)
+                    _ = notificationService.registerNotification(eventID: likeEvent.id,
+                                                                 title: likeEvent.title,
+                                                                 body: "",
+                                                                 holdDate: likeEvent.startedAt)
                     return dbManager.create(item: likeEvent).materialize()
                 }
             }.share()

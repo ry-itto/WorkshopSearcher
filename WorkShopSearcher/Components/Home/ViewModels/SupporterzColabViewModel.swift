@@ -34,7 +34,9 @@ final class SupporterzColabViewModel {
                                                 refreshView.asObservable())
 
         let fetchEvents = initializeEvents
-            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: true).materialize() }
+            .flatMap {
+                provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: true).materialize()
+            }.share()
 
         fetchEvents
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
@@ -48,7 +50,10 @@ final class SupporterzColabViewModel {
 
         let fetchAdditionalEvents =
             addEvents.asObservable()
-                .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: false).materialize() }
+                .flatMap {
+                    provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: false)
+                        .materialize()
+                }.share()
         fetchAdditionalEvents
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
             .map { eventsRelay.value + $0 }

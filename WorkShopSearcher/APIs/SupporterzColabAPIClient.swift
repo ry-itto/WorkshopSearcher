@@ -30,10 +30,14 @@ class SupporterzColabAPIClient {
     /// - Parameter searchQuery: 検索クエリ
     /// - Returns: リクエスト
     func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest? {
-        guard let requestURL = requestURL else { return nil }
+        guard let requestURL = requestURL else {
+            return nil
+        }
         var components = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
         components?.queryItems = searchQuery.createQueryItems()
-        guard let url = components?.url else { return nil }
+        guard let url = components?.url else {
+            return nil
+        }
 
         return Alamofire.request(url)
     }

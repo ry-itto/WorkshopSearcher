@@ -51,12 +51,14 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
                     return .empty()
                 }
 
-                let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] = cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
-                    return (service: Service.connpass, event: event)
-                }
-                let sDicEvents: [(service: Service, event: ConnpassResponse.Event)] = sEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
-                    return (service: Service.supporterz, event: event)
-                }
+                let cDicEvents: [(service: Service, event: ConnpassResponse.Event)] =
+                    cEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
+                        return (service: Service.connpass, event: event)
+                    }
+                let sDicEvents: [(service: Service, event: ConnpassResponse.Event)] =
+                    sEvents.map { event -> (service: Service, event: ConnpassResponse.Event) in
+                        return (service: Service.supporterz, event: event)
+                    }
                 return .just(cDicEvents + sDicEvents)
             }
                 .subscribe(onNext: { events in
@@ -71,7 +73,8 @@ final class SearchResultDataProvider: SearchResultDataProviderProtocol {
     ///
     /// - Parameter events: イベントの配列
     /// - Returns: ソート済みイベント配列
-    private func sortByStartDate(_ events: [(service: Service, event: ConnpassResponse.Event)]) -> [(service: Service, event: ConnpassResponse.Event)] {
+    private func sortByStartDate(_ events: [(service: Service,
+        event: ConnpassResponse.Event)]) -> [(service: Service, event: ConnpassResponse.Event)] {
         return events.sorted(by: { (aDic, bDic) -> Bool in
             return aDic.event.startedAt > bDic.event.startedAt
         })

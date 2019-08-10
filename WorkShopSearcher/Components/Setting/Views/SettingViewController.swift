@@ -47,13 +47,13 @@ final class SettingViewController: UITableViewController {
                 fatalError("Can't instantiate SettingViewController")
         }
         svc.title = "設定"
-        let nvc = UINavigationController(rootViewController: svc)
-        nvc.title = "設定"
-        nvc.tabBarItem.image = UIImage(named: "setting")
-        nvc.navigationBar.barTintColor = UIColor.Base.main.color()
-        nvc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
-        nvc.navigationBar.tintColor = .white
-        return nvc
+        let navigationController = UINavigationController(rootViewController: svc)
+        navigationController.title = "設定"
+        navigationController.tabBarItem.image = UIImage(named: "setting")
+        navigationController.navigationBar.barTintColor = UIColor.Base.main.color()
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        navigationController.navigationBar.tintColor = .white
+        return navigationController
     }
 
     override func viewDidLoad() {

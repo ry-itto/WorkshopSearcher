@@ -18,7 +18,8 @@ final class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: EventCell.cellIdentifier)
+            tableView.register(UINib(nibName: "EventCell", bundle: nil),
+                               forCellReuseIdentifier: EventCell.cellIdentifier)
             tableView.rowHeight = EventCell.rowHeight
             tableView.tableFooterView = UIView()
         }
@@ -31,13 +32,13 @@ final class SearchViewController: UIViewController {
     static func instantiateWithTabbarItem() -> UINavigationController {
         let svc = SearchViewController()
         svc.title = "検索"
-        let nc = UINavigationController(rootViewController: svc)
-        nc.title = "検索"
-        nc.tabBarItem.image = UIImage(named: "search")
-        nc.navigationBar.barTintColor = UIColor.Base.main.color()
-        nc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
-        nc.navigationBar.tintColor = .white
-        return nc
+        let navigationController = UINavigationController(rootViewController: svc)
+        navigationController.title = "検索"
+        navigationController.tabBarItem.image = UIImage(named: "search")
+        navigationController.navigationBar.barTintColor = UIColor.Base.main.color()
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.Base.sub.color()]
+        navigationController.navigationBar.tintColor = .white
+        return navigationController
     }
 
     override func viewDidLoad() {
@@ -60,8 +61,8 @@ final class SearchViewController: UIViewController {
             .bind(to: viewModel.search)
             .disposed(by: disposeBag)
         searchBar.rx.searchButtonClicked
-            .bind(to: Binder(self) { me, _ in
-                me.searchBar.resignFirstResponder()
+            .bind(to: Binder(self) { viewController, _ in
+                viewController.searchBar.resignFirstResponder()
             }).disposed(by: disposeBag)
 
         // table view
@@ -69,28 +70,30 @@ final class SearchViewController: UIViewController {
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         viewModel.errorMessage
-            .emit(to: Binder(self) { me, _ in
-                me.showConnectionAlert()
+            .emit(to: Binder(self) { viewController, _ in
+                viewController.showConnectionAlert()
             }).disposed(by: disposeBag)
 
         // セルがタップされた時WebViewでイベントページを開く
         tableView.rx.modelSelected((service: Service, event: ConnpassResponse.Event).self)
             .asSignal()
             .filter { !$0.event.isEmptyModel() }
-            .emit(to: Binder(self) {me, event in
-                me.navigationController?.pushViewController(
+            .emit(to: Binder(self) {viewController, event in
+                viewController.navigationController?.pushViewController(
                     ProjectDetailViewController(event: event.event, title: ""), animated: true)
             }).disposed(by: disposeBag)
         // セルタップ時セルの選択状態を解除
         tableView.rx.itemSelected
             .asSignal()
-            .emit(to: Binder(self) { me, indexPath in
-                me.tableView.cellForRow(at: indexPath)?.isSelected = false
+            .emit(to: Binder(self) { viewController, indexPath in
+                viewController.tableView.cellForRow(at: indexPath)?.isSelected = false
             }).disposed(by: disposeBag)
         tableView.rx.contentOffset
             .distinctUntilChanged()
             .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
-            .filter { dataSource.searched && ($0.y + self.tableView.bounds.height) / self.tableView.contentSize.height > 0.8 }
+            .filter {
+                dataSource.searched && ($0.y + self.tableView.bounds.height) / self.tableView.contentSize.height > 0.8
+            }
             .map { _ in self.searchBar.text ?? "" }
             .bind(to: viewModel.addEvents)
             .disposed(by: disposeBag)

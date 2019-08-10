@@ -34,7 +34,9 @@ final class ConnpassEventViewModel {
 
         // viewDidLoad時検索条件なしでイベント情報を取得
         let fetchEvents = initializeEvents
-            .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: true).materialize() }
+            .flatMap {
+                provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: true).materialize()
+            }.share()
 
         // 取得成功
         fetchEvents
@@ -50,7 +52,10 @@ final class ConnpassEventViewModel {
 
         let fetchAdditionalEvents =
             addEvents.asObservable()
-                .flatMap { provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3), isRefresh: false).materialize() }
+                .flatMap {
+                    provider.fetchEvents(searchQuery: ConnpassRequest.SearchQuery(order: 3),
+                                         isRefresh: false).materialize()
+                }.share()
         fetchAdditionalEvents
             .flatMap { ($0.element?.events).map(Observable.just) ?? .empty() }
             .map { eventsRelay.value + $0 }
