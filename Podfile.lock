@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.8.2)
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
   - Nimble (8.0.1)
   - Quick (2.1.0)
   - Realm (3.16.1):
@@ -13,20 +20,25 @@ PODS:
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - RxTest (5.0.0):
+    - RxSwift (~> 5)
   - SkeletonView (1.5)
   - SwiftLint (0.33.0)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
+  - URITemplate (2.0.3)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Mockingjay
   - Nimble
   - Quick
   - RealmSwift
   - RxCocoa
   - RxSwift
+  - RxTest
   - SkeletonView
   - SwiftLint
   - SwiftMessages
@@ -35,6 +47,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Mockingjay
     - Nimble
     - Quick
     - Realm
@@ -42,13 +55,16 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
     - SkeletonView
     - SwiftLint
     - SwiftMessages
+    - URITemplate
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
@@ -56,11 +72,13 @@ SPEC CHECKSUMS:
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
   SkeletonView: 6cbb80f82f8bdee3f9093e2fa03b84819b4bd826
   SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: d02a2628039683855d836587adb5694eec47722c
+PODFILE CHECKSUM: 18b7905668c8589d22d63a4a867ef4f3fe3b468e
 
 COCOAPODS: 1.7.5

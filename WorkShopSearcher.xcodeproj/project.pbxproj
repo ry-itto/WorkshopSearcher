@@ -58,12 +58,9 @@
 		BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB8322579AC2006D1522 /* AppDelegate.swift */; };
 		BFFFFB8B22579AC4006D1522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8A22579AC4006D1522 /* Assets.xcassets */; };
 		BFFFFB8E22579AC4006D1522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFFFB8C22579AC4006D1522 /* LaunchScreen.storyboard */; };
-		BFFFFB9922579AC5006D1522 /* WorkShopSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */; };
 		BFFFFBA422579AC5006D1522 /* WorkShopSearcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFBA322579AC5006D1522 /* WorkShopSearcherUITests.swift */; };
 		BFFFFBBB2257A242006D1522 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFFFBB92257A242006D1522 /* Nimble.framework */; };
 		BFFFFBBC2257A242006D1522 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFFFBBA2257A242006D1522 /* Quick.framework */; };
-		BFFFFBBE2257A288006D1522 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BFFFFBB92257A242006D1522 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BFFFFBBF2257A288006D1522 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BFFFFBBA2257A242006D1522 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5FA4564FD841B2511AD43C4 /* Pods_WorkShopSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA8294EF3F9CA05BE2AF932 /* Pods_WorkShopSearcherTests.framework */; };
 		E55163DA40AD955B712174F4 /* Pods_WorkShopSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31531BC0F0D2640A081E52 /* Pods_WorkShopSearcher.framework */; };
 /* End PBXBuildFile section */
@@ -92,8 +89,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BFFFFBBE2257A288006D1522 /* Nimble.framework in CopyFiles */,
-				BFFFFBBF2257A288006D1522 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +163,6 @@
 		BFFFFB8D22579AC4006D1522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFFFFB8F22579AC4006D1522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFFFFB9422579AC5006D1522 /* WorkShopSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkShopSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopSearcherTests.swift; sourceTree = "<group>"; };
 		BFFFFB9A22579AC5006D1522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFFFFB9F22579AC5006D1522 /* WorkShopSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkShopSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFFFBA322579AC5006D1522 /* WorkShopSearcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkShopSearcherUITests.swift; sourceTree = "<group>"; };
@@ -309,6 +303,13 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		BF40C28D22FFB69A000E1D05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		BF4C425C227B2E780007D68C /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +376,15 @@
 				BF34B58322E6F63E00E5A17F /* NotificationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BFB9AE7B22FF8CCA00162E99 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
+				BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 		BFCC6B1022586C1F003905CD /* Extensions */ = {
@@ -567,10 +577,9 @@
 		BFFFFB9722579AC5006D1522 /* WorkShopSearcherTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
+				BFB9AE7B22FF8CCA00162E99 /* APIs */,
+				BF40C28D22FFB69A000E1D05 /* Components */,
 				BFFFFB9A22579AC5006D1522 /* Info.plist */,
-				BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */,
-				BFFFFB9822579AC5006D1522 /* WorkShopSearcherTests.swift */,
 			);
 			path = WorkShopSearcherTests;
 			sourceTree = "<group>";
@@ -649,7 +658,7 @@
 				BFFFFB9122579AC5006D1522 /* Frameworks */,
 				BFFFFB9222579AC5006D1522 /* Resources */,
 				BFFFFBBD2257A276006D1522 /* CopyFiles */,
-				B2154CCE334BF7E9EC9DAEB4 /* [CP] Embed Pods Frameworks */,
+				2605516E4A11E5723B1A34F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -781,6 +790,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2605516E4A11E5723B1A34F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		805A656F29CF3926176B6E06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -818,23 +844,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcher/Pods-WorkShopSearcher-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B2154CCE334BF7E9EC9DAEB4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BFCFC1C922FD78040052BFF8 /* ShellScript */ = {
@@ -927,7 +936,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */,
-				BFFFFB9922579AC5006D1522 /* WorkShopSearcherTests.swift in Sources */,
 				BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1133,7 +1141,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A68D3E2C14032BCD4372A9A /* Pods-WorkShopSearcherTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DFY27HWN2G;
@@ -1159,7 +1167,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3477FAA734E73C5D012629CF /* Pods-WorkShopSearcherTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DFY27HWN2G;
