@@ -9,8 +9,17 @@
 import Alamofire
 import Foundation
 
+protocol ConnpassAPIClientProtocol {
+    
+    /// ConnpassAPIを用いてイベント情報を取得
+    ///
+    /// - Parameter searchQuery: 検索クエリ
+    /// - Returns: リクエスト
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest?
+}
+
 /// ConnpassAPIクライアント
-class ConnpassAPIClient {
+final class ConnpassAPIClient: ConnpassAPIClientProtocol {
 
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://connpass.com/api/v1/event")
@@ -26,10 +35,6 @@ class ConnpassAPIClient {
 
     private init() {}
 
-    /// ConnpassAPIを用いてイベント情報を取得
-    ///
-    /// - Parameter searchQuery: 検索クエリ
-    /// - Returns: リクエスト
     func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest? {
         guard let requestURL = requestURL else {
             return nil

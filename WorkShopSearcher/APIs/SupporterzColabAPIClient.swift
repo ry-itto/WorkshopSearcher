@@ -9,8 +9,17 @@
 import Alamofire
 import Foundation
 
+protocol SupporterzColabAPIClientProtocol {
+    
+    /// SupporterzColabAPIを用いてイベント情報を取得
+    ///
+    /// - Parameter searchQuery: 検索クエリ
+    /// - Returns: リクエスト
+    func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest?
+}
+
 /// SupporterzColabAPIクライアント
-class SupporterzColabAPIClient {
+final class SupporterzColabAPIClient: SupporterzColabAPIClientProtocol {
 
     /// APIリクエストURL
     let requestURL: URL? = URL(string: "https://supporterzcolab.com/api/v1/event/")
@@ -25,10 +34,6 @@ class SupporterzColabAPIClient {
     static let shared = SupporterzColabAPIClient()
     private init() {}
 
-    /// SupporterzColabAPIを用いてイベント情報を取得
-    ///
-    /// - Parameter searchQuery: 検索クエリ
-    /// - Returns: リクエスト
     func fetchEvents(searchQuery: ConnpassRequest.SearchQuery) -> DataRequest? {
         guard let requestURL = requestURL else {
             return nil

@@ -17,6 +17,7 @@
 		BF29E7ED22E1BCBD0047C921 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */; };
 		BF34B58422E6F63E00E5A17F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B58322E6F63E00E5A17F /* NotificationService.swift */; };
 		BF34B58822E700BA00E5A17F /* UserDefaultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34B58722E700BA00E5A17F /* UserDefaultDataProvider.swift */; };
+		BF40C29322FFBDD3000E1D05 /* ConnpassDataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40C29222FFBDD3000E1D05 /* ConnpassDataProviderTest.swift */; };
 		BF49CE5622C5E6C000BC9C81 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */; };
 		BF4C425F227B2E780007D68C /* LikeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425D227B2E780007D68C /* LikeEvent.swift */; };
 		BF4C4260227B2E780007D68C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C425E227B2E780007D68C /* DBManager.swift */; };
@@ -110,6 +111,7 @@
 		BF29E7EC22E1BCBD0047C921 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		BF34B58322E6F63E00E5A17F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BF34B58722E700BA00E5A17F /* UserDefaultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDataProvider.swift; sourceTree = "<group>"; };
+		BF40C29222FFBDD3000E1D05 /* ConnpassDataProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassDataProviderTest.swift; sourceTree = "<group>"; };
 		BF49CE5522C5E6C000BC9C81 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BF4C425D227B2E780007D68C /* LikeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeEvent.swift; sourceTree = "<group>"; };
 		BF4C425E227B2E780007D68C /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -306,8 +308,31 @@
 		BF40C28D22FFB69A000E1D05 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BF40C28E22FFBBE5000E1D05 /* Common */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		BF40C28E22FFBBE5000E1D05 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BF40C28F22FFBD8E000E1D05 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				BF40C29222FFBDD3000E1D05 /* ConnpassDataProviderTest.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		BF40C29422FFBDFB000E1D05 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		BF4C425C227B2E780007D68C /* DB */ = {
@@ -383,6 +408,8 @@
 			children = (
 				BFE6E5E82258CC050063F4F0 /* ConnpassAPIClientTest.swift */,
 				BFE6E5EF2258FF140063F4F0 /* SupporterzColabAPIClientTest.swift */,
+				BF40C28F22FFBD8E000E1D05 /* Providers */,
+				BF40C29422FFBDFB000E1D05 /* Stubs */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -618,10 +645,10 @@
 		BFFFFBC12257AFBA006D1522 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				BF5F62F922585DA10049640F /* APIModels */,
 				BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */,
-				BFE762152259AF6900484AFF /* Providers */,
 				BFE6E5ED2258FBD90063F4F0 /* SupporterzColabAPIClient.swift */,
+				BF5F62F922585DA10049640F /* APIModels */,
+				BFE762152259AF6900484AFF /* Providers */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -935,6 +962,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF40C29322FFBDD3000E1D05 /* ConnpassDataProviderTest.swift in Sources */,
 				BFE6E5E92258CC050063F4F0 /* ConnpassAPIClientTest.swift in Sources */,
 				BFE6E5F02258FF140063F4F0 /* SupporterzColabAPIClientTest.swift in Sources */,
 			);
