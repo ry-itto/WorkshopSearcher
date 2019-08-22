@@ -6,6 +6,7 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
+import OpenGraph
 import SkeletonView
 import UIKit
 
@@ -92,7 +93,6 @@ class EventCell: UITableViewCell {
     ///   - service: 勉強会検索サービス
     ///   - event: イベント内容
     func configure(service: Service, event: ConnpassResponse.Event) {
-        serviceLogoImage.hideSkeleton()
         eventTitleLabel.hideSkeleton()
         holdDateLabel.hideSkeleton()
         participantView.hideSkeleton()
@@ -106,7 +106,16 @@ class EventCell: UITableViewCell {
             numOfParticipantLabel.text = "\(event.accepted)"
         }
 
-        serviceLogoImage.image = service.image
+        OpenGraph.fetch(url: event.eventURL) { [weak self] (openGraph, error) in
+            guard error == nil, let imageURL = openGraph?[.image] else {
+                DispatchQueue.main.async {
+                    self?.serviceLogoImage.image = service.image
+                }
+                return
+            }
+            self?.serviceLogoImage.setImage(from: URL(string: imageURL))
+        }
+        serviceLogoImage.hideSkeleton()
     }
 
     func configure(likeEvent: LikeEvent) {
@@ -124,6 +133,15 @@ class EventCell: UITableViewCell {
             numOfParticipantLabel.text = "\(likeEvent.present)"
         }
 
-        //        serviceLogoImage.image = service.image
+        guard let eventURL = URL(string: likeEvent.urlString) else {
+            return
+        }
+
+        OpenGraph.fetch(url: eventURL) { [weak self] (openGraph, error) in
+            guard error == nil, let imageURL = openGraph?[.imageUrl] else {
+                return
+            }
+            self?.serviceLogoImage.setImage(from: URL(string: imageURL))
+        }
     }
 }
