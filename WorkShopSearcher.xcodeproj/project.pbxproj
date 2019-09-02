@@ -27,6 +27,8 @@
 		BFA25167227AE8D200328A43 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */; };
 		BFA5269F22F71D34002A0EB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */; };
 		BFA5F61D226957D8006C698C /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA5F61C226957D8006C698C /* UIImageExtension.swift */; };
+		BFAA5B9D231D401D0080B474 /* OGPImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAA5B9C231D401D0080B474 /* OGPImageDataProvider.swift */; };
+		BFAA5B9F231D48120080B474 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAA5B9E231D48120080B474 /* EventCellViewModel.swift */; };
 		BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */; };
 		BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */; };
 		BFCC6B0F22586401003905CD /* ConnpassAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */; };
@@ -125,6 +127,8 @@
 		BFA5269E22F71D34002A0EB9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BFA5F61A22694FB8006C698C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BFA5F61C226957D8006C698C /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		BFAA5B9C231D401D0080B474 /* OGPImageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGPImageDataProvider.swift; sourceTree = "<group>"; };
+		BFAA5B9E231D48120080B474 /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 		BFCC6B0A22585DEF003905CD /* ConnpassAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIResponseModel.swift; sourceTree = "<group>"; };
 		BFCC6B0C225862C4003905CD /* ConnpassAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIClient.swift; sourceTree = "<group>"; };
 		BFCC6B0E22586401003905CD /* ConnpassAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnpassAPIRequestModel.swift; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 			children = (
 				BFE762172259AF8A00484AFF /* ConnpassDataProvider.swift */,
 				BFE76234225AE2E600484AFF /* SupporterzColabDataProvider.swift */,
+				BFAA5B9C231D401D0080B474 /* OGPImageDataProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 		BFEDBA09227AE88B00240E4A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BFAA5B9E231D48120080B474 /* EventCellViewModel.swift */,
 				BFA25166227AE8D200328A43 /* ProjectDetailViewModel.swift */,
 			);
 			path = ViewModels;
@@ -902,6 +908,7 @@
 				BFCC6B0D225862C4003905CD /* ConnpassAPIClient.swift in Sources */,
 				BF9C09CC22E4D6B3008094F9 /* PickerViewParts.swift in Sources */,
 				BFCD4B9022897015006EDBA5 /* SearchViewController.swift in Sources */,
+				BFAA5B9F231D48120080B474 /* EventCellViewModel.swift in Sources */,
 				BFCD4B98228A7E45006EDBA5 /* SearchResultDataProvider.swift in Sources */,
 				BFCC6B0B22585DEF003905CD /* ConnpassAPIResponseModel.swift in Sources */,
 				BFFFFB8422579AC2006D1522 /* AppDelegate.swift in Sources */,
@@ -928,6 +935,7 @@
 				BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */,
 				BF29E7E822E1A7F90047C921 /* SettingViewController.swift in Sources */,
 				BF29E7EB22E1A8140047C921 /* SettingViewModel.swift in Sources */,
+				BFAA5B9D231D401D0080B474 /* OGPImageDataProvider.swift in Sources */,
 				BF55323E2257B03600A9B7F6 /* ForAPITestViewController.swift in Sources */,
 				BFE7622D225A3CE300484AFF /* ConnpassEventViewModel.swift in Sources */,
 				BFCC6B1522587AAC003905CD /* APIError.swift in Sources */,
