@@ -2,7 +2,7 @@
 勉強会検索iOSアプリ開発用リポジトリ.
 ### 対応予定
 - connpass
-- doorkeeper
+- ~doorkeeper~
 - supporterz colab
 
 ## 使用技術
