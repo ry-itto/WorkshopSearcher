@@ -1,0 +1,31 @@
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - closure_spacing
+  - closure_end_indentation
+  - conditional_returns_on_newline
+  - explicit_init
+  - missing_docs
+  - overridden_super_call
+  - prohibited_super_call
+  - sorted_imports
+  # Find all the available rules by running:
+  # swiftlint rules
+disabled_rules:
+  - function_body_length
+  - nesting
+included: # paths to include during linting. `--path` is ignored if present.
+  - WorkShopSearcher
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+  - Source/*/ExcludedFile.swift # Exclude files with a wildcard
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+  - explicit_self
+variable_name:
+  max_length:
+    warning: 60
+    error: 80
+  min_length:
+    warning: 2
+    error: 1
