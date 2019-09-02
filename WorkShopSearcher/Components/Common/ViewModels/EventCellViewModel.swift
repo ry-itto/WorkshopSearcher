@@ -21,10 +21,16 @@ final class EventCellViewModel {
     let ogpImageURL = PublishRelay<URL>()
 
     init(_ provider: OGPImageDataProviderProtocol = OGPImageDataProvider()) {
-        fetchOGPImage.asObservable()
+        let fetched = fetchOGPImage.asObservable()
             .debounce(.milliseconds(300), scheduler: MainScheduler.asyncInstance)
-            .flatMap { provider.fetchImage(url: $0) }
+            .flatMap { provider.fetchImage(url: $0).materialize() }
+            .share()
+        fetched
+            .flatMap { $0.element.map(Observable.just) ?? .empty() }
             .bind(to: ogpImageURL)
             .disposed(by: disposeBag)
+        fetched
+            .flatMap { $0.error.map(Observable.just) ?? .empty() }
+            .debug()
     }
 }

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7D5B1BF375EF006B462447D /* Pods_WorkShopSearcherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339E4C9FA085690CF66C898F /* Pods_WorkShopSearcherUITests.framework */; };
+		3D2C4FA0834E0DE8A6699457 /* Pods_WorkShopSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B1447AFC6A3F6A5B649CE7 /* Pods_WorkShopSearcherTests.framework */; };
+		BB7982785AED7BAC57B68BBC /* libPods-WorkShopSearcherUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB440CC852D5812CBB439642 /* libPods-WorkShopSearcherUITests.a */; };
 		BF1E191022FD6D5F001306E9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5F61A22694FB8006C698C /* WebKit.framework */; };
 		BF20266B22B0C23D00F472F0 /* LikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20266922B0C23D00F472F0 /* LikeListViewController.swift */; };
 		BF20266C22B0C23D00F472F0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */; };
@@ -64,7 +65,6 @@
 		BFFFFBA422579AC5006D1522 /* WorkShopSearcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFFBA322579AC5006D1522 /* WorkShopSearcherUITests.swift */; };
 		BFFFFBBB2257A242006D1522 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFFFBB92257A242006D1522 /* Nimble.framework */; };
 		BFFFFBBC2257A242006D1522 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFFFBBA2257A242006D1522 /* Quick.framework */; };
-		D5FA4564FD841B2511AD43C4 /* Pods_WorkShopSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA8294EF3F9CA05BE2AF932 /* Pods_WorkShopSearcherTests.framework */; };
 		E55163DA40AD955B712174F4 /* Pods_WorkShopSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31531BC0F0D2640A081E52 /* Pods_WorkShopSearcher.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,13 +98,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		339E4C9FA085690CF66C898F /* Pods_WorkShopSearcherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkShopSearcherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3477FAA734E73C5D012629CF /* Pods-WorkShopSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkShopSearcherTests.release.xcconfig"; path = "Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
+		35B1447AFC6A3F6A5B649CE7 /* Pods_WorkShopSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkShopSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED047FB3610A95DCA1F7CCC /* Pods-WorkShopSearcherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkShopSearcherUITests.release.xcconfig"; path = "Target Support Files/Pods-WorkShopSearcherUITests/Pods-WorkShopSearcherUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71B5CAB7122504B6C12F2972 /* Pods-WorkShopSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkShopSearcher.debug.xcconfig"; path = "Target Support Files/Pods-WorkShopSearcher/Pods-WorkShopSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		7A68D3E2C14032BCD4372A9A /* Pods-WorkShopSearcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkShopSearcherTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9DA8294EF3F9CA05BE2AF932 /* Pods_WorkShopSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkShopSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31531BC0F0D2640A081E52 /* Pods_WorkShopSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkShopSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB440CC852D5812CBB439642 /* libPods-WorkShopSearcherUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorkShopSearcherUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20266922B0C23D00F472F0 /* LikeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewController.swift; sourceTree = "<group>"; };
 		BF20266A22B0C23D00F472F0 /* LikeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeListViewController.xib; sourceTree = "<group>"; };
 		BF20266D22B0C59E00F472F0 /* LikeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewModel.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 			files = (
 				BFFFFBBB2257A242006D1522 /* Nimble.framework in Frameworks */,
 				BFFFFBBC2257A242006D1522 /* Quick.framework in Frameworks */,
-				D5FA4564FD841B2511AD43C4 /* Pods_WorkShopSearcherTests.framework in Frameworks */,
+				3D2C4FA0834E0DE8A6699457 /* Pods_WorkShopSearcherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D5B1BF375EF006B462447D /* Pods_WorkShopSearcherUITests.framework in Frameworks */,
+				BB7982785AED7BAC57B68BBC /* libPods-WorkShopSearcherUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,8 +618,8 @@
 				BFFFFBB322579EA2006D1522 /* RxCocoa.framework */,
 				BFFFFBB222579EA2006D1522 /* RxSwift.framework */,
 				AA31531BC0F0D2640A081E52 /* Pods_WorkShopSearcher.framework */,
-				9DA8294EF3F9CA05BE2AF932 /* Pods_WorkShopSearcherTests.framework */,
-				339E4C9FA085690CF66C898F /* Pods_WorkShopSearcherUITests.framework */,
+				BB440CC852D5812CBB439642 /* libPods-WorkShopSearcherUITests.a */,
+				35B1447AFC6A3F6A5B649CE7 /* Pods_WorkShopSearcherTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -667,7 +667,7 @@
 				BFFFFB9122579AC5006D1522 /* Frameworks */,
 				BFFFFB9222579AC5006D1522 /* Resources */,
 				BFFFFBBD2257A276006D1522 /* CopyFiles */,
-				2605516E4A11E5723B1A34F7 /* [CP] Embed Pods Frameworks */,
+				D553CDF64D2605B3B7E609B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -799,23 +799,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2605516E4A11E5723B1A34F7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		805A656F29CF3926176B6E06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -871,6 +854,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		D553CDF64D2605B3B7E609B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkShopSearcherTests/Pods-WorkShopSearcherTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		DD3C94804703BE284F7F2517 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

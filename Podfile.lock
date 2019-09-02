@@ -1,20 +1,20 @@
 PODS:
   - Alamofire (4.8.2)
-  - Mockingjay (2.0.1):
-    - Mockingjay/Core (= 2.0.1)
-    - Mockingjay/XCTest (= 2.0.1)
-  - Mockingjay/Core (2.0.1):
-    - URITemplate (~> 2.0)
-  - Mockingjay/XCTest (2.0.1):
+  - Mockingjay (3.0.0-alpha.1):
+    - Mockingjay/Core (= 3.0.0-alpha.1)
+    - Mockingjay/XCTest (= 3.0.0-alpha.1)
+  - Mockingjay/Core (3.0.0-alpha.1):
+    - URITemplate (~> 3.0)
+  - Mockingjay/XCTest (3.0.0-alpha.1):
     - Mockingjay/Core
-  - Nimble (8.0.1)
-  - OpenGraph (1.1.0)
+  - Nimble (8.0.2)
+  - OpenGraph (1.2.0)
   - Quick (2.1.0)
-  - Realm (3.16.1):
-    - Realm/Headers (= 3.16.1)
-  - Realm/Headers (3.16.1)
-  - RealmSwift (3.16.1):
-    - Realm (= 3.16.1)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -23,17 +23,17 @@ PODS:
   - RxSwift (5.0.0)
   - RxTest (5.0.0):
     - RxSwift (~> 5)
-  - SkeletonView (1.5)
-  - SwiftLint (0.33.0)
+  - SkeletonView (1.8.1)
+  - SwiftLint (0.34.0)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
-  - URITemplate (2.0.3)
+  - URITemplate (3.0.0)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - Mockingjay
+  - Mockingjay (= 3.0.0-alpha.1)
   - Nimble
   - OpenGraph
   - Quick
@@ -67,22 +67,22 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  OpenGraph: f28442d5eeb745020a3504f36e0eacec91396b5a
+  Mockingjay: 0f7c5aa49c7f1b95621cee3c79b557141f5a225c
+  Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
+  OpenGraph: b467158726b640d3c08083ab830be955c4ad6259
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
-  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
-  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
-  SkeletonView: 6cbb80f82f8bdee3f9093e2fa03b84819b4bd826
-  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
+  SkeletonView: 9e4db6c1478bce9da695109dd0972bff7b6efe65
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
-  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
+  URITemplate: 58e0d47f967006c5d59888af5356c4a8ed3b197d
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 09a0c31b20f043a41093f239e15be727d6658d84
+PODFILE CHECKSUM: f4227687e5931d9bf439a36c883dad2b0a6c7cfa
 
 COCOAPODS: 1.7.5
