@@ -144,4 +144,9 @@ class EventCell: UITableViewCell {
             self?.serviceLogoImage.setImage(from: URL(string: imageURL))
         }
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.serviceLogoImage.image = Service.connpass.image
+    }
 }
