@@ -6,6 +6,9 @@
 //  Copyright © 2019 ry-itto. All rights reserved.
 //
 
+import OpenGraph
+import RxCocoa
+import RxSwift
 import SkeletonView
 import UIKit
 
@@ -30,7 +33,9 @@ enum Service {
 /// イベント情報セル
 class EventCell: UITableViewCell {
 
+    private let disposeBag = DisposeBag()
     static let rowHeight: CGFloat = 92.5
+
     class var cellIdentifier: String {
         return String(describing: type(of: self))
     }
@@ -77,6 +82,26 @@ class EventCell: UITableViewCell {
         }
     }
 
+    private let viewModel = EventCellViewModel()
+
+    init() {
+        super.init(style: .default, reuseIdentifier: EventCell.cellIdentifier)
+        viewModel.ogpImageURL
+            .bind(to: Binder(self) { cell, url in
+                cell.serviceLogoImage.setImage(from: url)
+                cell.serviceLogoImage.hideSkeleton()
+            }).disposed(by: disposeBag)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        viewModel.ogpImageURL
+            .bind(to: Binder(self) { cell, url in
+                cell.serviceLogoImage.setImage(from: url)
+                cell.serviceLogoImage.hideSkeleton()
+            }).disposed(by: disposeBag)
+    }
+
     /// スケルトンビューを表示する
     func showAllAnimatedSkeleton() {
         serviceLogoImage.showAnimatedSkeleton()
@@ -92,7 +117,6 @@ class EventCell: UITableViewCell {
     ///   - service: 勉強会検索サービス
     ///   - event: イベント内容
     func configure(service: Service, event: ConnpassResponse.Event) {
-        serviceLogoImage.hideSkeleton()
         eventTitleLabel.hideSkeleton()
         holdDateLabel.hideSkeleton()
         participantView.hideSkeleton()
@@ -106,7 +130,7 @@ class EventCell: UITableViewCell {
             numOfParticipantLabel.text = "\(event.accepted)"
         }
 
-        serviceLogoImage.image = service.image
+        viewModel.fetchOGPImage.accept(event.eventURL)
     }
 
     func configure(likeEvent: LikeEvent) {
@@ -124,6 +148,15 @@ class EventCell: UITableViewCell {
             numOfParticipantLabel.text = "\(likeEvent.present)"
         }
 
-        //        serviceLogoImage.image = service.image
+        guard let eventURL = URL(string: likeEvent.urlString) else {
+            return
+        }
+
+        viewModel.fetchOGPImage.accept(eventURL)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.serviceLogoImage.image = Service.connpass.image
     }
 }
