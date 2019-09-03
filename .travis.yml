@@ -1,0 +1,7 @@
+language: objective-c
+xcode_workspace: WorkShopSearcher.xcworkspace
+xcode_scheme: WorkShopSearcherTests
+xcode_destination: platform=iOS Simulator,OS=10.1,name=iPhone X
+osx_image: xcode11
+cache: cocoapods
+branches:master
