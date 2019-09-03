@@ -35,7 +35,7 @@ DEPENDENCIES:
   - Alamofire
   - Mockingjay (= 3.0.0-alpha.1)
   - Nimble
-  - OpenGraph
+  - OpenGraph (= 1.2.0)
   - Quick
   - RealmSwift
   - RxCocoa
@@ -83,6 +83,6 @@ SPEC CHECKSUMS:
   URITemplate: 58e0d47f967006c5d59888af5356c4a8ed3b197d
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: f4227687e5931d9bf439a36c883dad2b0a6c7cfa
+PODFILE CHECKSUM: 16f4f274c96763bbe3f44e5398e3514aa76b4a43
 
 COCOAPODS: 1.7.5

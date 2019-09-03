@@ -14,7 +14,7 @@ target 'WorkShopSearcher' do
   pod 'SkeletonView'
   pod 'SwiftMessages'
   pod 'SwiftLint'
-  pod 'OpenGraph'
+  pod 'OpenGraph', '1.2.0'
 
   target 'WorkShopSearcherTests' do
     inherit! :search_paths
