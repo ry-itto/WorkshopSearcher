@@ -1,4 +1,5 @@
 # WorkShopSearcher
+[![Build Status](https://travis-ci.org/ry-itto/WorkshopSearcher.svg?branch=master)](https://travis-ci.org/ry-itto/WorkshopSearcher)
 勉強会検索iOSアプリ開発用リポジトリ.
 ### 対応予定
 - connpass
