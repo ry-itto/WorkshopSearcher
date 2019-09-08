@@ -9,6 +9,7 @@
 import XCTest
 import Quick
 import Nimble
+import Mockingjay
 @testable import WorkShopSearcher
 
 class SupporterzColabAPIClientTest: QuickSpec {
@@ -18,10 +19,8 @@ class SupporterzColabAPIClientTest: QuickSpec {
                 var statusCode: Int = 0
                 
                 beforeEach {
+                    self.stub(everything, http(200))
                     statusCode = 0
-                }
-                afterEach {
-                    sleep(1) /// APIのリクエストが連続でたくさん飛ばないように
                 }
                 context("when no query items") {
                     it("return not nil") {
