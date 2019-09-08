@@ -129,7 +129,9 @@ final class DBManager: DBManagerProtocol {
     }
 
     func fetchAllLikeEvents() -> Observable<[LikeEvent]> {
-        let objects = realm.objects(LikeEvent.self).filter("liked == true")
+        let objects = realm.objects(LikeEvent.self).filter("liked == true").sorted { event1, event2 -> Bool in
+            event1.startedAt < event2.startedAt
+        }
         return Observable.create { observer -> Disposable in
             observer.onNext(Array(objects))
             return Disposables.create()
